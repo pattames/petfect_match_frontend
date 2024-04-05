@@ -1,11 +1,15 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Styles from "../css/Login.module.css";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
+  const { setUser } = useContext(UserContext);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,8 +35,8 @@ export default function Login() {
     if (response.ok) {
       console.log("Response was ok");
       localStorage.setItem("user", JSON.stringify(data));
+      setUser(data);
       setLoading(false);
-      //setUser(data);
     }
   };
 
