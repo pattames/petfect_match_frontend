@@ -1,4 +1,3 @@
-
 import "./App.css";
 import Login from "./components/Login";
 import { Route, Routes } from "react-router-dom";
@@ -9,7 +8,7 @@ function App() {
   return (
     <div>
       <h1>Petfect Match</h1>
-    <Login />
+      <Login />
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="*" element={<ErrorPage />} />
