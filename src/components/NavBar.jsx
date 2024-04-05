@@ -13,19 +13,30 @@ function NavBar() {
   };
   return (
     <div className={`${Styles.container}`}>
-       <div className={`${Styles.logoContainer}`}>Logo image</div>
-      <NavLink to="/">Home</NavLink>
+      <NavLink to="/">
+        <div className={`${Styles.logoContainer}`}>Logo image</div>
+      </NavLink>
       {user !== null && (
         <div>
           <span>{user.email}</span>{" "}
+          <NavLink className={`${Styles.navLink}`} to="/">
+            Home
+          </NavLink>
           <button onClick={handleClick}>Log out</button>
         </div>
       )}
       {user === null && (
         <div>
-          <NavLink className={`${Styles.navLink}`} to="/signup">Sign up</NavLink>
-          <NavLink className={`${Styles.navLink}`} to="/login">Log in</NavLink>
-             <div className={`${Styles.navLink}`}>About us</div>
+          <NavLink className={`${Styles.navLink}`} to="/">
+            Home
+          </NavLink>
+          <NavLink className={`${Styles.navLink}`} to="/signup">
+            Sign up
+          </NavLink>
+          <NavLink className={`${Styles.navLink}`} to="/login">
+            Log in
+          </NavLink>
+          <div className={`${Styles.navLink}`}>About us</div>
         </div>
       )}
     </div>
