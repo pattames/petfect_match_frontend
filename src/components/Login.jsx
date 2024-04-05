@@ -1,5 +1,6 @@
 import { useState } from "react";
-import Styles from "./Login.module.css";
+import Styles from "../css/Login.module.css";
+import { Link } from "react-router-dom";
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -66,7 +67,9 @@ export default function Login() {
               <button>Log in</button>
               <p className={`${Styles.p}`}>
                 Don't have an account?{" "}
-                <span className={`${Styles.span}`}>Sign Up</span>
+                <Link to="/signup">
+                  <span className={`${Styles.span}`}>Sign Up</span>
+                </Link>
               </p>
             </div>
 
