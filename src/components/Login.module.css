@@ -23,6 +23,13 @@
     position: relative;
 }
 
+.title {
+    text-align: center;
+    margin-bottom: 3rem;
+    font-size: 2rem;
+
+}
+
 .left {
     width: 66%;
     height: 100%;
@@ -114,6 +121,22 @@ label {
     font-size: 0.9em;
 }
 
+.p {
+    margin: 20px 50px;
+    margin-left: 35px;
+    font-size: 0.9em;
+    text-align: center;
+    color: black;
+}
+
+.span {
+    font-size: 14px;
+    margin-left: 5px;
+    color: #2d79f3;
+    font-weight: 500;
+    cursor: pointer;
+}
+
 .img {
     width: 47%;
     height: 100%;
@@ -131,6 +154,11 @@ button {
     color: white;
     font-size: medium;
     box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+}
+
+button:hover {
+    background-color: #b54141;
+    cursor: pointer;
 }
 
 a {

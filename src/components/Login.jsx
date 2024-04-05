@@ -5,6 +5,7 @@ export default function Login() {
       <div className={`${Styles.container}`}>
         <div className={`${Styles.left}`}>
           <form className={`${Styles.form}`}>
+            <h3 className={`${Styles.title}`}>Log in</h3>
             <div className={`${Styles.inputBlock}`}>
               <input className={`${Styles.input}`} type="text" />
               <label htmlFor="email">Email</label>
@@ -18,6 +19,10 @@ export default function Login() {
                 <a href="#">Forgot Password?</a>
               </span>
               <button>Log in</button>
+              <p className={`${Styles.p}`}>
+                Don't have an account?{" "}
+                <span className={`${Styles.span}`}>Sign Up</span>
+              </p>
             </div>
           </form>
         </div>
