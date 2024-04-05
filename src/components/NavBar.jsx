@@ -1,3 +1,5 @@
+import Styles from "../css/Navbar.module.css";
+
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
@@ -10,7 +12,8 @@ function NavBar() {
     setUser(null);
   };
   return (
-    <div>
+    <div className={`${Styles.container}`}>
+       <div className={`${Styles.logoContainer}`}>Logo image</div>
       <NavLink to="/">Home</NavLink>
       {user !== null && (
         <div>
@@ -20,8 +23,9 @@ function NavBar() {
       )}
       {user === null && (
         <div>
-          <NavLink to="/signup">Sign up</NavLink>
-          <NavLink to="/login">Log in</NavLink>
+          <NavLink className={`${Styles.navLink}`} to="/signup">Sign up</NavLink>
+          <NavLink className={`${Styles.navLink}`} to="/login">Log in</NavLink>
+             <div className={`${Styles.navLink}`}>About us</div>
         </div>
       )}
     </div>
