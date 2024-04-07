@@ -16,10 +16,11 @@ function App() {
       <NavBar />
       <h1>Petfect Match</h1>
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={user ? <Homepage /> : <Navigate to={"/login"} />}
-        />
+        /> */}
+        <Route path="/" element={<Homepage />} />
         <Route
           path="/login"
           element={!user ? <Login /> : <Navigate to={"/"} />}
