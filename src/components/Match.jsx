@@ -1,44 +1,62 @@
-import { useContext } from "react";
+import { useContext, useState, useRef } from "react";
 import { PetsContext } from "../context/PetsContext";
 import TinderCard from "react-tinder-card";
 
 export default function Match() {
   const { pets } = useContext(PetsContext);
-  console.log(pets);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [lastDirection, setLastDirection] = useState();
+  const currentCardRef = useRef(null);
+  const [noPetsMessage, setNoPetsMessage] = useState("");
 
-  //   const onSwipe = (direction) => {
-  //     console.log("You swiped: " + direction);
-  //   };
+  const swiped = (direction, nameToDelete, index) => {
+    console.log("removing: " + nameToDelete);
+    setLastDirection(direction);
+    if (index < pets.length - 1) {
+      setCurrentIndex(index + 1);
+    } else {
+      setNoPetsMessage("You've swiped through all the pets!");
+      console.log("You've swiped through all the pets!");
+    }
+  };
 
-  //   const onCardLeftScreen = (myIdentifier) => {
-  //     console.log(myIdentifier + " left the screen");
-  //   };
+  const outOfFrame = (name) => {
+    console.log(name + " left the screen!");
+  };
+
+  const swipe = (dir) => {
+    if (currentCardRef.current && currentCardRef.current.swipe) {
+      currentCardRef.current.swipe(dir); // Swipe the card programmatically
+    }
+  };
+
+  if (!pets || pets.length === 0) {
+    return <div>No pets available</div>;
+  }
+
+  const currentPet = pets[currentIndex];
 
   return (
     <>
       <h1>Match</h1>
-      {/* {pets &&
-          pets.map((pet) =>
-            pet.images.map((image) => <img src={image.url} alt={pet.name} />)
-          )} */}
       <div className="cardContainer">
-        {pets &&
-          pets.map((pet) => (
-            <TinderCard
-              className="swipe"
-              key={pet._id}
-              onSwipe={(dir) => swiped(dir, pet.name)}
-              onCardLeftScreen={() => outOfFrame(pet.name)}
-            >
-              {pet.images.map((img) => (
-                <div
-                  style={{ backgroundImage: "url(" + img.url + ")" }}
-                  className="card"
-                ></div>
-              ))}
-            </TinderCard>
-          ))}
+        <TinderCard
+          ref={currentCardRef}
+          className="swipe"
+          key={currentPet._id}
+          onSwipe={(dir) => swiped(dir, currentPet.name, currentIndex)}
+          onCardLeftScreen={() => outOfFrame(currentPet.name)}
+        >
+          <div
+            style={{ backgroundImage: "url(" + currentPet.images[0].url + ")" }}
+            className="card"
+          ></div>
+        </TinderCard>
       </div>
+      <h2>{noPetsMessage}</h2>
+      <div>Last swipe direction: {lastDirection}</div>
+      <button onClick={() => swipe("left")}>Swipe Left</button>
+      <button onClick={() => swipe("right")}>Swipe Right</button>
     </>
   );
 }
