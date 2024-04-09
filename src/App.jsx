@@ -5,8 +5,12 @@ import ErrorPage from "./components/ErrorPage";
 import Homepage from "./components/Homepage";
 import Signup from "./components/Signup";
 import NavBar from "./components/NavBar";
+
+import UpdateUser from "./components/UpdateUser";
+
 import { UserContext } from "./context/UserContext";
 import { useContext } from "react";
+
 
 function App() {
   const { user } = useContext(UserContext);
@@ -15,6 +19,9 @@ function App() {
     <div>
       <NavBar />
       <h1>Petfect Match</h1>
+
+      <UpdateUser />
+
       <Routes>
         {/* <Route
           path="/"
