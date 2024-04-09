@@ -20,7 +20,7 @@ function App() {
       <NavBar />
       <h1>Petfect Match</h1>
 
-      {/* <UpdateUser /> */}
+      <UpdateUser />
 
       <Routes>
         {/* <Route
