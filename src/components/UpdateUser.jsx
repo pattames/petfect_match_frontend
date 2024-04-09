@@ -35,7 +35,8 @@ export default function UpdateUser() {
     setError(null);
     const response = await fetch(
       //do not forget to change the change the url
-      "https://purrfect-backend-hsd1.onrender.com/user/login",
+      // "https://purrfect-backend-hsd1.onrender.com/user/"
+      "http://localhost:8080/user/:id",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
