@@ -5,12 +5,14 @@ import ErrorPage from "./components/ErrorPage";
 import Homepage from "./components/Homepage";
 import Signup from "./components/Signup";
 import NavBar from "./components/NavBar";
+import UpdateUser from "./components/UpdateUser";
 
 function App() {
   return (
     <div>
       <NavBar />
       <h1>Petfect Match</h1>
+      <UpdateUser />
       {/* <Login /> */}
       {/* <Signup /> */}
       <Routes>
