@@ -12,7 +12,10 @@ function App() {
     <div>
       <NavBar />
       <h1>Petfect Match</h1>
-      <UpdateUser />
+      <Route
+        path="/preferences"
+        element={user ? <UpdateUser /> : <Homepage />}
+      />
       {/* <Login /> */}
       {/* <Signup /> */}
       <Routes>
