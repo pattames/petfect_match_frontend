@@ -21,12 +21,33 @@ export default function UpdateUser() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  //const handleChange = (e) => {
+  // const { name, value } = e.target;
+  //  setFormData({
+  //   ...formData,
+  //   [name]: value,
+  // });
+  // console.log(formData);
+  //};
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    const [parentKey, childKey] = name.split("."); // Splitting name to handle nested state
+
+    if (childKey) {
+      setFormData((prevState) => ({
+        ...prevState,
+        [parentKey]: {
+          ...prevState[parentKey],
+          [childKey]: value,
+        },
+      }));
+    } else {
+      setFormData({
+        ...formData,
+        [name]: value,
+      });
+    }
+    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -35,9 +56,10 @@ export default function UpdateUser() {
     setError(null);
     const response = await fetch(
       //do not forget to change the change the url
-      "https://purrfect-backend-hsd1.onrender.com/user/login",
+      // "https://purrfect-backend-hsd1.onrender.com/user/"
+      "http://localhost:8080/user/:id",
       {
-        method: "POST",
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       }
@@ -95,15 +117,46 @@ export default function UpdateUser() {
               />
               <label htmlFor="Space">Space Available: </label>
             </div>
+
             <div className={`${Styles.inputBlock}`}>
-              <input
-                className={`${Styles.input}`}
-                type="text"
-                name="info.space_type"
-                value={formData.info.space_type}
-                onChange={handleChange}
-              />
-              <label htmlFor="Space">Space Type: </label>
+              <div id="spaceType" className={`${Styles.wrapper}`}>
+                <input
+                  className={`${Styles.radioInput}`}
+                  id="apartment"
+                  type="radio"
+                  name="space_type"
+                  value="apartment"
+                />
+                <label htmlFor="apartment" className={`${Styles.radioLabel}`}>
+                  <span className={`${Styles.radioInnerCircle}`}></span>
+                  Apartment
+                </label>
+                <input
+                  className={`${Styles.radioInput}`}
+                  id="house"
+                  type="radio"
+                  name="space_type"
+                  value="house"
+                  onChange={handleChange}
+                />
+                <label htmlFor="house" className={`${Styles.radioLabel}`}>
+                  <span className={`${Styles.radioInnerCircle}`}></span>
+                  House
+                </label>
+                <input
+                  className={`${Styles.radioInput}`}
+                  id="studio"
+                  type="radio"
+                  name="space_type"
+                  value="studio"
+                  onChange={handleChange}
+                />
+                <label htmlFor="studio" className={`${Styles.radioLabel}`}>
+                  <span className={`${Styles.radioInnerCircle}`}></span>
+                  Studio
+                </label>
+              </div>
+              <label htmlFor="spaceType">Space Type: </label>
             </div>
             <div className={`${Styles.inputBlock}`}>
               <input

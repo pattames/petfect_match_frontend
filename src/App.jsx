@@ -20,7 +20,10 @@ function App() {
       <NavBar />
       <h1>Petfect Match</h1>
 
-      <UpdateUser />
+      <Route
+        path="/preferences"
+        element={user ? <UpdateUser /> : <Homepage />}
+      />
 
       <Routes>
         {/* <Route
