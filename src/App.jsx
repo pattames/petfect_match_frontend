@@ -20,12 +20,12 @@ function App() {
       <NavBar />
       <h1>Petfect Match</h1>
 
-      <Route
-        path="/preferences"
-        element={user ? <UpdateUser /> : <Homepage />}
-      />
-
       <Routes>
+        {" "}
+        <Route
+          path="/preferences"
+          element={user ? <UpdateUser /> : <Homepage />}
+        />
         {/* <Route
           path="/"
           element={user ? <Homepage /> : <Navigate to={"/login"} />}

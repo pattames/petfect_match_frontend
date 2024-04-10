@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Styles from "../css/UpdateUser.module.css";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+
 export default function UpdateUser() {
+  const { user } = useContext(UserContext);
+
   const [formData, setFormData] = useState({
     info: {
       location: "",
@@ -33,7 +37,7 @@ export default function UpdateUser() {
     const { name, value } = e.target;
     const [parentKey, childKey] = name.split("."); // Splitting name to handle nested state
 
-    if (childKey) {
+    if (queueMicrotask) {
       setFormData((prevState) => ({
         ...prevState,
         [parentKey]: {
@@ -60,7 +64,11 @@ export default function UpdateUser() {
       "http://localhost:8080/user/:id",
       {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
         body: JSON.stringify(formData),
       }
     );
