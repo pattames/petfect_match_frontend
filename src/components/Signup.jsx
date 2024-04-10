@@ -1,18 +1,22 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Styles from "../css/Login.module.css";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const { setUser } = useContext(UserContext);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError(null);
     const response = await fetch(
-      "https://purrfect-backend-hsd1.onrender.com/user/signup",
+      // "https://purrfect-backend-hsd1.onrender.com/user/signup",
+      "http://localhost:8080/user/signup",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -31,8 +35,8 @@ export default function Signup() {
     if (response.ok) {
       console.log("Response was ok");
       localStorage.setItem("user", JSON.stringify(data));
+      setUser(data);
       setLoading(false);
-      //setUser(data);
     }
   };
 
