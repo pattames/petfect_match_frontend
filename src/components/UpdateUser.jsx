@@ -1,7 +1,10 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Styles from "../css/UpdateUser.module.css";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
+
 export default function UpdateUser() {
+  const { user } = useContext(UserContext);
   const [formData, setFormData] = useState({
     info: {
       location: "",
@@ -57,10 +60,13 @@ export default function UpdateUser() {
     const response = await fetch(
       //do not forget to change the change the url
       // "https://purrfect-backend-hsd1.onrender.com/user/"
-      "http://localhost:8080/user/:id",
+      `http://localhost:8080/user/${user._id}`,
       {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
         body: JSON.stringify(formData),
       }
     );
@@ -212,7 +218,6 @@ export default function UpdateUser() {
             <div className={`${Styles.inputBlock}`}>
               <button>Submit</button>
             </div>
-
             {error && <div>{error}</div>}
           </form>
         </div>
