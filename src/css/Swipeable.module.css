@@ -1,0 +1,41 @@
+.card {
+  width: 300px;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #847878;
+  border-radius: 10px;
+  background-color: rgb(213, 239, 235);
+  transition: transform 0.3s ease-out; /* Smoother transition */
+  position: absolute; /* Allow cards to overlay */
+}
+
+.text {
+  font-size: 24px;
+  text-align: center;
+}
+
+.container {
+  position: relative; /* Needed to position cards absolutely */
+  width: 100%; /* Full width */
+  height: 100vh; /* Adjust height as necessary */
+  overflow: hidden; /* Prevents overflow issues */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  z-index: 1; /* Ensure buttons are above card */
+  margin: 10px;
+  padding: 5px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
