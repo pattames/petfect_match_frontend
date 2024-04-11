@@ -3,13 +3,11 @@ import { useSwipeable } from "react-swipeable";
 import styles from "../css/Swipeable.module.css";
 import { PetsContext } from "../context/PetsContext";
 import { Link } from "react-router-dom";
+import { FilterContext } from "../context/FilterContext";
 
 function Swipeable() {
   const { pets } = useContext(PetsContext);
-  console.log("PETS", pets);
-  const cats = pets ? pets.filter((pet) => pet.pet_type === "cat") : [];
-
-  console.log(cats);
+  const { filteredPets, setSelectedType } = useContext(FilterContext);
 
   const images = pets?.map((pet) => (
     <img key={pet._id} src={pet.images[0].url} />
@@ -18,20 +16,23 @@ function Swipeable() {
   console.log(images);
   const [cards, setCards] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [swipingStyle, setSwipingStyle] = useState({});
+  //   const [swipingStyle, setSwipingStyle] = useState({});
 
   const currentPet = pets && pets[currentIndex];
 
+  console.log("CURRENTPET", currentPet);
   useEffect(() => {
-    if (pets) {
-      const images = pets?.map((pet) => (
-        <img key={pet._id} src={pet.images[0].url} />
+    if (filteredPets) {
+      const images = filteredPets?.map((pet) => (
+        <div key={pet._id}>
+          <img src={pet.images[0].url} />
+          <h2>{pet.name}</h2>
+        </div>
       ));
       setCards(images);
+      // setCurrentIndex(0);
     }
-  }, [pets]);
-
-  console.log("CARDS", cards);
+  }, [filteredPets]);
 
   const handlers = useSwipeable({
     onSwiping: (eventData) => {
@@ -77,12 +78,31 @@ function Swipeable() {
         <p className={styles.text}>{card}</p>
       </div>
     );
+  // Event handlers for filtering
+  const handleFilterCats = () => {
+    setSelectedType("cat");
+  };
+
+  const handleFilterDogs = () => {
+    setSelectedType("dog");
+  };
+
+  const handleFilterOthers = () => {
+    setSelectedType("other");
+  };
+
+  const handleFilterAll = () => {
+    setSelectedType("");
+  };
 
   return (
     <>
-      <div className={styles.container}>{cards.map(renderCard)}</div>
-      <Link to={`/match/${currentPet?._id}`}>
-        <h2>More about {currentPet?.name}</h2>
+      <button onClick={handleFilterAll}>ALL</button>
+      <button onClick={handleFilterCats}>CATS</button>
+      <button onClick={handleFilterDogs}>DOGS</button>
+      <button onClick={handleFilterOthers}>OTHERS</button>
+      <Link to={`/match/${filteredPets[currentIndex]?._id}`}>
+        <div className={styles.container}>{cards.map(renderCard)}</div>
       </Link>
       <button onClick={movePrev}>Show me the previous pet</button>
       <button onClick={moveNextRight}>Yep</button>
