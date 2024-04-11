@@ -21,3 +21,17 @@
   background-size: cover;
   background-position: center;
 }
+
+@keyframes swipeLeft {
+  to {
+    transform: translateX(-100%) rotate(-20deg);
+    opacity: 0;
+  }
+}
+
+@keyframes swipeRight {
+  to {
+    transform: translateX(100%) rotate(20deg);
+    opacity: 0;
+  }
+}
