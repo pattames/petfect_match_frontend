@@ -1,3 +1,9 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 .main {
     display: flex;
     flex-wrap: nowrap;
@@ -6,10 +12,87 @@
     padding-top: calc(50vh - 250px);
 }
 
+
+.wrapper {
+    display: flex;
+    gap: 5px;
+    flex-direction: row;
+    margin-top: 15px;
+    position: relative;
+    padding-top: 10px;
+    align-items: center;
+
+}
+
+.radioInput {
+    position: absolute;
+    opacity: 0;
+    display: none;
+}
+
+.radioLabel {
+    display: flex;
+    align-items: center;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    box-shadow: inset 4px 4px 4px rgba(165, 163, 163, 0.315), 4px 4px 4px rgba(218, 218, 218, 0.13);
+    background: rgba(253, 253, 253, 0);
+    outline: none;
+    border: 1px solid rgba(255, 0, 0, 0);
+    border-radius: 4px;
+    transition: background-color 0.2s, border-color 0.2s;
+    position: relative;
+}
+
+.radioLabel:hover {
+    background-color: #e6e6e6;
+}
+
+.radioInput:focus+.radioLabel {
+    outline: 2px solid c1564c;
+    ;
+}
+
+.radioInnerCircle {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    border: 2px solid #888;
+    border-radius: 50%;
+    margin-right: 0.5em;
+    transition: border-color 0.2s;
+    position: relative;
+}
+
+.radioLabel:hover .radioInnerCircle {
+    border-color: #555;
+}
+
+
+.radioInput:checked+.radioLabel .radioInnerCircle {
+    border-color: #c1564c;
+    ;
+}
+
+.radioInput:checked+.radioLabel .radioInnerCircle::after {
+    content: '';
+    display: block;
+    width: 0.5em;
+    height: 0.5em;
+    background-color: #c1564c;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+
 .container {
     display: flex;
     gap: 40px;
-    width: 520px;
+    width: 780px;
     height: auto;
     max-width: 99%;
     align-items: center;
@@ -112,6 +195,11 @@ label {
     pointer-events: none;
     color: gray;
 }
+
+.inputBlock label {
+    pointer-events: all;
+}
+
 
 .forgot {
     display: block;
