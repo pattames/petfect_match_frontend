@@ -5,7 +5,6 @@ import { UserContext } from "../context/UserContext";
 
 export default function Prefrences() {
   const { user } = useContext(UserContext);
-
   const [formData, setFormData] = useState({
     info: {
       location: "",
