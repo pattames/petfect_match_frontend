@@ -1,27 +1,29 @@
 .container {
-    background-color: #ffd98d;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-
+  background-color: #ffd98d;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .navLink {
-    display: inline-block;
-    margin: 1em 0px;
-    padding: 1em;
-    transition: opacity 200ms ease-in-out;
-    font-family: 'DM Sans', sans-serif;
-    color: #c1564c;
-    font-size: 1rem;
-    line-height: 1.25rem;
-    font-weight: 700;
-    text-decoration: none;
+  display: inline-block;
+  margin: 1em 0px;
+  padding: 1em;
+  transition: opacity 200ms ease-in-out;
+  font-family: "DM Sans", sans-serif;
+  color: #c1564c;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .logoContainer {
+  width: 8rem;
+  margin-left: 1em;
+}
 
-    width: 8rem;
-    margin-left: 1em;
+.logoImage {
+  height: 55px;
 }

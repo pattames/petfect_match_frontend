@@ -1,0 +1,73 @@
+/* LandingSwipe.module.css */
+.container {
+  background-color: #f2e5e5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.slide {
+  background-color: grey;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 10px;
+}
+
+.nameWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: #fbd98d;
+  -webkit-text-stroke: 2px #c1564c;
+  font-size: 40px;
+  height: 100px;
+}
+
+.mySwiper {
+  margin-top: 60px;
+  width: 400px;
+  height: 500px;
+}
+
+.swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.image {
+  object-fit: fill;
+  height: 400px;
+}
+
+.petCard {
+  display: flex;
+  flex-direction: column;
+}
+
+.btnWrapper {
+  margin-top: 30px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  width: 350px;
+}
+
+.heading {
+  color: #c1564c;
+  font-size: 45px;
+  margin-top: 50px;
+}
+
+.btn {
+  height: 50px;
+  width: 300px;
+  border-radius: 10px;
+}

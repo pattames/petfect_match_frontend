@@ -23,6 +23,7 @@ function App() {
       <NavBar />
       <h1>Petfect Match</h1>
       <UserProfile />
+
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route
