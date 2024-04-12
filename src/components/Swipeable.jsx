@@ -1,3 +1,4 @@
+
 import { PetsContext } from "../context/PetsContext";
 import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
@@ -37,6 +38,7 @@ function Swipeable() {
       <button onClick={handleNext}>Next</button>
       <button onClick={handleBack}>Back</button>
     </div>
+
   );
 }
 
