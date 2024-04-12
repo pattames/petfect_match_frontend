@@ -17,6 +17,7 @@ import Congrats from "./components/Congrats";
 
 function App() {
   const { user } = useContext(UserContext);
+  console.log(user && user);
 
   return (
     <div>

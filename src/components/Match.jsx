@@ -1,9 +1,10 @@
 import PreferencesForm from "./PreferencesForm";
 import Swipeable from "./Swipeable";
+import styles from "../css/Match.module.css";
 
 function Match() {
   return (
-    <div>
+    <div className={styles.container}>
       <PreferencesForm />
       <Swipeable />
     </div>
