@@ -17,6 +17,7 @@ export default function PetId() {
         Hi I'm {selectedPet.name}, my favourite thing to do is...{" "}
         {selectedPet.favorite_thing}
       </h1>
+      <img src="" alt="" />
     </>
   );
 }

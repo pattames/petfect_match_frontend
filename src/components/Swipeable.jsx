@@ -1,5 +1,7 @@
 import { PetsContext } from "../context/PetsContext";
-import { useContext, useState, useEffect } from "react";
+
+import { useState, useContext, useEffect } from "react";
+
 import { Link } from "react-router-dom";
 import { PreferencesContext } from "../context/PreferencesContext";
 
@@ -10,6 +12,31 @@ function Swipeable() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itsMatch, setItsMatch] = useState(false);
 
+  const [filteredPets, setFilteredPets] = useState(pets);
+
+  useEffect(() => {
+    setFilteredPets(pets);
+  }, [pets]);
+
+  const dogs = pets && pets.filter((pet) => pet.pet_type === "dog");
+  const cats = pets && pets.filter((pet) => pet.pet_type === "cat");
+  const others = pets && pets.filter((pet) => pet.pet_type === "other");
+
+  const handleAllPets = () => {
+    setFilteredPets(pets);
+  };
+
+  const handleDogs = () => {
+    setFilteredPets(dogs);
+  };
+
+  const handleCats = () => {
+    setFilteredPets(cats);
+  };
+
+  const handleOthers = () => {
+    setFilteredPets(others);
+  };
   const handleNext = () => {
     if (currentIndex === pets.length - 1) {
       return;
@@ -24,7 +51,7 @@ function Swipeable() {
     setCurrentIndex((prev) => prev - 1);
   };
 
-  const currentPet = pets && pets[currentIndex];
+  const currentPet = filteredPets && filteredPets[currentIndex];
 
   //Comparison logic
   //If preferences age === pet age then it's a match, else it's not
@@ -51,6 +78,10 @@ function Swipeable() {
 
   return (
     <div>
+      <button onClick={handleAllPets}>All</button>
+      <button onClick={handleDogs}>Dogs</button>
+      <button onClick={handleCats}>Cats</button>
+      <button onClick={handleOthers}>Others</button>
       {currentIndex < pets?.length && (
         <img
           src={currentPet && currentPet.images[0].url}
