@@ -61,10 +61,9 @@ export default function Prefrences() {
     const response = await fetch(
       //do not forget to change the change the url
       // "https://purrfect-backend-hsd1.onrender.com/user/"
-      "http://localhost:8080/user/:id",
+      `http://localhost:8080/user/${user._id}`,
       {
         method: "PUT",
-
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${user.token}`,
@@ -220,7 +219,6 @@ export default function Prefrences() {
             <div className={`${Styles.inputBlock}`}>
               <button className={`${Styles.inputBlock}`}>Submit</button>
             </div>
-
             {error && <div>{error}</div>}
           </form>
         </div>

@@ -9,6 +9,7 @@ export default function UserContextProvider(props) {
       setUser(JSON.parse(localStorage.getItem("user")));
     }
   }, [user]);
+
   return (
     <UserContext.Provider value={{ user, setUser }}>
       {props.children}

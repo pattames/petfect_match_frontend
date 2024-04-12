@@ -27,7 +27,6 @@
     text-align: center;
     margin-bottom: 3rem;
     font-size: 2rem;
-
 }
 
 .left {
@@ -68,8 +67,6 @@
     width: 34%;
     height: 100%;
 }
-
-
 
 .container::after {
     position: absolute;
@@ -113,6 +110,14 @@
     color: gray;
 }
 
+.lbl {
+    position: absolute;
+    left: 9%;
+    top: 0%;
+    pointer-events: none;
+    color: gray;
+}
+
 .forgot {
     display: block;
     margin: 5px 0 10px 0;
@@ -140,7 +145,7 @@
 .img {
     width: 47%;
     height: 100%;
-    background: url('/loginimg.svg') no-repeat center center;
+    background: url("/loginimg.svg") no-repeat center center;
     background-size: contain;
     position: absolute;
     right: 0;
