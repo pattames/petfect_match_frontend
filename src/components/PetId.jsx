@@ -14,10 +14,18 @@ export default function PetId() {
   return (
     <>
       <h1>
-        Hi I'm {selectedPet.name}, my favourite thing to do is...{" "}
+        Hi I'm {selectedPet.name}, my favourite thing to do is...
         {selectedPet.favorite_thing}
       </h1>
-      <img src="" alt="" />
+      {selectedPet &&
+        selectedPet.images.map((image) => <img src={image.url} />)}
+      <h2>{selectedPet.name}</h2>
+      <h2>{selectedPet.characteristics.age}</h2>
+
+      <h2>{selectedPet.characteristics.breed}</h2>
+      <h2>{selectedPet.characteristics.gender}</h2>
+      <h2>{selectedPet.characteristics.size}</h2>
+      <p>{selectedPet.description}</p>
     </>
   );
 }
