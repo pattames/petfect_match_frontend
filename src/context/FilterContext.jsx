@@ -4,7 +4,6 @@ export const FilterContext = createContext();
 
 export default function FilterContextProvider(props) {
   const [pets, setPets] = useState(null);
-  const [selectedType, setSelectedType] = useState("");
 
   useEffect(() => {
     const getData = async () => {
@@ -22,11 +21,7 @@ export default function FilterContextProvider(props) {
     getData();
   }, []);
 
-  const filteredPets = pets?.filter((pet) => pet.pet_type === selectedType);
-
   return (
-    <FilterContext.Provider value={{ setSelectedType, filteredPets }}>
-      {props.children}
-    </FilterContext.Provider>
+    <FilterContext.Provider value={{}}>{props.children}</FilterContext.Provider>
   );
 }
