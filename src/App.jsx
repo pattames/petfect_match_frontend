@@ -17,19 +17,12 @@ import Congrats from "./components/Congrats";
 function App() {
   const { user } = useContext(UserContext);
 
-  console.log(user);
-
   return (
     <div>
       <NavBar />
       <h1>Petfect Match</h1>
 
-
       <Routes>
-        {/* <Route
-          path="/"
-          element={user ? <Homepage /> : <Navigate to={"/login"} />}
-        /> */}
         <Route
           path="/preferences"
           element={user ? <UpdateUser /> : <Homepage />}

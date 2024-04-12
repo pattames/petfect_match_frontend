@@ -3,7 +3,7 @@ import { createContext, useEffect, useState } from "react";
 export const PetsContext = createContext();
 
 export default function PetsContextProvider(props) {
-  const [pets, setPets] = useState(null);
+  const [pets, setPets] = useState("");
 
   useEffect(() => {
     const getData = async () => {
