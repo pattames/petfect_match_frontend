@@ -24,18 +24,22 @@ function Swipeable() {
 
   const handleAllPets = () => {
     setFilteredPets(pets);
+    setCurrentIndex(0);
   };
 
   const handleDogs = () => {
     setFilteredPets(dogs);
+    setCurrentIndex(0);
   };
 
   const handleCats = () => {
     setFilteredPets(cats);
+    setCurrentIndex(0);
   };
 
   const handleOthers = () => {
     setFilteredPets(others);
+    setCurrentIndex(0);
   };
   const handleNext = () => {
     if (currentIndex === filteredPets.length - 1) {
@@ -52,6 +56,8 @@ function Swipeable() {
   };
 
   const currentPet = filteredPets && filteredPets[currentIndex];
+
+  console.log(currentPet);
 
   //Comparison logic
   //If preferences age === pet age then it's a match, else it's not
