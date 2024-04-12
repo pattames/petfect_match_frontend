@@ -1,0 +1,26 @@
+.gridContainer {
+  display: grid;
+  grid-template-columns: repeat(
+    4,
+    1fr
+  ); /* Four columns, each taking up 25% of the space */
+  grid-template-rows: auto auto; /* Two rows, adjust height based on content */
+  gap: 10px; /* Gap between grid items */
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+
+.gridItem {
+  padding: 20px;
+  text-align: center;
+}
+
+.image {
+  width: 96px;
+  height: 96px;
+}
+.subtitle {
+  color: #792f6a;
+  text-align: center;
+  font-size: 28px;
+}

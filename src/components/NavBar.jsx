@@ -13,7 +13,9 @@ function NavBar() {
   return (
     <div className={`${Styles.container}`}>
       <NavLink to="/">
-        <div className={`${Styles.logoContainer}`}>Logo image</div>
+        <div className={`${Styles.logoContainer}`}>
+          <img src="/logo.png" className={`${Styles.logoImage}`}></img>
+        </div>
       </NavLink>
       {user !== null && (
         <div>
