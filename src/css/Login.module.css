@@ -24,9 +24,9 @@
 }
 
 .title {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
 }
 
 .left {
@@ -88,17 +88,17 @@
 
 .input,
 .btn {
-    background: rgba(253, 253, 253, 0);
-    outline: none;
-    border: 1px solid rgba(255, 0, 0, 0);
-    border-radius: 0.5rem;
-    padding: 10px;
-    margin: 10px auto;
-    width: 80%;
-    display: block;
-    color: #c1564c;
-    font-weight: 500;
-    font-size: 1.1em;
+  background: rgba(253, 253, 253, 0);
+  outline: none;
+  border: 1px solid rgba(255, 0, 0, 0);
+  border-radius: 0.5rem;
+  padding: 10px;
+  margin: 10px auto;
+  width: 80%;
+  display: block;
+  color: #c1564c;
+  font-weight: 500;
+  font-size: 1.1em;
 }
 
 .inputBlock {
@@ -106,7 +106,7 @@
   padding-top: 10px;
 }
 
-label {
+.lbl {
   position: absolute;
   left: 9%;
   top: 0%;
@@ -149,14 +149,14 @@ label {
   z-index: 3;
 }
 
-button {
+.btn {
   background-color: #c1564c;
   color: white;
   font-size: medium;
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
 }
 
-button:hover {
+.btn:hover {
   background-color: #b54141;
   cursor: pointer;
 }

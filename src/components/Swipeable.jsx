@@ -5,6 +5,8 @@ import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PreferencesContext } from "../context/PreferencesContext";
 
+import styles from "../css/Swipeable.module.css";
+
 function Swipeable() {
   const { pets } = useContext(PetsContext);
   const { age, size, gender } = useContext(PreferencesContext);
@@ -83,25 +85,36 @@ function Swipeable() {
   console.log(itsMatch);
 
   return (
-    <div>
-      <button onClick={handleAllPets}>All</button>
-      <button onClick={handleDogs}>Dogs</button>
-      <button onClick={handleCats}>Cats</button>
-      <button onClick={handleOthers}>Others</button>
-      {itsMatch && <h1>Potential match!</h1>}
+    <div className={styles.container}>
+      <div className={styles.filter_btns}>
+        <button onClick={handleAllPets}>All</button>
+        <button onClick={handleDogs}>Dogs</button>
+        <button onClick={handleCats}>Cats</button>
+        <button onClick={handleOthers}>Others</button>
+      </div>
+
+      {itsMatch && (
+        <div className={styles.match_message}>
+          <h1>Potential match!</h1>
+        </div>
+      )}
+
       {currentIndex < pets?.length && (
         <img
           src={currentPet && currentPet.images[0].url}
           alt={currentPet && currentPet.name}
         />
       )}
-      <Link to={`/match/${currentPet._id}`}>
+
+      <Link className={styles.more_info} to={`/match/${currentPet._id}`}>
         <h3>More info about {currentPet.name}</h3>
       </Link>
 
-      {itsMatch && <button>Contact owner</button>}
-      <button onClick={handleNext}>Next</button>
-      <button onClick={handleBack}>Back</button>
+      <div className={styles.main_btns}>
+        {itsMatch && <button>Contact owner</button>}
+        <button onClick={handleNext}>Next</button>
+        <button onClick={handleBack}>Back</button>
+      </div>
     </div>
   );
 }
