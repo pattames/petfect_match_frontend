@@ -47,7 +47,7 @@
   background-color: #e6e6e6;
 }
 
-.radioInput:focus + .radioLabel {
+.radioInput:focus+.radioLabel {
   outline: 2px solid c1564c;
 }
 
@@ -66,11 +66,12 @@
   border-color: #555;
 }
 
-.radioInput:checked + .radioLabel .radioInnerCircle {
+.radioInput:checked+.radioLabel .radioInnerCircle {
   border-color: #c1564c;
+
 }
 
-.radioInput:checked + .radioLabel .radioInnerCircle::after {
+.radioInput:checked+.radioLabel .radioInnerCircle::after {
   content: "";
   display: block;
   width: 0.5em;
@@ -131,13 +132,11 @@
   height: 40%;
   right: 1%;
   z-index: -1;
-  background: radial-gradient(
-    circle,
-    rgb(246, 196, 180) 20%,
-    rgb(249, 218, 151) 60%,
+  background: radial-gradient(circle,
+      rgb(246, 196, 180) 20%,
+      rgb(249, 218, 151) 60%,
 
-    rgb(26, 186, 235) 100%
-  );
+      rgb(26, 186, 235) 100%);
   filter: blur(70px);
   border-radius: 50%;
 }
@@ -154,11 +153,9 @@
   height: 80%;
   right: -40%;
   background: rgb(157, 173, 203);
-  background: radial-gradient(
-    circle,
-    rgba(238, 145, 130, 1) 61%,
-    rgba(180, 92, 81, 1) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(238, 145, 130, 1) 61%,
+      rgba(180, 92, 81, 1) 100%);
   border-radius: 50%;
   z-index: -1;
 }
@@ -181,6 +178,14 @@
 .inputBlock {
   position: relative;
   padding-top: 10px;
+}
+
+.disabled-class label {
+  position: absolute;
+  left: 9%;
+  top: 0%;
+  pointer-events: none;
+  color: gray;
 }
 
 .lbl {
