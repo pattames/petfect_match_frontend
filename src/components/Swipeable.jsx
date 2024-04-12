@@ -1,10 +1,16 @@
 import { PetsContext } from "../context/PetsContext";
+
 import { useState, useContext, useEffect } from "react";
+
 import { Link } from "react-router-dom";
+import { PreferencesContext } from "../context/PreferencesContext";
 
 function Swipeable() {
   const { pets } = useContext(PetsContext);
+  const { age, size, gender } = useContext(PreferencesContext);
+
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [itsMatch, setItsMatch] = useState(false);
 
   const [filteredPets, setFilteredPets] = useState(pets);
 
@@ -46,6 +52,29 @@ function Swipeable() {
   };
 
   const currentPet = filteredPets && filteredPets[currentIndex];
+
+  //Comparison logic
+  //If preferences age === pet age then it's a match, else it's not
+  useEffect(() => {
+    const comparison = () => {
+      if (
+        age &&
+        age === currentPet.characteristics.age &&
+        size &&
+        size === currentPet.characteristics.size &&
+        gender &&
+        gender === currentPet.characteristics.gender
+      ) {
+        setItsMatch(true);
+      } else {
+        setItsMatch(false);
+      }
+    };
+    comparison();
+  }, [age, size, gender, handleBack, handleNext]);
+
+  // console.log(currentPet);
+  // console.log(itsMatch);
 
   return (
     <div>

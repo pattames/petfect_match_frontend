@@ -6,11 +6,11 @@ import { PreferencesContext } from "../context/PreferencesContext";
 
 //A way to compare preferences selection to pet characteristics
 
-export default function Preferences() {
+export default function PreferencesForm() {
   const { age, setAge, size, setSize, gender, setGender } =
     useContext(PreferencesContext);
 
-  console.log(age, size, gender);
+  // console.log(age, size, gender);
 
   return (
     <>

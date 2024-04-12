@@ -1,10 +1,10 @@
-import Preferences from "./Preferences";
+import PreferencesForm from "./PreferencesForm";
 import Swipeable from "./Swipeable";
 
 function Match() {
   return (
     <div>
-      <Preferences />
+      <PreferencesForm />
       <Swipeable />
     </div>
   );
