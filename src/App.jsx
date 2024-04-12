@@ -11,6 +11,8 @@ import UpdateUser from "./components/UpdateUser";
 import { UserContext } from "./context/UserContext";
 import { useContext } from "react";
 import Match from "./components/Match";
+import PetId from "./components/PetId";
+import Congrats from "./components/Congrats";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -21,15 +23,10 @@ function App() {
       <h1>Petfect Match</h1>
 
       <Routes>
-        {" "}
         <Route
           path="/preferences"
           element={user ? <UpdateUser /> : <Homepage />}
         />
-        {/* <Route
-          path="/"
-          element={user ? <Homepage /> : <Navigate to={"/login"} />}
-        /> */}
         <Route path="/" element={<Homepage />} />
         <Route
           path="/login"
@@ -39,7 +36,12 @@ function App() {
           path="/signup"
           element={!user ? <Signup /> : <Navigate to={"/"} />}
         />
-        <Route path="/match" element={<Match />} />
+        <Route path="/match" element={user ? <Match /> : <Homepage />} />
+        <Route path="/match/:id" element={user ? <PetId /> : <Homepage />} />
+        <Route
+          path="/match/congrats"
+          element={user ? <Congrats /> : <Homepage />}
+        />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
     </div>

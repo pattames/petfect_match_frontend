@@ -1,8 +1,8 @@
 import { createContext, useEffect, useState } from "react";
 
-export const PetsContext = createContext();
+export const FilterContext = createContext();
 
-export default function PetsContextProvider(props) {
+export default function FilterContextProvider(props) {
   const [pets, setPets] = useState("");
 
   useEffect(() => {
@@ -21,10 +21,14 @@ export default function PetsContextProvider(props) {
     getData();
   }, []);
 
-  //We pass the data through "value":
+  const filterPets = (type) => {
+    const filteredPets = pets.filter((pet) => pet.pet_type === type);
+    setPets(filteredPets);
+  };
+
   return (
-    <PetsContext.Provider value={{ pets, setPets }}>
+    <FilterContext.Provider value={{ filterPets }}>
       {props.children}
-    </PetsContext.Provider>
+    </FilterContext.Provider>
   );
 }

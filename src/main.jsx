@@ -4,15 +4,21 @@ import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import UserContextProvider from "./context/UserContext.jsx";
 import PetsContextProvider from "./context/PetsContext.jsx";
+import FilterContextProvider from "./context/FilterContext.jsx";
+import PreferencesContextProvider from "./context/PreferencesContext.jsx";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <UserContextProvider>
-      <PetsContextProvider>
-        <BrowserRouter>
-          <App />
-        </BrowserRouter>
-      </PetsContextProvider>
-    </UserContextProvider>
+    <FilterContextProvider>
+      <PreferencesContextProvider>
+        <UserContextProvider>
+          <PetsContextProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </PetsContextProvider>
+        </UserContextProvider>
+      </PreferencesContextProvider>
+    </FilterContextProvider>
   </React.StrictMode>
 );
