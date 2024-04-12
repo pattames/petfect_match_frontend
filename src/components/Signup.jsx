@@ -68,7 +68,7 @@ export default function Signup() {
               <span className={`${Styles.forgot}`}>
                 <a href="#">Forgot Password?</a>
               </span>
-              <button>Sign up</button>
+              <button className={`${Styles.btn}`}>Sign up</button>
               <p className={`${Styles.p}`}>
                 Already have an account?
                 <Link to="/login">

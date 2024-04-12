@@ -12,7 +12,6 @@
     padding-top: calc(50vh - 250px);
 }
 
-
 .wrapper {
     display: flex;
     gap: 5px;
@@ -68,7 +67,6 @@
     border-color: #555;
 }
 
-
 .radioInput:checked+.radioLabel .radioInnerCircle {
     border-color: #c1564c;
     ;
@@ -86,8 +84,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-
-
 
 .container {
     display: flex;
@@ -169,7 +165,7 @@
 }
 
 .input,
-button {
+.btn {
     background: rgba(253, 253, 253, 0);
     outline: none;
     border: 1px solid rgba(255, 0, 0, 0);
@@ -188,7 +184,7 @@ button {
     padding-top: 10px;
 }
 
-label {
+.disabled-class label {
     position: absolute;
     left: 9%;
     top: 0%;
@@ -237,7 +233,7 @@ label {
 }
 
 
-button {
+.btn {
     background-color: #c1564c;
     color: white;
     font-size: medium;

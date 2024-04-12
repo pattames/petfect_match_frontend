@@ -6,11 +6,12 @@ import Homepage from "./components/Homepage";
 import Signup from "./components/Signup";
 import NavBar from "./components/NavBar";
 
-import UpdateUser from "./components/UpdateUser";
+import Prefrences from "./components/Prefrences";
 
 import { UserContext } from "./context/UserContext";
 import { useContext } from "react";
 import Match from "./components/Match";
+import UserProfile from "./components/UserProfile";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -19,18 +20,17 @@ function App() {
     <div>
       <NavBar />
       <h1>Petfect Match</h1>
-
+      <UserProfile />
       <Routes>
-        {" "}
-        <Route
-          path="/preferences"
-          element={user ? <UpdateUser /> : <Homepage />}
-        />
         {/* <Route
           path="/"
           element={user ? <Homepage /> : <Navigate to={"/login"} />}
         /> */}
         <Route path="/" element={<Homepage />} />
+        <Route
+          path="/preferences"
+          element={user ? <Prefrences /> : <Homepage />}
+        />
         <Route
           path="/login"
           element={!user ? <Login /> : <Navigate to={"/"} />}
