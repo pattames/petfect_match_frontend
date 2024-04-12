@@ -7,20 +7,18 @@ import PetsContextProvider from "./context/PetsContext.jsx";
 import FilterContextProvider from "./context/FilterContext.jsx";
 import PreferencesContextProvider from "./context/PreferencesContext.jsx";
 
-
-
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-  <FilterContextProvider>
-    <PreferencesContextProvider>
-      <UserContextProvider>
-        <PetsContextProvider>
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
-        </PetsContextProvider>
-      </UserContextProvider>
-    </PreferencesContextProvider>
-</FilterContextProvider>
+    <FilterContextProvider>
+      <PreferencesContextProvider>
+        <UserContextProvider>
+          <PetsContextProvider>
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </PetsContextProvider>
+        </UserContextProvider>
+      </PreferencesContextProvider>
+    </FilterContextProvider>
   </React.StrictMode>
 );
