@@ -13,14 +13,12 @@
 .gridItem {
   padding: 20px;
   text-align: center;
+  color: #792f6a;
+  text-align: center;
+  font-size: 28px;
 }
 
 .image {
   width: 96px;
   height: 96px;
-}
-.subtitle {
-  color: #792f6a;
-  text-align: center;
-  font-size: 28px;
 }

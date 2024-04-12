@@ -15,18 +15,10 @@ export default function IconsGrid() {
       <div className={styles.gridItem}>
         <img src="/money_icon.svg" className={styles.image}></img>
       </div>
-      <div className={styles.gridItem} className={styles.subtitle}>
-        I'd like to adopt a dog
-      </div>
-      <div className={styles.gridItem} className={styles.subtitle}>
-        I am more of a cat person
-      </div>
-      <div className={styles.gridItem} className={styles.subtitle}>
-        I am interested in volunteering{" "}
-      </div>
-      <div className={styles.gridItem} className={styles.subtitle}>
-        I'd like to save a life
-      </div>
+      <div className={styles.gridItem}>I'd like to adopt a dog</div>
+      <div className={styles.gridItem}>I am more of a cat person</div>
+      <div className={styles.gridItem}>I am interested in volunteering </div>
+      <div className={styles.gridItem}>I'd like to save a life</div>
     </div>
   );
 }
