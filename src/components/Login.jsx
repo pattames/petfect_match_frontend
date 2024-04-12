@@ -54,7 +54,9 @@ export default function Login() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <label htmlFor="email">Email</label>
+              <label className={`${Styles.lbl}`} htmlFor="email">
+                Email
+              </label>
             </div>
             <div className={`${Styles.inputBlock}`}>
               <input
@@ -63,13 +65,15 @@ export default function Login() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <label htmlFor="password">Password</label>
+              <label className={`${Styles.lbl}`} htmlFor="password">
+                Password
+              </label>
             </div>
             <div className={`${Styles.inputBlock}`}>
               <span className={`${Styles.forgot}`}>
                 <a href="#">Forgot Password?</a>
               </span>
-              <button>Log in</button>
+              <button className={`${Styles.btn}`}>Log in</button>
               <p className={`${Styles.p}`}>
                 Don't have an account?{" "}
                 <Link to="/signup">

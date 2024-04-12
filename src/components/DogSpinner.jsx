@@ -1,4 +1,4 @@
-import styles from "./DogSpinner.module.css";
+import styles from "../css/DogSpinner.module.css";
 
 function DogSpinner() {
   return (

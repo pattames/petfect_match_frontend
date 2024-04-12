@@ -1,10 +1,11 @@
 import { useState, useContext } from "react";
-import Styles from "../css/UpdateUser.module.css";
+import Styles from "../css/Prefrences.module.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
-export default function UpdateUser() {
+export default function Prefrences() {
   const { user } = useContext(UserContext);
+
   const [formData, setFormData] = useState({
     info: {
       location: "",
@@ -34,9 +35,9 @@ export default function UpdateUser() {
   //};
   const handleChange = (e) => {
     const { name, value } = e.target;
-    const [parentKey, childKey] = name.split("."); // Splitting name to handle nested state
+    const [parentKey, childKey] = name.split(".");
 
-    if (childKey) {
+    if (queueMicrotask) {
       setFormData((prevState) => ({
         ...prevState,
         [parentKey]: {
@@ -216,7 +217,7 @@ export default function UpdateUser() {
             </div>
 
             <div className={`${Styles.inputBlock}`}>
-              <button>Submit</button>
+              <button className={`${Styles.inputBlock}`}>Submit</button>
             </div>
             {error && <div>{error}</div>}
           </form>
