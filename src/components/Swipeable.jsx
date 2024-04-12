@@ -38,7 +38,7 @@ function Swipeable() {
     setFilteredPets(others);
   };
   const handleNext = () => {
-    if (currentIndex === pets.length - 1) {
+    if (currentIndex === filteredPets.length - 1) {
       return;
     }
     setCurrentIndex((prev) => prev + 1);
@@ -73,8 +73,8 @@ function Swipeable() {
     comparison();
   }, [age, size, gender, handleBack, handleNext]);
 
-  // console.log(currentPet);
-  // console.log(itsMatch);
+  console.log(currentPet);
+  console.log(itsMatch);
 
   return (
     <div>
@@ -82,6 +82,7 @@ function Swipeable() {
       <button onClick={handleDogs}>Dogs</button>
       <button onClick={handleCats}>Cats</button>
       <button onClick={handleOthers}>Others</button>
+      {itsMatch && <h1>Potential match!</h1>}
       {currentIndex < pets?.length && (
         <img
           src={currentPet && currentPet.images[0].url}
@@ -92,6 +93,7 @@ function Swipeable() {
         <h3>More info about {currentPet.name}</h3>
       </Link>
 
+      {itsMatch && <button>Contact owner</button>}
       <button onClick={handleNext}>Next</button>
       <button onClick={handleBack}>Back</button>
     </div>
