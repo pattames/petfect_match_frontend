@@ -14,7 +14,7 @@ function Swipeable() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itsMatch, setItsMatch] = useState(false);
 
-  const [filteredPets, setFilteredPets] = useState(pets);
+  const [filteredPets, setFilteredPets] = useState([]);
 
   useEffect(() => {
     setFilteredPets(pets);
@@ -59,8 +59,6 @@ function Swipeable() {
 
   const currentPet = filteredPets && filteredPets[currentIndex];
 
-  console.log(currentPet);
-
   //Comparison logic
   //If preferences age === pet age then it's a match, else it's not
   useEffect(() => {
@@ -81,8 +79,8 @@ function Swipeable() {
     comparison();
   }, [age, size, gender, handleBack, handleNext]);
 
-  console.log(currentPet);
   console.log(itsMatch);
+  console.log(currentPet);
 
   return (
     <div className={styles.container}>
@@ -101,13 +99,17 @@ function Swipeable() {
 
       {currentIndex < pets?.length && (
         <img
-          src={currentPet && currentPet.images[0].url}
+          src={
+            currentPet && currentPet.images.length
+              ? currentPet.images[0].url
+              : "/dog_button.png"
+          }
           alt={currentPet && currentPet.name}
         />
       )}
 
-      <Link className={styles.more_info} to={`/match/${currentPet._id}`}>
-        <h3>More info about {currentPet.name}</h3>
+      <Link className={styles.more_info} to={`/match/${currentPet?._id}`}>
+        <h3>More info about {currentPet?.name}</h3>
       </Link>
 
       <div className={styles.main_btns}>
