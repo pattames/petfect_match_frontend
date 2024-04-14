@@ -104,15 +104,10 @@
 
 .lbl {
   position: absolute !important;
-
   left: 9% !important;
-
   top: 0% !important;
-
   pointer-events: none !important;
-
   color: gray !important;
-
 }
 
 .forgot {
