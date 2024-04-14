@@ -13,7 +13,7 @@ import { useContext } from "react";
 import Match from "./components/Match";
 import UserProfile from "./components/UserProfile";
 import PetId from "./components/PetId";
-import Congrats from "./components/Congrats";
+import Dashboard from "./components/Dashboard";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -22,9 +22,6 @@ function App() {
   return (
     <div>
       <NavBar />
-      <h1>Petfect Match</h1>
-      <UserProfile />
-
       <Routes>
         <Route path="/" element={<Homepage />} />
         <Route
@@ -42,8 +39,8 @@ function App() {
         <Route path="/match" element={user ? <Match /> : <Homepage />} />
         <Route path="/match/:id" element={user ? <PetId /> : <Homepage />} />
         <Route
-          path="/match/congrats"
-          element={user ? <Congrats /> : <Homepage />}
+          path="/dashboard"
+          element={user ? <Dashboard /> : <Homepage />}
         />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
