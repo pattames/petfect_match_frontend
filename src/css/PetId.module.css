@@ -1,0 +1,73 @@
+.main_petId_container {
+  display: flex;
+  column-gap: 3rem;
+  justify-content: center;
+}
+
+.title_container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  transform: translate3d(0px, 0em, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(2deg) skew(0deg, 0deg);
+  transform-style: preserve-3d;
+  opacity: 1;
+  font-size: 6rem;
+}
+
+.second_title {
+  transform: translate3d(0px, 0em, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(-2deg) skew(0deg, 0deg);
+  opacity: 1;
+  transform-style: preserve-3d;
+  font-size: 5rem;
+}
+
+.underline_wavey {
+  background-image: url(https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a7b83438469_Adoptable_Wiggle%20Style%201_pink.svg);
+  background-position: 50% 100%;
+  background-size: 300px;
+  background-repeat: repeat-x;
+}
+
+.spark_right {
+  display: inline-block;
+  margin-right: -0.35em;
+  margin-bottom: 0em;
+  padding-right: 0.35em;
+  background-image: url(https://uploads-ssl.webflow.com/5f4f91ff23802a48574383ea/5f4f91ff23802a688b438493_Adoptable_Spark%20Right_orange.svg);
+  background-position: 100% 0%;
+  background-size: 0.7em;
+  background-repeat: no-repeat;
+  font-weight: 400;
+}
+
+.third_title {
+  transform: translate3d(0px, 0em, 0px) scale3d(1, 1, 1) rotateX(0deg)
+    rotateY(0deg) rotateZ(1deg) skew(0deg, 0deg);
+  opacity: 1;
+  transform-style: preserve-3d;
+  font-size: 5rem;
+}
+
+.owner_pic {
+  width: 20rem;
+  height: 20rem;
+}
+
+.description_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+  margin: 2rem 0 2rem 0;
+  padding: 2rem;
+  background-color: aliceblue;
+}
+
+.description_title {
+  font-size: 5rem;
+}
