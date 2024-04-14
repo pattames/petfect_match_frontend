@@ -9,14 +9,56 @@
 .navLink {
   display: inline-block;
   margin: 1em 0px;
-  padding: 1em;
-  transition: opacity 200ms ease-in-out;
+  padding: 0.5em 0.4em;
   font-family: "DM Sans", sans-serif;
-  color: #c1564c;
   font-size: 1rem;
   line-height: 1.25rem;
   font-weight: 700;
   text-decoration: none;
+  cursor: pointer;
+  position: relative;
+  color: #c84747;
+  --hovered-color: #c84747;
+
+}
+
+.navItem {
+  position: relative;
+}
+
+
+.navLink::after {
+  position: absolute;
+  content: "";
+  width: 0;
+  left: 0;
+  bottom: -7px;
+  background: var(--hovered-color);
+  height: 2px;
+  transition: 0.3s ease-out;
+}
+
+
+
+.navItemHome::before {
+  position: absolute;
+  content: "Home";
+  width: 0%;
+  inset: 0;
+  color: var(--hovered-color);
+  overflow: hidden;
+  transition: 0.3s ease-out;
+}
+
+
+
+.navLink:hover::after {
+  width: 100%;
+}
+
+
+.navLink:hover .navItem::before {
+  width: 100%;
 }
 
 .logoContainer {
@@ -26,4 +68,33 @@
 
 .logoImage {
   height: 55px;
+}
+
+.logoutbtn {
+  background: none !important;
+  border: none;
+  padding: 0 !important;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  font-weight: 700;
+  transition: opacity 200ms ease-in-out;
+  font-family: "DM Sans", sans-serif;
+  color: #c1564c;
+  cursor: pointer;
+}
+
+.userImgNav {
+  color: #c1564c;
+  font-size: 36px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+}
+
+.rightNav {
+  display: flex;
+  gap: 5px;
+  margin-right: 2rem;
+  justify-content: center;
+  align-items: center;
 }

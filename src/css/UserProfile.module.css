@@ -35,7 +35,7 @@
 }
 
 .left {
-    width: 66%;
+    width: 80%;
     height: 100%;
     position: relative;
     z-index: 5;
@@ -54,7 +54,6 @@
 }
 
 .right {
-    width: 50%;
     height: 100%;
     display: flex;
     align-items: center;
@@ -83,9 +82,6 @@
 .lbl {
     color: gray;
 }
-
-
-
 
 .p {
     margin: 20px 50px;
@@ -149,7 +145,6 @@ a {
 
 .custumFileUpload {
     height: 200px;
-    width: 300px;
     display: flex;
     flex-direction: column;
     align-items: space-between;
@@ -183,4 +178,13 @@ a {
 
 .custumFileUpload input {
     display: none;
+}
+
+.test {
+    display: flex;
+}
+
+.test .g1,
+.test .g2 {
+    width: 100%;
 }

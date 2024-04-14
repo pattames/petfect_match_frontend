@@ -55,7 +55,7 @@ export default function Login() {
                 onChange={(e) => setEmail(e.target.value)}
               />
               <label className={`${Styles.lbl}`} htmlFor="email">
-                Email
+                Email:
               </label>
             </div>
             <div className={`${Styles.inputBlock}`}>

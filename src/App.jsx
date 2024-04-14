@@ -6,6 +6,8 @@ import Homepage from "./components/Homepage";
 import Signup from "./components/Signup";
 import NavBar from "./components/NavBar";
 
+import "@fortawesome/fontawesome-svg-core/styles.css";
+
 import Prefrences from "./components/Prefrences";
 
 import { UserContext } from "./context/UserContext";

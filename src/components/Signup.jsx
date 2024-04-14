@@ -53,7 +53,9 @@ export default function Signup() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               />
-              <label htmlFor="email">Email</label>
+              <label className={`${Styles.lbl}`} htmlFor="email">
+                Email
+              </label>
             </div>
             <div className={`${Styles.inputBlock}`}>
               <input
@@ -62,7 +64,9 @@ export default function Signup() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
               />
-              <label htmlFor="password">Password</label>
+              <label className={`${Styles.lbl}`} htmlFor="password">
+                Password
+              </label>
             </div>
             <div className={`${Styles.inputBlock}`}>
               <span className={`${Styles.forgot}`}>

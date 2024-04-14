@@ -24,9 +24,9 @@
 }
 
 .title {
-    text-align: center;
-    margin-bottom: 3rem;
-    font-size: 2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  font-size: 2rem;
 }
 
 .left {
@@ -54,13 +54,11 @@
   height: 40%;
   right: 1%;
   z-index: -1;
-  background: radial-gradient(
-    circle,
-    rgb(246, 196, 180) 20%,
-    rgb(249, 218, 151) 60%,
+  background: radial-gradient(circle,
+      rgb(246, 196, 180) 20%,
+      rgb(249, 218, 151) 60%,
 
-    rgb(26, 186, 235) 100%
-  );
+      rgb(26, 186, 235) 100%);
   filter: blur(70px);
   border-radius: 50%;
 }
@@ -77,28 +75,26 @@
   height: 80%;
   right: -40%;
   background: rgb(157, 173, 203);
-  background: radial-gradient(
-    circle,
-    rgba(238, 145, 130, 1) 61%,
-    rgba(180, 92, 81, 1) 100%
-  );
+  background: radial-gradient(circle,
+      rgba(238, 145, 130, 1) 61%,
+      rgba(180, 92, 81, 1) 100%);
   border-radius: 50%;
   z-index: -1;
 }
 
 .input,
 .btn {
-    background: rgba(253, 253, 253, 0);
-    outline: none;
-    border: 1px solid rgba(255, 0, 0, 0);
-    border-radius: 0.5rem;
-    padding: 10px;
-    margin: 10px auto;
-    width: 80%;
-    display: block;
-    color: #c1564c;
-    font-weight: 500;
-    font-size: 1.1em;
+  background: rgba(253, 253, 253, 0);
+  outline: none;
+  border: 1px solid rgba(255, 0, 0, 0);
+  border-radius: 0.5rem;
+  padding: 10px;
+  margin: 10px auto;
+  width: 80%;
+  display: block;
+  color: #c1564c;
+  font-weight: 500;
+  font-size: 1.1em;
 }
 
 .inputBlock {
@@ -106,12 +102,17 @@
   padding-top: 10px;
 }
 
-label {
-  position: absolute;
-  left: 9%;
-  top: 0%;
-  pointer-events: none;
-  color: gray;
+.lbl {
+  position: absolute !important;
+
+  left: 9% !important;
+
+  top: 0% !important;
+
+  pointer-events: none !important;
+
+  color: gray !important;
+
 }
 
 .forgot {
@@ -149,14 +150,14 @@ label {
   z-index: 3;
 }
 
-button {
+.btn {
   background-color: #c1564c;
   color: white;
   font-size: medium;
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
 }
 
-button:hover {
+.btn:hover {
   background-color: #b54141;
   cursor: pointer;
 }
