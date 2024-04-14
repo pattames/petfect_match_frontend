@@ -1,11 +1,14 @@
 import Styles from "../css/Navbar.module.css";
+
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
-
+  console.log("usercontext", user);
   const handleClick = () => {
     localStorage.removeItem("user");
     setUser(null);
@@ -18,26 +21,50 @@ function NavBar() {
         </div>
       </NavLink>
       {user !== null && (
-        <div>
-          <span>{user.email}</span>{" "}
+        <div className={`${Styles.rightNav}`}>
           <NavLink className={`${Styles.navLink}`} to="/">
-            Home
+            <p className={`${Styles.navItem}`}>Home</p>
           </NavLink>
-          <button onClick={handleClick}>Log out</button>
+          <div className={`${Styles.navLink}`}>
+            <p className={`${Styles.navItem}`}>About us</p>
+          </div>
+          <div className={`${Styles.navLink}`}>
+            <button className={`${Styles.logoutbtn}`} onClick={handleClick}>
+              Log out
+            </button>
+          </div>
+
+          {user.image !== undefined && user.image !== "" ? (
+            <NavLink className={`${Styles.navLink}`} to="/UserProfile">
+              <img
+                className={`${Styles.userImgNav}`}
+                src={user.image}
+                alt="User"
+              />
+            </NavLink>
+          ) : (
+            <NavLink className={`${Styles.navLink}`} to="/UserProfile">
+              <FontAwesomeIcon
+                className={`${Styles.userImgNav}`}
+                icon={faUserCircle}
+              />
+            </NavLink>
+          )}
         </div>
       )}
       {user === null && (
-        <div>
+        <div className={`${Styles.rightNav}`}>
           <NavLink className={`${Styles.navLink}`} to="/">
             Home
           </NavLink>
+          <div className={`${Styles.navLink}`}>About us</div>
           <NavLink className={`${Styles.navLink}`} to="/signup">
             Sign up
           </NavLink>
+
           <NavLink className={`${Styles.navLink}`} to="/login">
             Log in
           </NavLink>
-          <div className={`${Styles.navLink}`}>About us</div>
         </div>
       )}
     </div>
