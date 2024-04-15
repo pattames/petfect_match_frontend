@@ -10,13 +10,13 @@
   background-color: #f6c4b4;
 }
 .filter_btns_top {
-  margin: 1rem auto;
+  margin: 2rem auto auto auto;
   display: flex;
   column-gap: 1rem;
 }
 
 .filter_btns_btm {
-  margin: 1rem auto;
+  margin: 2rem auto auto auto;
   display: flex;
   column-gap: 1rem;
 }
@@ -30,6 +30,37 @@
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
   border-radius: 10px;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.filter_btn_dogs {
+  width: 215px;
+  height: 45px;
+  background-color: #ffd88d;
+  color: black;
+  font-size: medium;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cat_icon {
+  width: 1.75rem;
+}
+
+.dog_icon {
+  width: 2rem;
+}
+
+.heart_icon {
+  width: 2rem;
+}
+
+.star_icon {
+  width: 2rem;
 }
 
 .match_message {
@@ -48,7 +79,17 @@
 .picture_pet {
   position: relative;
   border-radius: 10px;
+  width: 25rem;
+  height: auto;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
 }
+
+.picture_pet_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
 .more_info {
   text-align: center;
   text-decoration: none;

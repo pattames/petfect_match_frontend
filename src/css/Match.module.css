@@ -16,6 +16,7 @@
   align-items: center;
   justify-content: center;
   background-color: rgba(255, 208, 193, 0.707);
+  padding: 2rem 0 2rem 0;
 }
 
 .instructions_match {
@@ -39,6 +40,9 @@
 
 .img {
   width: 65rem;
+  border-radius: 20px;
+  margin-left: 2rem;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
 }
 
 .instructions_box {
