@@ -17,6 +17,7 @@ import UserProfile from "./components/UserProfile";
 import PetId from "./components/PetId";
 import Dashboard from "./components/Dashboard";
 import Footer from "./components/Footer";
+import TipsAndTricks from "./components/TipsAndTricks";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -44,6 +45,7 @@ function App() {
           path="/dashboard"
           element={user ? <Dashboard /> : <Homepage />}
         />
+        <Route path="/tips-and-tricks" element={<TipsAndTricks />} />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />
