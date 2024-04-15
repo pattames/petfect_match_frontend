@@ -102,7 +102,7 @@ function Swipeable() {
           src={
             currentPet && currentPet.images.length
               ? currentPet.images[0].url
-              : "/dog_button.png"
+              : "/picnopet.jpeg"
           }
           alt={currentPet && currentPet.name}
         />
