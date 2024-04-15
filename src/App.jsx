@@ -16,6 +16,7 @@ import Match from "./components/Match";
 import UserProfile from "./components/UserProfile";
 import PetId from "./components/PetId";
 import Dashboard from "./components/Dashboard";
+import Footer from "./components/Footer";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -46,6 +47,7 @@ function App() {
         />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
