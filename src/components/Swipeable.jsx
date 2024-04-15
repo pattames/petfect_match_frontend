@@ -108,7 +108,11 @@ function Swipeable() {
         />
       )}
 
-      <Link className={styles.more_info} to={`/match/${currentPet?._id}`}>
+      <Link
+        className={styles.more_info}
+        to={`/match/${currentPet?._id}`}
+        target="_blank"
+      >
         <h3>More info about {currentPet?.name}</h3>
       </Link>
 
