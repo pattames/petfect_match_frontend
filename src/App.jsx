@@ -16,6 +16,7 @@ import Match from "./components/Match";
 import UserProfile from "./components/UserProfile";
 import PetId from "./components/PetId";
 import Dashboard from "./components/Dashboard";
+import PetProfile from "./components/PetProfile";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -43,6 +44,10 @@ function App() {
         <Route
           path="/dashboard"
           element={user ? <Dashboard /> : <Homepage />}
+        />
+        <Route
+          path="/petprofile"
+          element={user ? <PetProfile /> : <Homepage />}
         />
         <Route path="*" element={<ErrorPage />} />
       </Routes>
