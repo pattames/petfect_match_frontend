@@ -24,7 +24,7 @@ function Match() {
             with the buttons and discover...
           </div>
           <h2 className={styles.instructions_match}>
-            ...if it's a PetFect Match or not!
+            ...if it's a PetFect Match!
           </h2>
         </div>
       </div>

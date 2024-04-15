@@ -98,40 +98,43 @@ function Swipeable() {
         <div className={styles.filter_btns_top}>
           <button className={styles.filter_btn} onClick={handleAllPets}>
             All
+            <img className={styles.heart_icon} src="/Heart-icon.png" alt="" />
           </button>
-          <button className={styles.filter_btn} onClick={handleDogs}>
-            Dogs
+          <button className={styles.filter_btn_dogs} onClick={handleDogs}>
+            Dogs <img className={styles.dog_icon} src="/Dog-icon.png" alt="" />
           </button>
         </div>
         <div className={styles.filter_btns_btm}>
           <button className={styles.filter_btn} onClick={handleCats}>
-            Cats
+            Cats <img className={styles.cat_icon} src="/Cat-icon.png" alt="" />
           </button>
           <button className={styles.filter_btn} onClick={handleOthers}>
-            Others
+            Others{" "}
+            <img className={styles.star_icon} src="/Star-icon.webp" alt="" />
           </button>
         </div>
 
         {currentIndex < pets?.length && (
-          <img
-            className={styles.picture_pet}
-            src={
-              currentPet && currentPet.images.length
-                ? currentPet.images[0].url
-                : "/picnopet.jpeg"
-            }
-            alt={currentPet && currentPet.name}
-          />
+          <div className={styles.picture_pet_container}>
+            <img
+              className={styles.picture_pet}
+              src={
+                currentPet && currentPet.images.length
+                  ? currentPet.images[0].url
+                  : "/picnopet.jpeg"
+              }
+              alt={currentPet && currentPet.name}
+            />
+          </div>
         )}
         {itsMatch && (
           <div className={styles.match_message}>
             <img className={styles.petfect_match_logo} src="logo.png" alt="" />
           </div>
         )}
-
         <Link className={styles.more_info} to={`/match/${currentPet?._id}`}>
           <div className={styles.more_about_pet}>
-            More info about <br /> {currentPet?.name}
+            More about <br /> {currentPet?.name}
           </div>
         </Link>
 
