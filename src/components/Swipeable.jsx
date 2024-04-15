@@ -1,10 +1,7 @@
 import { PetsContext } from "../context/PetsContext";
-
 import { useState, useContext, useEffect } from "react";
-
 import { Link } from "react-router-dom";
 import { PreferencesContext } from "../context/PreferencesContext";
-
 import styles from "../css/Swipeable.module.css";
 
 function Swipeable() {
@@ -82,21 +79,81 @@ function Swipeable() {
   // console.log(itsMatch);
   // console.log(currentPet);
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.filter_btns}>
-        <button onClick={handleAllPets}>All</button>
-        <button onClick={handleDogs}>Dogs</button>
-        <button onClick={handleCats}>Cats</button>
-        <button onClick={handleOthers}>Others</button>
-      </div>
+  //Redirect user to email
+  const buildEmailDraftUrl = (recipient, subject, body) => {
+    return `mailto:<span class="math-inline">\{recipient\}?subject\=</span>{subject}&body=${body}`;
+  };
 
-      {itsMatch && (
-        <div className={styles.match_message}>
-          <h1>Potential match!</h1>
+  const handleEmailClick = () => {
+    const recipient = "example@email.com";
+    const subject = "Your Subject";
+    const body = "Your pre-filled email content";
+    const draftUrl = buildEmailDraftUrl(recipient, subject, body);
+    window.location.href = draftUrl;
+  };
+
+  return (
+    <>
+      <div className={styles.container}>
+        <div className={styles.filter_btns_top}>
+          <button className={styles.filter_btn} onClick={handleAllPets}>
+            All
+          </button>
+          <button className={styles.filter_btn} onClick={handleDogs}>
+            Dogs
+          </button>
+        </div>
+        <div className={styles.filter_btns_btm}>
+          <button className={styles.filter_btn} onClick={handleCats}>
+            Cats
+          </button>
+          <button className={styles.filter_btn} onClick={handleOthers}>
+            Others
+          </button>
+        </div>
+
+        {currentIndex < pets?.length && (
+          <img
+            className={styles.picture_pet}
+            src={
+              currentPet && currentPet.images.length
+                ? currentPet.images[0].url
+                : "/picnopet.jpeg"
+            }
+            alt={currentPet && currentPet.name}
+          />
+        )}
+        {itsMatch && (
+          <div className={styles.match_message}>
+            <img className={styles.petfect_match_logo} src="logo.png" alt="" />
+          </div>
+        )}
+
+        <Link className={styles.more_info} to={`/match/${currentPet?._id}`}>
+          <div className={styles.more_about_pet}>
+            More info about <br /> {currentPet?.name}
+          </div>
+        </Link>
+
+        <div className={styles.main_btns}>
+          <div className={styles.next_back_btns_container}>
+            <button className={styles.next_btn} onClick={handleNext}>
+              Next
+            </button>
+            <button className={styles.back_btn} onClick={handleBack}>
+              Back
+            </button>
+            {itsMatch && (
+              <button
+                className={styles.contact_owner_btn}
+                onClick={handleEmailClick}
+              >
+                Contact owner !!!
+              </button>
+            )}
+          </div>
         </div>
       )}
-
       {currentIndex < pets?.length && (
         <img
           src={
@@ -107,7 +164,6 @@ function Swipeable() {
           alt={currentPet && currentPet.name}
         />
       )}
-
       <Link
         className={styles.more_info}
         to={`/match/${currentPet?._id}`}
@@ -115,13 +171,12 @@ function Swipeable() {
       >
         <h3>More info about {currentPet?.name}</h3>
       </Link>
-
       <div className={styles.main_btns}>
         {itsMatch && <button>Contact owner</button>}
         <button onClick={handleNext}>Next</button>
         <button onClick={handleBack}>Back</button>
       </div>
-    </div>
+    </>
   );
 }
 

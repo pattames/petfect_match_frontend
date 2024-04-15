@@ -2,4 +2,56 @@
   display: flex;
   justify-content: center;
   gap: 10%;
+  padding: 5rem 0 5rem 0;
+  background: rgb(246, 196, 180);
+  background: linear-gradient(
+    180deg,
+    rgba(246, 196, 180, 1) 26%,
+    rgba(200, 71, 71, 0.9640449929971989) 92%
+  );
+}
+
+.main_container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 208, 193, 0.707);
+}
+
+.instructions_match {
+  font-size: 2rem;
+  font-family: "Acme", sans-serif;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 2rem;
+  font-size: 4rem;
+}
+.instructions_title {
+  font-size: 5rem;
+  color: #c84747;
+  font-weight: bold;
+  font-family: "Acme", sans-serif;
+}
+
+.img {
+  width: 65rem;
+}
+
+.instructions_box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 3rem;
+  padding: 2rem;
+  font-size: 1.5rem;
+}
+
+.instructions_sentence {
+  text-align: center;
+  font-size: 1.5rem;
 }
