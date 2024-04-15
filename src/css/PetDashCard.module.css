@@ -1,0 +1,42 @@
+.card_container {
+  width: 300px;
+  border-radius: 10px;
+  height: 400px;
+  box-shadow: rgb(61, 61, 61) 0px 5px 15px;
+  .img_container {
+    width: 100%;
+    overflow: hidden;
+    height: 70%;
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, 0.193);
+    /* img {
+      object-fit: none;
+    } */
+  }
+  .info {
+    background-color: rgb(174, 174, 174);
+    height: 30%;
+    border-radius: 0 0 10px 10px;
+    h3 {
+      font-size: 2rem;
+      text-align: center;
+    }
+    .bttns {
+      display: flex;
+      gap: 2rem;
+      justify-content: center;
+      button {
+        background-color: #c1564c;
+        color: white;
+        font-size: 20px;
+        box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+        border-radius: 50%;
+        padding: 1rem;
+        border: none;
+        cursor: pointer;
+      }
+    }
+  }
+}

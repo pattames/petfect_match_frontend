@@ -153,6 +153,28 @@ function Swipeable() {
             )}
           </div>
         </div>
+      )}
+      {currentIndex < pets?.length && (
+        <img
+          src={
+            currentPet && currentPet.images.length
+              ? currentPet.images[0].url
+              : "/picnopet.jpeg"
+          }
+          alt={currentPet && currentPet.name}
+        />
+      )}
+      <Link
+        className={styles.more_info}
+        to={`/match/${currentPet?._id}`}
+        target="_blank"
+      >
+        <h3>More info about {currentPet?.name}</h3>
+      </Link>
+      <div className={styles.main_btns}>
+        {itsMatch && <button>Contact owner</button>}
+        <button onClick={handleNext}>Next</button>
+        <button onClick={handleBack}>Back</button>
       </div>
     </>
   );

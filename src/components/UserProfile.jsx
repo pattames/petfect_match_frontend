@@ -92,6 +92,7 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       type="text"
                       name="name"
+                      placeholder={user.name ? user.name : "-"}
                       value={name}
                       onChange={(e) => {
                         setName(e.target.value);
@@ -106,6 +107,9 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       type="text"
                       name="location"
+                      placeholder={
+                        user.info.location ? user.info.location : "-"
+                      }
                       value={info.location}
                       onChange={handleChange}
                     />
@@ -121,6 +125,11 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       name="space_available"
                       type="text"
+                      placeholder={
+                        user.info.space_available
+                          ? user.info.space_available
+                          : "-"
+                      }
                       value={info.space_available}
                       onChange={handleChange}
                     />
@@ -133,6 +142,9 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       name="space_type"
                       type="text"
+                      placeholder={
+                        user.info.space_type ? user.info.space_type : "-"
+                      }
                       value={info.space_type}
                       onChange={handleChange}
                     />

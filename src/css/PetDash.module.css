@@ -1,0 +1,6 @@
+.dash_container {
+  display: flex;
+  gap: 5%;
+  padding: 3rem;
+  background-color: #f2e5e5;
+}

@@ -1,190 +1,188 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 .main {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-    flex-direction: row;
-    padding-top: calc(50vh - 250px);
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  flex-direction: row;
+  padding-top: calc(50vh - 250px);
 }
 
 .container {
-    display: flex;
-    gap: 40px;
-    width: 840px;
-    height: auto;
-    max-width: 99%;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    overflow: hidden;
-    background-color: #ffffff25;
-    border-radius: 15px;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.03);
-    border: 0.1px solid rgba(128, 128, 128, 0.178);
+  display: flex;
+  gap: 40px;
+  width: 840px;
+  height: auto;
+  max-width: 99%;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.03);
+  border: 0.1px solid rgba(128, 128, 128, 0.178);
 }
 
 .title {
-    text-align: center;
-    font-size: 2rem;
-
+  text-align: center;
+  font-size: 2rem;
 }
 
 .left {
-    width: 80%;
-    height: 100%;
-    position: relative;
-    z-index: 5;
+  width: 80%;
+  height: 100%;
+  position: relative;
+  z-index: 5;
 }
 
 .form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100%;
-    width: 100%;
-    left: 0;
-    backdrop-filter: blur(20px);
-    position: relative;
-    padding: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  backdrop-filter: blur(20px);
+  position: relative;
+  padding: 2rem 0;
 }
 
 .right {
-    height: 100%;
-    display: flex;
-    align-items: center;
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .input,
 .btn {
-    background: rgba(253, 253, 253, 0);
-    outline: none;
-    border: 1px solid rgba(255, 0, 0, 0);
-    border-radius: 0.5rem;
-    padding: 10px;
-    width: 100%;
-    display: block;
-    color: #c1564c;
-    font-weight: 500;
-    font-size: 1.1em;
+  background: rgba(253, 253, 253, 0);
+  outline: none;
+  border: 1px solid rgba(255, 0, 0, 0);
+  border-radius: 0.5rem;
+  padding: 10px;
+  width: 100%;
+  display: block;
+  color: #c1564c;
+  font-weight: 500;
+  font-size: 1.1em;
 }
 
 .inputBlock {
-    position: relative;
-    padding: 10px 10% 0;
-
+  position: relative;
+  padding: 10px 10% 0;
 }
 
 .lbl {
-    color: gray;
+  color: gray;
 }
 
 .p {
-    margin: 20px 50px;
-    margin-left: 35px;
-    font-size: 0.9em;
-    text-align: center;
-    color: black;
+  margin: 20px 50px;
+  margin-left: 35px;
+  font-size: 0.9em;
+  text-align: center;
+  color: black;
 }
 
 .span {
-    font-size: 14px;
-    margin-left: 5px;
-    color: #2d79f3;
-    font-weight: 500;
-    cursor: pointer;
+  font-size: 14px;
+  margin-left: 5px;
+  color: #2d79f3;
+  font-weight: 500;
+  cursor: pointer;
 }
 
 .img {
-    width: 47%;
-    height: 100%;
-    background: url('/loginimg.svg') no-repeat center center;
-    background-size: contain;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 3;
+  width: 47%;
+  height: 100%;
+  background: url("/loginimg.svg") no-repeat center center;
+  background-size: contain;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
 }
 
 .btn {
-    background-color: #c1564c;
-    color: white;
-    font-size: medium;
-    box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  background-color: #c1564c;
+  color: white;
+  font-size: medium;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
 }
 
 .btn:hover {
-    background-color: #b54141;
-    cursor: pointer;
+  background-color: #b54141;
+  cursor: pointer;
 }
 
 a {
-    color: #c1564c;
+  color: #c1564c;
 }
 
 .input {
-    box-shadow: inset 4px 4px 4px rgba(165, 163, 163, 0.315),
-        4px 4px 4px rgba(218, 218, 218, 0.13);
+  box-shadow: inset 4px 4px 4px rgba(165, 163, 163, 0.315),
+    4px 4px 4px rgba(218, 218, 218, 0.13);
 }
 
 .profilePic {
-    width: 60%;
-    display: flex;
-    align-items: center;
-    padding: 20px;
+  width: 60%;
+  display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
 .profileContainer {
-    display: flex;
-    margin: 20px;
+  display: flex;
+  margin: 20px;
 }
 
 .custumFileUpload {
-    height: 200px;
-    display: flex;
-    flex-direction: column;
-    align-items: space-between;
-    gap: 20px;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    border: 2px dashed #cacaca;
-    background-color: rgba(255, 255, 255, 1);
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0px 48px 35px -48px rgba(0, 0, 0, 0.1);
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: space-between;
+  gap: 20px;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed #cacaca;
+  background-color: rgba(255, 255, 255, 1);
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0px 48px 35px -48px rgba(0, 0, 0, 0.1);
 }
 
 .custumFileUpload .icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .custumFileUpload .icon svg {
-    height: 80px;
-    fill: rgba(75, 85, 99, 1);
+  height: 80px;
+  fill: rgba(75, 85, 99, 1);
 }
 
 .custumFileUpload .text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .custumFileUpload input {
-    display: none;
+  display: none;
 }
 
 .test {
-    display: flex;
+  display: flex;
 }
 
 .test .g1,
 .test .g2 {
-    width: 100%;
+  width: 100%;
 }
