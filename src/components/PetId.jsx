@@ -51,38 +51,63 @@ export default function PetId() {
             <h1 className={styles.third_title}>
               {selectedPet && selectedPet.favorite_thing}
             </h1>
-            <div>
+            <div className={styles.imagesContainer}>
               {/* Display all pictures of the pet */}
+
               {selectedPet &&
                 selectedPet.images.map((image) => (
                   <div key={image.url}>
-                    <img src={image.url} />
+                    <img src={image.url} className={styles.image} />
                   </div>
                 ))}
             </div>
           </div>
           <div className={styles.description_box}>
-            <h2 className={styles.description_title}>
-              {selectedPet && selectedPet.name}'S STATS
-            </h2>
-            <h2>AGE: {selectedPet && selectedPet.characteristics.age}</h2>
-            <h2>BREED: {selectedPet && selectedPet.characteristics.breed}</h2>
-            <h2>GENDER: {selectedPet && selectedPet.characteristics.gender}</h2>
-            <h2>SIZE: {selectedPet && selectedPet.characteristics.size}</h2>
-            <h2>A LITTLE BIT MORE ABOUT {selectedPet && selectedPet.name}</h2>
-            <p>{selectedPet && selectedPet.description}</p>
+            <div className={styles.statsContainer}>
+              <h2 className={styles.description_title}>
+                {selectedPet && selectedPet.name}'s Stats
+              </h2>
+              <h2 className={styles.statName}>
+                Age:{" "}
+                <span className={styles.statSpan}>
+                  {selectedPet && selectedPet.characteristics.age}
+                </span>
+              </h2>
+              <h2 className={styles.statName}>
+                Breed:{" "}
+                <span className={styles.statSpan}>
+                  {selectedPet && selectedPet.characteristics.breed}
+                </span>
+              </h2>
+              <h2 className={styles.statName}>
+                Gender:{" "}
+                <span className={styles.statSpan}>
+                  {selectedPet && selectedPet.characteristics.gender}
+                </span>
+              </h2>
+              <h2 className={styles.statName}>
+                Size:{" "}
+                <span className={styles.statSpan}>
+                  {selectedPet && selectedPet.characteristics.size}
+                </span>
+              </h2>
+            </div>
+            <div className={styles.descriptionContainer}>
+              <h2>A little bit more about {selectedPet && selectedPet.name}</h2>
+              <p>{selectedPet && selectedPet.description}</p>
+            </div>
           </div>
         </div>
       </div>
       <div className={styles.owner_container}>
-        Owner
-        <div>{owner && owner.name}</div>
+        <div className={styles.OwnerDetails}>
+          {owner && owner.name}, {owner && owner.info.location}
+        </div>
         <img
           className={styles.owner_pic}
           src={owner && owner.image.url}
           alt=""
         />
-        <div>{owner && owner.info.location}</div>
       </div>
     </>
   );
