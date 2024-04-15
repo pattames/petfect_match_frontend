@@ -8,7 +8,7 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
-  console.log("usercontext", user);
+  // console.log("usercontext", user);
   const handleClick = () => {
     localStorage.removeItem("user");
     setUser(null);
@@ -35,7 +35,7 @@ function NavBar() {
           </div>
 
           {user.image !== undefined && user.image !== "" ? (
-            <NavLink className={`${Styles.navLink}`} to="/UserProfile">
+            <NavLink className={`${Styles.navLink}`} to="/dashboard">
               <img
                 className={`${Styles.userImgNav}`}
                 src={user.image}
@@ -43,7 +43,7 @@ function NavBar() {
               />
             </NavLink>
           ) : (
-            <NavLink className={`${Styles.navLink}`} to="/UserProfile">
+            <NavLink className={`${Styles.navLink}`} to="/dashboard">
               <FontAwesomeIcon
                 className={`${Styles.userImgNav}`}
                 icon={faUserCircle}

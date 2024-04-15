@@ -20,7 +20,6 @@ import Footer from "./components/Footer";
 
 function App() {
   const { user } = useContext(UserContext);
-  console.log(user && user);
 
   return (
     <div>

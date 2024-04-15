@@ -1,6 +1,7 @@
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import UserProfile from "./UserProfile";
+import PetDash from "./PetDash";
 
 export default function Dashboard() {
   return (
@@ -16,7 +17,7 @@ export default function Dashboard() {
           <UserProfile />
         </TabPanel>
         <TabPanel>
-          <h2>Any content 2</h2>
+          <PetDash />
         </TabPanel>
       </Tabs>
     </>
