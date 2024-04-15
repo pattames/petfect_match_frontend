@@ -79,8 +79,8 @@ function Swipeable() {
     comparison();
   }, [age, size, gender, handleBack, handleNext]);
 
-  console.log(itsMatch);
-  console.log(currentPet);
+  // console.log(itsMatch);
+  // console.log(currentPet);
 
   return (
     <div className={styles.container}>
