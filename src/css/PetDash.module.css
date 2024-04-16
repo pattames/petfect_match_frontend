@@ -1,6 +1,8 @@
 .dash_container {
   display: flex;
-  gap: 5%;
+  gap: 44px;
   padding: 3rem;
   background-color: #f2e5e5;
+  flex-wrap: wrap;
+  justify-content: left;
 }

@@ -16,8 +16,7 @@ export default function UserProfile() {
   });
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
-  const [preview, setPreview] = useState([]);
-
+  const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
@@ -81,7 +80,7 @@ export default function UserProfile() {
             <DogSpinner />
           ) : (
             <form className={`${Styles.form}`} onSubmit={handleSubmit}>
-              <h3 className={`${Styles.title}`}>User Profile</h3>
+              {/* <h3 className={`${Styles.title}`}>User Profile</h3> */}
               <div className={`${Styles.test}`}>
                 <div className={`${Styles.g1}`}>
                   <div className={`${Styles.inputBlock}`}>
@@ -92,6 +91,7 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       type="text"
                       name="name"
+                      placeholder={user.name ? user.name : "-"}
                       value={name}
                       onChange={(e) => {
                         setName(e.target.value);
@@ -106,6 +106,9 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       type="text"
                       name="location"
+                      placeholder={
+                        user.info.location ? user.info.location : "-"
+                      }
                       value={info.location}
                       onChange={handleChange}
                     />
@@ -121,6 +124,11 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       name="space_available"
                       type="text"
+                      placeholder={
+                        user.info.space_available
+                          ? user.info.space_available
+                          : "-"
+                      }
                       value={info.space_available}
                       onChange={handleChange}
                     />
@@ -133,6 +141,9 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       name="space_type"
                       type="text"
+                      placeholder={
+                        user.info.space_type ? user.info.space_type : "-"
+                      }
                       value={info.space_type}
                       onChange={handleChange}
                     />

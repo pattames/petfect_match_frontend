@@ -7,7 +7,7 @@ import DogSpinner from "./DogSpinner.jsx";
 import { useJwt } from "react-jwt";
 
 export default function PetProfile() {
-  const { user } = useContext(UserContext);
+  const { user, flag, setFlag } = useContext(UserContext);
   const { decodedToken } = useJwt(user?.token);
   const _id = decodedToken?._id;
   // console.log("IDIDIDID", _id);
@@ -44,16 +44,19 @@ export default function PetProfile() {
     setLoading(true);
 
     const formData = new FormData();
-    Array.from(images).forEach((image) => {
-      formData.append("images", image);
-    });
+    images &&
+      images.length &&
+      Array.from(images).forEach((image) => {
+        formData.append("images", image);
+      });
     formData.append("name", name);
-    formData.append("pet_type", petType);
-    formData.append("characteristics", JSON.stringify(characteristics));
+    petType && formData.append("pet_type", petType);
+    characteristics.age &&
+      formData.append("characteristics", JSON.stringify(characteristics));
     formData.append("owner", _id);
     favorite && formData.append("favorite_thing", favorite); // Append favorite field
     description && formData.append("description", description); // Append description field
-    if (name && petType) {
+    if (name) {
       try {
         await fetch("http://localhost:8080/pets", {
           method: "POST",
@@ -63,6 +66,7 @@ export default function PetProfile() {
           body: formData,
         });
         console.log("SUBMISSION SUCCESSFULL");
+        setFlag(!flag);
       } catch (error) {
         setError(error);
         console.log("errrrorr", error);
@@ -97,6 +101,7 @@ export default function PetProfile() {
       setImages(files);
     }
   };
+  console.log(favorite);
 
   return (
     <div className={`${Styles.main}`}>
@@ -114,7 +119,6 @@ export default function PetProfile() {
                       Name:
                     </label>
                     <input
-                      required
                       className={`${Styles.input}`}
                       type="text"
                       name="name"
@@ -141,7 +145,6 @@ export default function PetProfile() {
                         Dog
                       </label>
                       <input
-                        required
                         className={`${Styles.radioInput}`}
                         id="cat"
                         type="radio"
@@ -267,7 +270,6 @@ export default function PetProfile() {
                         Medium
                       </label>
                       <input
-                        required
                         className={`${Styles.radioInput}`}
                         id="large"
                         type="radio"
@@ -314,7 +316,6 @@ export default function PetProfile() {
                         Young
                       </label>
                       <input
-                        required
                         className={`${Styles.radioInput}`}
                         id="adult"
                         type="radio"
@@ -349,7 +350,6 @@ export default function PetProfile() {
                   <div className={`${Styles.inputBlock}`}>
                     <div id="gender" className={`${Styles.wrapper}`}>
                       <input
-                        required
                         className={`${Styles.radioInput}`}
                         id="female"
                         type="radio"
@@ -365,7 +365,6 @@ export default function PetProfile() {
                         Female
                       </label>
                       <input
-                        required
                         className={`${Styles.radioInput}`}
                         id="male"
                         type="radio"
@@ -404,7 +403,6 @@ export default function PetProfile() {
                       Favorite things to do:
                     </label>
                     <input
-                      required
                       className={`${Styles.input}`}
                       type="text"
                       name="favorite_thing"
@@ -448,7 +446,6 @@ export default function PetProfile() {
                           </div>
                         )}
                         <input
-                          required
                           id="file"
                           type="file"
                           name="images"
