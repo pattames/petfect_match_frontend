@@ -5,6 +5,7 @@ export const UserContext = createContext();
 export default function UserContextProvider(props) {
   // Get user from local storage
   const [user, setUser] = useState(null);
+  const [flag, setFlag] = useState(false);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -32,10 +33,10 @@ export default function UserContextProvider(props) {
     } catch (error) {
       console.log(error);
     }
-  }, [user?._id]); // Depend on user._id to refetch when it changes
+  }, [user?._id, flag]); // Depend on user._id to refetch when it changes
 
   return (
-    <UserContext.Provider value={{ user, setUser, fetchedUser }}>
+    <UserContext.Provider value={{ setFlag, flag, user, setUser, fetchedUser }}>
       {props.children}
     </UserContext.Provider>
   );
