@@ -19,7 +19,7 @@ export default function PetProfile() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [images, setImage] = useState();
+  const [images, setImages] = useState([]);
   const [preview, setPreview] = useState();
 
   const [petType, setpetType] = useState("");
@@ -29,13 +29,13 @@ export default function PetProfile() {
   const [description, setDescription] = useState("");
   const [favorite, setFavorite] = useState("");
 
-  useEffect(() => {
-    if (images) {
-      const objectUrl = URL.createObjectURL(images);
-      setPreview(objectUrl);
-      return () => URL.revokeObjectURL(objectUrl);
-    }
-  }, [images]);
+  // useEffect(() => {
+  //   if (images) {
+  //     const objectUrl = URL.createObjectURL(images);
+  //     setPreview(objectUrl);
+  //     return () => URL.revokeObjectURL(objectUrl);
+  //   }
+  // }, [images]);
   // console.log("preview", preview);
 
   const handleSubmit = async (e) => {
@@ -44,11 +44,13 @@ export default function PetProfile() {
     setLoading(true);
 
     const formData = new FormData();
+    Array.from(images).forEach((image) => {
+      formData.append("images", image);
+    });
     formData.append("name", name);
     formData.append("pet_type", petType);
     formData.append("characteristics", JSON.stringify(characteristics));
     formData.append("owner", _id);
-    images && formData.append("image", images);
     favorite && formData.append("favorite_thing", favorite); // Append favorite field
     description && formData.append("description", description); // Append description field
     if (name && petType) {
@@ -66,7 +68,7 @@ export default function PetProfile() {
         console.log("errrrorr", error);
       } finally {
         setLoading(false);
-        setImage(null);
+        setImages(null);
         setcharacteristics({
           breed: "",
           age: "",
@@ -79,7 +81,7 @@ export default function PetProfile() {
       }
     }
   };
-  console.log("errrrorr", error);
+  // console.log("errrrorr", error);
 
   const handleChange = (e) => {
     console.log(e);
@@ -91,8 +93,8 @@ export default function PetProfile() {
   const handleImage = (e) => {
     const { files } = e.target;
     if (files) {
-      console.log(files[0]);
-      setImage(files[0]);
+      console.log(files);
+      setImages(files);
     }
   };
 
@@ -112,6 +114,7 @@ export default function PetProfile() {
                       Name:
                     </label>
                     <input
+                      required
                       className={`${Styles.input}`}
                       type="text"
                       name="name"
@@ -138,6 +141,7 @@ export default function PetProfile() {
                         Dog
                       </label>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="cat"
                         type="radio"
@@ -172,11 +176,13 @@ export default function PetProfile() {
                   </div>
                   {petType === "dog" && (
                     <div className={`${Styles.inputBlock}`}>
-                      <label>
+                      <label htmlFor="dogbreed" className={`${Styles.lbl}`}>
+                        Breed:
                         <select
+                          className={`${Styles.select}`}
                           value={characteristics.breed}
                           name="breed"
-                          id="breed"
+                          id="dogbreed"
                           onChange={handleChange}
                         >
                           <option>--Select an option--</option>
@@ -202,11 +208,12 @@ export default function PetProfile() {
                   )}
                   {petType === "cat" && (
                     <div className={`${Styles.inputBlock}`}>
-                      <label>
+                      <label htmlFor="catbreed" className={`${Styles.lbl}`}>
+                        Breed:
                         <select
                           value={characteristics.breed}
                           name="breed"
-                          id="breed"
+                          id="catbreed"
                           onChange={handleChange}
                         >
                           <option>--Select an option--</option>
@@ -260,6 +267,7 @@ export default function PetProfile() {
                         Medium
                       </label>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="large"
                         type="radio"
@@ -306,6 +314,7 @@ export default function PetProfile() {
                         Young
                       </label>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="adult"
                         type="radio"
@@ -340,6 +349,7 @@ export default function PetProfile() {
                   <div className={`${Styles.inputBlock}`}>
                     <div id="gender" className={`${Styles.wrapper}`}>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="female"
                         type="radio"
@@ -355,6 +365,7 @@ export default function PetProfile() {
                         Female
                       </label>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="male"
                         type="radio"
@@ -393,6 +404,7 @@ export default function PetProfile() {
                       Favorite things to do:
                     </label>
                     <input
+                      required
                       className={`${Styles.input}`}
                       type="text"
                       name="favorite_thing"
@@ -436,12 +448,14 @@ export default function PetProfile() {
                           </div>
                         )}
                         <input
+                          required
                           id="file"
                           type="file"
                           name="images"
                           accept="image/*"
                           style={{ display: "none" }}
                           onChange={handleImage}
+                          multiple
                         />
                       </label>
                     </div>
