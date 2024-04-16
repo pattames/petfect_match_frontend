@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { PetsContext } from "../context/PetsContext.jsx";
-
+import { Link } from "react-router-dom";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation"; // Import CSS for navigation arrows
@@ -45,7 +45,9 @@ export default function LandingSwipe() {
           ))}
       </Swiper>
       <div className={styles.btnWrapper}>
-        <button className={styles.btn}>Find your match</button>
+        <Link to="/match">
+          <button className={styles.btn}>Find your match</button>
+        </Link>
       </div>
     </div>
   );

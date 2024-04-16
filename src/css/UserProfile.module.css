@@ -9,7 +9,7 @@
   flex-wrap: nowrap;
   justify-content: center;
   flex-direction: row;
-  padding-top: calc(50vh - 250px);
+  padding: calc(43vh - 250px);
 }
 
 .container {

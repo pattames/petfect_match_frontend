@@ -5,15 +5,18 @@ import {
   faTelegram,
   faSquareXTwitter,
 } from "@fortawesome/free-brands-svg-icons";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
     <div className={styles.container}>
-      <img src="/logo.png" className={styles.logo}></img>
+      <Link to="/">
+        <img src="/logo.png" className={styles.logo}></img>
+      </Link>
       <ul className={styles.list}>
-        <a>
+        <Link to="/aboutUs">
           <li>About us ||</li>
-        </a>
+        </Link>
         <li>petfectmatch@contact.com</li>
       </ul>
       <div className={styles.logoContainer}>

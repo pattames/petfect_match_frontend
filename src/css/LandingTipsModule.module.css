@@ -45,6 +45,7 @@
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
   border-radius: 10px;
   align-self: baseline;
+  cursor: pointer;
 }
 
 .buttonWrapper {
