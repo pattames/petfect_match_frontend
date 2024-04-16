@@ -16,11 +16,15 @@ import Match from "./components/Match";
 import UserProfile from "./components/UserProfile";
 import PetId from "./components/PetId";
 import Dashboard from "./components/Dashboard";
+
 import PetProfile from "./components/PetProfile";
+
+import Footer from "./components/Footer";
+import TipsAndTricks from "./components/TipsAndTricks";
+
 
 function App() {
   const { user } = useContext(UserContext);
-  console.log(user && user);
 
   return (
     <div>
@@ -45,12 +49,17 @@ function App() {
           path="/dashboard"
           element={user ? <Dashboard /> : <Homepage />}
         />
+
         <Route
           path="/petprofile"
           element={user ? <PetProfile /> : <Homepage />}
         />
+
+        <Route path="/tips-and-tricks" element={<TipsAndTricks />} />
+
         <Route path="*" element={<ErrorPage />} />
       </Routes>
+      <Footer />
     </div>
   );
 }

@@ -19,13 +19,11 @@
   position: relative;
   color: #c84747;
   --hovered-color: #c84747;
-
 }
 
 .navItem {
   position: relative;
 }
-
 
 .navLink::after {
   position: absolute;
@@ -38,8 +36,6 @@
   transition: 0.3s ease-out;
 }
 
-
-
 .navItemHome::before {
   position: absolute;
   content: "Home";
@@ -50,12 +46,9 @@
   transition: 0.3s ease-out;
 }
 
-
-
 .navLink:hover::after {
   width: 100%;
 }
-
 
 .navLink:hover .navItem::before {
   width: 100%;

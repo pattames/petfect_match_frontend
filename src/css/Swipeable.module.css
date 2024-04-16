@@ -4,19 +4,145 @@
   max-width: 30%;
   border: 1px solid black;
   border-radius: 5px;
-  .filter_btns {
-    margin: 1rem auto;
-  }
-  .match_message {
-    text-align: center;
-  }
-  .more_info {
-    text-align: center;
-  }
-  .main_btns {
-    display: flex;
-    flex-direction: column;
-    max-width: 50%;
-    margin: 0 auto;
-  }
+  margin-top: 2rem;
+  width: 35rem;
+  max-height: fit-content;
+  background-color: #f6c4b4;
+}
+.filter_btns_top {
+  margin: 2rem auto auto auto;
+  display: flex;
+  column-gap: 1rem;
+}
+
+.filter_btns_btm {
+  margin: 2rem auto auto auto;
+  display: flex;
+  column-gap: 1rem;
+}
+
+.filter_btn {
+  width: 215px;
+  height: 45px;
+  background-color: #ffd88d;
+  color: black;
+  font-size: medium;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  border-radius: 10px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 0.5rem;
+}
+
+.filter_btn_dogs {
+  width: 215px;
+  height: 45px;
+  background-color: #ffd88d;
+  color: black;
+  font-size: medium;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cat_icon {
+  width: 1.75rem;
+}
+
+.dog_icon {
+  width: 2rem;
+}
+
+.heart_icon {
+  width: 2rem;
+}
+
+.star_icon {
+  width: 2rem;
+}
+
+.match_message {
+  position: absolute;
+  margin-top: 25rem;
+  margin-left: 2rem;
+  font-size: 3rem;
+}
+
+.petfect_match_logo {
+  width: 25rem;
+  height: auto;
+  transform: rotate(30deg);
+}
+
+.picture_pet {
+  position: relative;
+  border-radius: 10px;
+  width: 25rem;
+  height: auto;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+}
+
+.picture_pet_container {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.more_info {
+  text-align: center;
+  text-decoration: none;
+}
+
+.main_btns {
+  margin: 2rem;
+}
+
+.next_back_btns_container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+}
+
+.next_btn {
+  margin-right: 4rem;
+  width: 215px;
+  height: 45px;
+  background-color: #c84747;
+  color: black;
+  font-size: medium;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.back_btn {
+  margin-left: 4rem;
+  width: 215px;
+  height: 45px;
+  background-color: #c84747;
+  color: black;
+  font-size: medium;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.more_about_pet {
+  margin-top: 1rem;
+  font-size: 3rem;
+  font-family: "Acme", sans-serif;
+  font-weight: bold;
+}
+
+.contact_owner_btn {
+  font-size: 2rem;
+  padding: 0.5rem;
+  background-color: #ffd88d;
+  border-radius: 10px;
+  width: 20rem;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
 }

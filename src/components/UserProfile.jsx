@@ -39,7 +39,7 @@ export default function UserProfile() {
     formData.append("info", JSON.stringify(info));
     formData.append("image", image);
     try {
-      await fetch(`http://localhost:8080/user/660eb1969a6774dea96bd3fe`, {
+      await fetch(`http://localhost:8080/user/${_id}`, {
         method: "PUT",
         headers: {
           Authorization: `Bearer ${user.token}`,

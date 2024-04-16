@@ -5,7 +5,6 @@ import styles from "../css/PetId.module.css";
 import ReactSimplyCarousel from "react-simply-carousel";
 
 export default function PetId() {
-  const [activeSlideIndex, setActiveSlideIndex] = useState(0);
   const { pets } = useContext(PetsContext);
 
   const [owner, setOwner] = useState(null);
@@ -52,121 +51,63 @@ export default function PetId() {
             <h1 className={styles.third_title}>
               {selectedPet && selectedPet.favorite_thing}
             </h1>
-            <div>
-              <ReactSimplyCarousel
-                activeSlideIndex={activeSlideIndex}
-                onRequestChange={setActiveSlideIndex}
-                itemsToShow={1}
-                itemsToScroll={1}
-                infinite={true}
-                delay={50}
-                forwardBtnProps={{
-                  //here you can also pass className, or any other button element attributes
-                  style: {
-                    alignSelf: "center",
-                    background: "black",
-                    border: "none",
-                    borderRadius: "50%",
-                    color: "white",
-                    cursor: "pointer",
-                    fontSize: "20px",
-                    height: 30,
-                    lineHeight: 1,
-                    textAlign: "center",
-                    width: 30,
-                  },
-                  children: <span>{`>`}</span>,
-                }}
-                backwardBtnProps={{
-                  //here you can also pass className, or any other button element attributes
-                  style: {
-                    alignSelf: "center",
-                    background: "black",
-                    border: "none",
-                    borderRadius: "50%",
-                    color: "white",
-                    cursor: "pointer",
-                    fontSize: "20px",
-                    height: 30,
-                    lineHeight: 1,
-                    textAlign: "center",
-                    width: 30,
-                  },
-                  children: <span>{`<`}</span>,
-                }}
-                responsiveProps={[
-                  {
-                    itemsToShow: 1,
-                    itemsToScroll: 1,
-                    minWidth: 768,
-                  },
-                ]}
-                speed={400}
-                easing="linear"
-              >
-                {/* here you can also pass any other element attributes. Also, you can use your custom components as slides */}
-                <div style={{ width: 500, height: 500 }}>
-                  <img
-                    src={
-                      selectedPet &&
-                      selectedPet.images[0] &&
-                      selectedPet.images[0].url
-                    }
-                    alt=""
-                  />
-                </div>
-                <div style={{ width: 500, height: 500 }}>
-                  <img
-                    src={
-                      selectedPet &&
-                      selectedPet.images[1] &&
-                      selectedPet.images[1].url
-                    }
-                    alt=""
-                  />
-                </div>
+            <div className={styles.imagesContainer}>
+              {/* Display all pictures of the pet */}
 
-                {selectedPet && selectedPet.images[2] && (
-                  <div style={{ width: 500, height: 500 }}>
-                    <img src={selectedPet.images[2].url} alt="" />
+              {selectedPet &&
+                selectedPet.images.map((image) => (
+                  <div key={image.url}>
+                    <img src={image.url} className={styles.image} />
                   </div>
-                )}
-                {selectedPet && selectedPet.images[3] && (
-                  <div style={{ width: 500, height: 500 }}>
-                    <img src={selectedPet.images[3].url} alt="" />
-                  </div>
-                )}
-              </ReactSimplyCarousel>
+                ))}
             </div>
-            {/* {selectedPet &&
-              selectedPet.images.map((image) => (
-                <div key={image.url}>
-                  <img src={image.url} />
-                </div>
-              ))} */}
           </div>
           <div className={styles.description_box}>
-            <h2 className={styles.description_title}>
-              {selectedPet && selectedPet.name}'S STATS
-            </h2>
-            <h2>AGE: {selectedPet && selectedPet.characteristics.age}</h2>
-            <h2>BREED: {selectedPet && selectedPet.characteristics.breed}</h2>
-            <h2>GENDER: {selectedPet && selectedPet.characteristics.gender}</h2>
-            <h2>SIZE: {selectedPet && selectedPet.characteristics.size}</h2>
-            <h2>A LITTLE BIT MORE ABOUT {selectedPet && selectedPet.name}</h2>
-            <p>{selectedPet && selectedPet.description}</p>
+            <div className={styles.statsContainer}>
+              <h2 className={styles.description_title}>
+                {selectedPet && selectedPet.name}'s Stats
+              </h2>
+              <h2 className={styles.statName}>
+                Age:{" "}
+                <span className={styles.statSpan}>
+                  {selectedPet && selectedPet.characteristics.age}
+                </span>
+              </h2>
+              <h2 className={styles.statName}>
+                Breed:{" "}
+                <span className={styles.statSpan}>
+                  {selectedPet && selectedPet.characteristics.breed}
+                </span>
+              </h2>
+              <h2 className={styles.statName}>
+                Gender:{" "}
+                <span className={styles.statSpan}>
+                  {selectedPet && selectedPet.characteristics.gender}
+                </span>
+              </h2>
+              <h2 className={styles.statName}>
+                Size:{" "}
+                <span className={styles.statSpan}>
+                  {selectedPet && selectedPet.characteristics.size}
+                </span>
+              </h2>
+            </div>
+            <div className={styles.descriptionContainer}>
+              <h2>A little bit more about {selectedPet && selectedPet.name}</h2>
+              <p>{selectedPet && selectedPet.description}</p>
+            </div>
           </div>
         </div>
       </div>
-      <div className={styles.right_container}>
-        Owner
-        <div>{owner && owner.name}</div>
+      <div className={styles.owner_container}>
+        <div className={styles.OwnerDetails}>
+          {owner && owner.name}, {owner && owner.info.location}
+        </div>
         <img
           className={styles.owner_pic}
           src={owner && owner.image.url}
           alt=""
         />
-        <div>{owner && owner.info.location}</div>
       </div>
     </>
   );
