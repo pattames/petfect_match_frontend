@@ -112,6 +112,7 @@ export default function PetProfile() {
                       Name:
                     </label>
                     <input
+                      required
                       className={`${Styles.input}`}
                       type="text"
                       name="name"
@@ -138,6 +139,7 @@ export default function PetProfile() {
                         Dog
                       </label>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="cat"
                         type="radio"
@@ -172,11 +174,13 @@ export default function PetProfile() {
                   </div>
                   {petType === "dog" && (
                     <div className={`${Styles.inputBlock}`}>
-                      <label>
+                      <label htmlFor="dogbreed" className={`${Styles.lbl}`}>
+                        Breed:
                         <select
+                          className={`${Styles.select}`}
                           value={characteristics.breed}
                           name="breed"
-                          id="breed"
+                          id="dogbreed"
                           onChange={handleChange}
                         >
                           <option>--Select an option--</option>
@@ -202,11 +206,12 @@ export default function PetProfile() {
                   )}
                   {petType === "cat" && (
                     <div className={`${Styles.inputBlock}`}>
-                      <label>
+                      <label htmlFor="catbreed" className={`${Styles.lbl}`}>
+                        Breed:
                         <select
                           value={characteristics.breed}
                           name="breed"
-                          id="breed"
+                          id="catbreed"
                           onChange={handleChange}
                         >
                           <option>--Select an option--</option>
@@ -260,6 +265,7 @@ export default function PetProfile() {
                         Medium
                       </label>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="large"
                         type="radio"
@@ -306,6 +312,7 @@ export default function PetProfile() {
                         Young
                       </label>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="adult"
                         type="radio"
@@ -340,6 +347,7 @@ export default function PetProfile() {
                   <div className={`${Styles.inputBlock}`}>
                     <div id="gender" className={`${Styles.wrapper}`}>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="female"
                         type="radio"
@@ -355,6 +363,7 @@ export default function PetProfile() {
                         Female
                       </label>
                       <input
+                        required
                         className={`${Styles.radioInput}`}
                         id="male"
                         type="radio"
@@ -393,6 +402,7 @@ export default function PetProfile() {
                       Favorite things to do:
                     </label>
                     <input
+                      required
                       className={`${Styles.input}`}
                       type="text"
                       name="favorite_thing"
@@ -436,6 +446,7 @@ export default function PetProfile() {
                           </div>
                         )}
                         <input
+                          required
                           id="file"
                           type="file"
                           name="images"
