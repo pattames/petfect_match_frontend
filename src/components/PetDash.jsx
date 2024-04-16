@@ -3,6 +3,7 @@ import { UserContext } from "../context/UserContext";
 import PetDashCard from "./PetDashCard";
 import styles from "../css/PetDash.module.css";
 import AddPetCard from "./AddPetCard";
+import { Link } from "react-router-dom";
 
 export default function PetDash() {
   const [render, setRender] = useState(false);
@@ -22,7 +23,9 @@ export default function PetDash() {
         userPets.map((pet) => (
           <PetDashCard pet={pet} render={render} setRender={setRender} />
         ))}
-      <AddPetCard />
+      <Link to="/petprofile">
+        <AddPetCard />
+      </Link>
     </div>
   );
 }

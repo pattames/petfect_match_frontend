@@ -14,15 +14,15 @@ export default function Dashboard() {
       </h1> */}
       <Tabs>
         <TabList style={{ fontSize: "1.5rem" }}>
-          <Tab>Update user info</Tab>
           <Tab>My pets</Tab>
+          <Tab>Update user info</Tab>
         </TabList>
 
         <TabPanel>
-          <UserProfile />
+          <PetDash />
         </TabPanel>
         <TabPanel>
-          <PetDash />
+          <UserProfile />
         </TabPanel>
       </Tabs>
     </div>
