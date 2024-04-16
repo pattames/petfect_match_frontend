@@ -29,7 +29,7 @@ export default function PetProfile() {
   const [favorite, setFavorite] = useState("");
 
   useEffect(() => {
-    if (images.length) {
+    if (images && images.length) {
       const myArr = Array.from(images);
       const objectUrl = myArr.map((img) => URL.createObjectURL(img));
       setPreview(objectUrl);
