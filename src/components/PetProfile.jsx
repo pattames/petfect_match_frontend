@@ -10,7 +10,6 @@ export default function PetProfile() {
   const { user, flag, setFlag } = useContext(UserContext);
   const { decodedToken } = useJwt(user?.token);
   const _id = decodedToken?._id;
-  // console.log("IDIDIDID", _id);
   const [characteristics, setcharacteristics] = useState({
     breed: "",
     age: "",
@@ -20,7 +19,7 @@ export default function PetProfile() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [images, setImages] = useState([]);
-  const [preview, setPreview] = useState();
+  const [preview, setPreview] = useState([]);
 
   const [petType, setpetType] = useState("");
 
@@ -29,14 +28,25 @@ export default function PetProfile() {
   const [description, setDescription] = useState("");
   const [favorite, setFavorite] = useState("");
 
-  // useEffect(() => {
-  //   if (images) {
-  //     const objectUrl = URL.createObjectURL(images);
-  //     setPreview(objectUrl);
-  //     return () => URL.revokeObjectURL(objectUrl);
-  //   }
-  // }, [images]);
-  // console.log("preview", preview);
+  useEffect(() => {
+    if (images.length) {
+      const myArr = Array.from(images);
+      const objectUrl = myArr.map((img) => URL.createObjectURL(img));
+      setPreview(objectUrl);
+      console.log("IMG ARR", objectUrl);
+      return () => objectUrl.forEach((url) => URL.revokeObjectURL(url));
+    }
+  }, [images]);
+
+  const handleImage = (e) => {
+    const { files } = e.target;
+    if (files) {
+      console.log(files);
+      setImages(files);
+    }
+  };
+
+  console.log("IMAGES", images);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -85,23 +95,11 @@ export default function PetProfile() {
       }
     }
   };
-  // console.log("errrrorr", error);
 
   const handleChange = (e) => {
     console.log(e);
     setcharacteristics({ ...characteristics, [e.target.name]: e.target.value });
   };
-
-  // console.log("CHAR AFTER  CHANGE", characteristics);
-
-  const handleImage = (e) => {
-    const { files } = e.target;
-    if (files) {
-      console.log(files);
-      setImages(files);
-    }
-  };
-  console.log(favorite);
 
   return (
     <div className={`${Styles.main}`}>
@@ -426,25 +424,25 @@ export default function PetProfile() {
                         htmlFor="file"
                         style={{ zIndex: 100 }}
                       >
-                        {preview ? (
-                          <img
-                            src={preview}
-                            alt="Click to change"
-                            style={{
-                              maxWidth: "100%",
-                              maxHeight: "100%",
-                              cursor: "pointer",
-                              marginRight: "10px",
-                            }}
-                          />
-                        ) : (
-                          <div className={`${Styles.icon}`}>
-                            <ImgPlaceHolder className={`${Styles.svg}`} />
-                            <div className={`${Styles.text}`}>
-                              <span>Click to upload image</span>
+                        <div className={`${Styles.previewContainer}`}>
+                          {preview.length ? (
+                            preview.map((prev, index) => (
+                              <img
+                                key={index}
+                                src={prev}
+                                alt="Click to change"
+                                className={`${Styles.previewImage}`}
+                              />
+                            ))
+                          ) : (
+                            <div className={`${Styles.icon}`}>
+                              <ImgPlaceHolder className={`${Styles.svg}`} />
+                              <div className={`${Styles.text}`}>
+                                <span>Click to upload image</span>
+                              </div>
                             </div>
-                          </div>
-                        )}
+                          )}
+                        </div>
                         <input
                           id="file"
                           type="file"
