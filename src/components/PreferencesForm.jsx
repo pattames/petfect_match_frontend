@@ -15,7 +15,7 @@ export default function PreferencesForm() {
   return (
     <>
       <form className={styles.container}>
-        <h1 className={styles.title}>My Preferences</h1>
+        <h1 className={styles.title}>My Ideal Pet</h1>
         <h2 className={styles.categories}>Age</h2>
         <div className={styles.age}>
           <div className={styles.age_btn} onClick={() => setAge("newborn")}>

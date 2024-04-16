@@ -15,7 +15,6 @@ export default function LandingSwipe() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>Want to take me home with you?</h2>
       <Swiper
         effect={"cards"} // Add the effect property to enable the tilting effect
         grabCursor={true}
@@ -47,7 +46,7 @@ export default function LandingSwipe() {
       </Swiper>
       <div className={styles.btnWrapper}>
         <Link to="/match">
-          <button className={styles.btn}>See all pets</button>
+          <button className={styles.btn}>Find your match</button>
         </Link>
       </div>
     </div>
