@@ -2,20 +2,27 @@ import { PetsContext } from "../context/PetsContext";
 import { useState, useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { PreferencesContext } from "../context/PreferencesContext";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { EffectCards, Pagination, Navigation } from "swiper/modules";
 import styles from "../css/Swipeable.module.css";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation"; // Import CSS for navigation arrows
+import "swiper/css/effect-cards";
 
 function Swipeable() {
   const { pets } = useContext(PetsContext);
   const { age, size, gender } = useContext(PreferencesContext);
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itsMatch, setItsMatch] = useState(false);
-
   const [filteredPets, setFilteredPets] = useState([]);
 
   useEffect(() => {
     setFilteredPets(pets);
+    console.log("rendered");
   }, [pets]);
+
+  console.log("FILTERED PETS", filteredPets);
 
   const dogs = pets && pets.filter((pet) => pet.pet_type === "dog");
   const cats = pets && pets.filter((pet) => pet.pet_type === "cat");
@@ -91,7 +98,7 @@ function Swipeable() {
     const draftUrl = buildEmailDraftUrl(recipient, subject, body);
     window.location.href = draftUrl;
   };
-
+  console.log("§§§§§§§§§§§§§§§§§§§", currentPet);
   return (
     <>
       <div className={styles.container}>
@@ -104,6 +111,7 @@ function Swipeable() {
             Dogs <img className={styles.dog_icon} src="/Dog-icon.png" alt="" />
           </button>
         </div>
+
         <div className={styles.filter_btns_btm}>
           <button className={styles.filter_btn} onClick={handleCats}>
             Cats <img className={styles.cat_icon} src="/Cat-icon.png" alt="" />
@@ -113,8 +121,41 @@ function Swipeable() {
             <img className={styles.star_icon} src="/Star-icon.webp" alt="" />
           </button>
         </div>
-
-        {currentIndex < pets?.length && (
+        <Swiper
+          effect={"cards"} // Add the effect property to enable the tilting effect
+          grabCursor={true}
+          modules={[EffectCards, Pagination, Navigation]}
+          pagination={true} // Enable pagination dots
+          navigation={true} // Enable navigation arrows
+          className={styles.mySwiper}
+          style={{
+            "--swiper-navigation-color": "#000",
+            "--swiper-pagination-color": "#dedede",
+          }} // Use CSS module class
+        >
+          {/* Map through each pet and display the first image in each slide */}
+          {filteredPets &&
+            filteredPets?.map((pet, index) => (
+              <SwiperSlide key={index} className={styles.slide}>
+                <div className={styles.petCard}>
+                  <img
+                    src={pet.images && pet.images[0] && pet.images[0].url}
+                    alt={`pets ${index + 1}`}
+                    className={styles.image}
+                  />
+                  <div className={styles.nameWrapper}>
+                    <Link
+                      className={styles.more_info}
+                      to={`/match/${currentPet?._id}`}
+                    >
+                      <h3>More about {pet.name}</h3>
+                    </Link>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+        </Swiper>
+        {/* {currentIndex < pets?.length && (
           <div className={styles.picture_pet_container}>
             <img
               className={styles.picture_pet}
@@ -123,10 +164,11 @@ function Swipeable() {
                   ? currentPet.images[0].url
                   : "/picnopet.jpeg"
               }
+              //maybe here??? replace
               alt={currentPet && currentPet.name}
             />
           </div>
-        )}
+        )} */}
         {itsMatch && (
           <div className={styles.match_message}>
             <img className={styles.petfect_match_logo} src="logo.png" alt="" />

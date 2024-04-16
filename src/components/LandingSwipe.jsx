@@ -15,7 +15,6 @@ export default function LandingSwipe() {
 
   return (
     <div className={styles.container}>
-      <h2 className={styles.heading}>Want to take me home with you?</h2>
       <Swiper
         effect={"cards"} // Add the effect property to enable the tilting effect
         grabCursor={true}
@@ -34,7 +33,7 @@ export default function LandingSwipe() {
             <SwiperSlide key={index} className={styles.slide}>
               <div className={styles.petCard}>
                 <img
-                  src={pet.images[0] && pet.images[0].url}
+                  src={pet.images && pet.images[0] && pet.images[0].url}
                   alt={`pets ${index + 1}`}
                   className={styles.image}
                 />
@@ -46,7 +45,7 @@ export default function LandingSwipe() {
           ))}
       </Swiper>
       <div className={styles.btnWrapper}>
-        <button className={styles.btn}>See all pets</button>
+        <button className={styles.btn}>Find your match</button>
       </div>
     </div>
   );

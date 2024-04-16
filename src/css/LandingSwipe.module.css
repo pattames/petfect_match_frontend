@@ -1,6 +1,8 @@
 /* LandingSwipe.module.css */
 .container {
-  background-color: #f2e5e5;
+  background-image: url("/back-slide.png");
+  background-repeat: no-repeat;
+  background-size: cover;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,7 +10,7 @@
 }
 
 .slide {
-  background-color: grey;
+  background-color: white;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -23,7 +25,7 @@
   color: #fbd98d;
   -webkit-text-stroke: 2px #c1564c;
   font-size: 40px;
-  height: 100px;
+  height: 50px;
 }
 
 .mySwiper {
@@ -44,6 +46,7 @@
 
 .image {
   object-fit: cover;
+  padding: 40px;
   height: 400px;
 }
 
@@ -57,12 +60,14 @@
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
-  width: 350px;
+  width: 340px;
 }
 
 .heading {
-  color: #c1564c;
-  font-size: 45px;
+  font-family: "Acme", sans-serif;
+  color: #792f6c;
+  font-size: 38px;
+  font-weight: 400;
   margin-top: 50px;
 }
 

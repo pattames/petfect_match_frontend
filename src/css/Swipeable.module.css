@@ -5,8 +5,7 @@
   border: 1px solid black;
   border-radius: 5px;
   margin-top: 2rem;
-  width: 35rem;
-  max-height: fit-content;
+  width: 30rem;
   background-color: #f6c4b4;
 }
 .filter_btns_top {
@@ -27,7 +26,6 @@
   background-color: #ffd88d;
   color: black;
   font-size: medium;
-  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
   border-radius: 10px;
   cursor: pointer;
   display: flex;
@@ -52,7 +50,7 @@
 }
 
 .dog_icon {
-  width: 2rem;
+  width: 1.75rem;
 }
 
 .heart_icon {
