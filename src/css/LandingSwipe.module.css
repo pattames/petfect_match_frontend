@@ -43,7 +43,7 @@
 }
 
 .image {
-  object-fit: fill;
+  object-fit: cover;
   height: 400px;
 }
 
@@ -70,5 +70,4 @@
   height: 50px;
   width: 300px;
   border-radius: 10px;
-
 }
