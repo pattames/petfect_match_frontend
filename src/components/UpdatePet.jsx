@@ -5,12 +5,17 @@ import { UserContext } from "../context/UserContext";
 import ImgPlaceHolder from "./svg/ImgPlaceHolder";
 import DogSpinner from "./DogSpinner.jsx";
 import { useJwt } from "react-jwt";
+import { useLocation } from "react-router-dom";
 
-export default function PetProfile() {
+export default function UpdatePet() {
+  const { state } = useLocation();
+  const pet = state.pet;
+  //   console.log(pet);
+
   const { user, flag, setFlag } = useContext(UserContext);
   const { decodedToken } = useJwt(user?.token);
   const _id = decodedToken?._id;
-  // console.log("IDIDIDID", _id);
+
   const [characteristics, setcharacteristics] = useState({
     breed: "",
     age: "",
@@ -28,15 +33,6 @@ export default function PetProfile() {
 
   const [description, setDescription] = useState("");
   const [favorite, setFavorite] = useState("");
-
-  // useEffect(() => {
-  //   if (images) {
-  //     const objectUrl = URL.createObjectURL(images);
-  //     setPreview(objectUrl);
-  //     return () => URL.revokeObjectURL(objectUrl);
-  //   }
-  // }, [images]);
-  // console.log("preview", preview);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -58,8 +54,8 @@ export default function PetProfile() {
     description && formData.append("description", description); // Append description field
     if (name) {
       try {
-        await fetch("http://localhost:8080/pets", {
-          method: "POST",
+        await fetch(`http://localhost:8080/pets/${pet._id}`, {
+          method: "PUT",
           headers: {
             Authorization: `Bearer ${user.token}`,
           },
@@ -97,11 +93,11 @@ export default function PetProfile() {
   const handleImage = (e) => {
     const { files } = e.target;
     if (files) {
-      console.log(files);
+      //   console.log(files);
       setImages(files);
     }
   };
-  console.log(favorite);
+  //   console.log(favorite);
 
   return (
     <div className={`${Styles.main}`}>
@@ -111,7 +107,7 @@ export default function PetProfile() {
             <DogSpinner />
           ) : (
             <form className={`${Styles.form}`} onSubmit={handleSubmit}>
-              <h3 className={`${Styles.title}`}>Add Pet</h3>
+              <h3 className={`${Styles.title}`}>Update Pet</h3>
               <div className={`${Styles.test}`}>
                 <div className={`${Styles.g1}`}>
                   <div className={`${Styles.inputBlock}`}>
@@ -122,6 +118,7 @@ export default function PetProfile() {
                       className={`${Styles.input}`}
                       type="text"
                       name="name"
+                      placeholder={pet.name}
                       value={name}
                       onChange={(e) => {
                         setName(e.target.value);
@@ -414,7 +411,7 @@ export default function PetProfile() {
                   </div>
                   <div className={`${Styles.inputBlock}`}>
                     <button type="submit" className={`${Styles.btn}`}>
-                      Add Pet
+                      Update Pet
                     </button>
                   </div>
                 </div>

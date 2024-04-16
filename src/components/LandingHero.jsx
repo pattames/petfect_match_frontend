@@ -15,18 +15,18 @@ export default function LandingHero() {
         <div className={styles.buttons}>
           <div className={styles.buttonWrapper}>
             <Link to="/match">
-              <a className={styles.link}>
+              <div className={styles.link}>
                 <img src="/dog_button.png" className={styles.petIcons}></img>
                 Adopt me
-              </a>
+              </div>
             </Link>
           </div>
           <div className={styles.buttonWrapper}>
             <Link className={styles.link_to} to="/dashboard">
-              <a className={styles.link}>
+              <div className={styles.link}>
                 <img src="/cat_button.png" className={styles.petIcons}></img>
                 Rehome me
-              </a>
+              </div>
             </Link>
           </div>
         </div>
