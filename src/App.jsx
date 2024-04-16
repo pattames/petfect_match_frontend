@@ -22,6 +22,7 @@ import PetProfile from "./components/PetProfile";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import TipsAndTricks from "./components/TipsAndTricks";
+import UpdatePet from "./components/UpdatePet";
 
 function App() {
   const { user } = useContext(UserContext);
@@ -50,6 +51,10 @@ function App() {
         <Route
           path="/petprofile"
           element={user ? <PetProfile /> : <Homepage />}
+        />
+        <Route
+          path="/updatepet"
+          element={user ? <UpdatePet /> : <Homepage />}
         />
         <Route path="/tips-and-tricks" element={<TipsAndTricks />} />
         <Route path="*" element={<ErrorPage />} />

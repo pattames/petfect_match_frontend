@@ -21,7 +21,12 @@ export default function PetDash() {
     <div className={styles.dash_container}>
       {userPets &&
         userPets.map((pet) => (
-          <PetDashCard pet={pet} render={render} setRender={setRender} />
+          <PetDashCard
+            key={pet._id}
+            pet={pet}
+            render={render}
+            setRender={setRender}
+          />
         ))}
       <Link to="/petprofile">
         <AddPetCard />
