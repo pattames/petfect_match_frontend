@@ -5,7 +5,7 @@ export default function PetDashCard({ pet }) {
   return (
     <div className={styles.card_container}>
       <div className={styles.img_container}>
-        <img src={pet.images[0].url} />
+        <img src={pet && pet.images[0] && pet.images[0].url} />
       </div>
       <div className={styles.info}>
         <h3>{pet.name}</h3>

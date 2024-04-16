@@ -70,25 +70,33 @@ export default function PetId() {
               <h2 className={styles.statName}>
                 Age:{" "}
                 <span className={styles.statSpan}>
-                  {selectedPet && selectedPet.characteristics.age}
+                  {selectedPet &&
+                    selectedPet.characteristics &&
+                    selectedPet.characteristics.age}
                 </span>
               </h2>
               <h2 className={styles.statName}>
                 Breed:{" "}
                 <span className={styles.statSpan}>
-                  {selectedPet && selectedPet.characteristics.breed}
+                  {selectedPet &&
+                    selectedPet.characteristics &&
+                    selectedPet.characteristics.breed}
                 </span>
               </h2>
               <h2 className={styles.statName}>
                 Gender:{" "}
                 <span className={styles.statSpan}>
-                  {selectedPet && selectedPet.characteristics.gender}
+                  {selectedPet &&
+                    selectedPet.characteristics &&
+                    selectedPet.characteristics.gender}
                 </span>
               </h2>
               <h2 className={styles.statName}>
                 Size:{" "}
                 <span className={styles.statSpan}>
-                  {selectedPet && selectedPet.characteristics.size}
+                  {selectedPet &&
+                    selectedPet.characteristics &&
+                    selectedPet.characteristics.size}
                 </span>
               </h2>
             </div>
