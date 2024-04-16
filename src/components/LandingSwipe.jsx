@@ -20,7 +20,7 @@ export default function LandingSwipe() {
         grabCursor={true}
         modules={[EffectCards, Pagination, Navigation]}
         pagination={true} // Enable pagination dots
-        navigation={true} // Enable navigation arrows
+        navigation={false} // Enable navigation arrows
         className={styles.mySwiper}
         style={{
           "--swiper-navigation-color": "#000",

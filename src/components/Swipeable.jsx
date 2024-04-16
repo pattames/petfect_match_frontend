@@ -9,6 +9,13 @@ import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation"; // Import CSS for navigation arrows
 import "swiper/css/effect-cards";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faCat,
+  faDog,
+  faStar,
+  faHeart,
+} from "@fortawesome/free-solid-svg-icons";
 
 function Swipeable() {
   const { pets } = useContext(PetsContext);
@@ -16,11 +23,14 @@ function Swipeable() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [itsMatch, setItsMatch] = useState(false);
   const [filteredPets, setFilteredPets] = useState([]);
+  const [currentPet, setCurrentPet] = useState(null);
 
   useEffect(() => {
     setFilteredPets(pets);
     console.log("rendered");
   }, [pets]);
+
+  console.log("CHARACTERISTICS", age, size, gender);
 
   console.log("FILTERED PETS", filteredPets);
 
@@ -61,19 +71,17 @@ function Swipeable() {
     setCurrentIndex((prev) => prev - 1);
   };
 
-  const currentPet = filteredPets && filteredPets[currentIndex];
-
   //Comparison logic
   //If preferences age === pet age then it's a match, else it's not
   useEffect(() => {
     const comparison = () => {
       if (
         age &&
-        age === currentPet.characteristics.age &&
+        age === currentPet?.characteristics.age &&
         size &&
-        size === currentPet.characteristics.size &&
+        size === currentPet?.characteristics.size &&
         gender &&
-        gender === currentPet.characteristics.gender
+        gender === currentPet?.characteristics.gender
       ) {
         setItsMatch(true);
       } else {
@@ -81,10 +89,12 @@ function Swipeable() {
       }
     };
     comparison();
-  }, [age, size, gender, handleBack, handleNext]);
+    console.log("FILTERED PETS IN EFFECT", filteredPets);
+    filteredPets.length && setCurrentPet(filteredPets[currentIndex]);
+  }, [age, size, gender, currentIndex, currentPet, filteredPets]);
 
   // console.log(itsMatch);
-  console.log(currentPet);
+  console.log("CURRENT PET", currentPet);
 
   //Redirect user to email
   const buildEmailDraftUrl = (recipient, subject, body) => {
@@ -98,40 +108,25 @@ function Swipeable() {
     const draftUrl = buildEmailDraftUrl(recipient, subject, body);
     window.location.href = draftUrl;
   };
-  console.log("§§§§§§§§§§§§§§§§§§§", currentPet);
   return (
     <>
       <div className={styles.container}>
-        <div className={styles.filter_btns_top}>
-          <button className={styles.filter_btn} onClick={handleAllPets}>
-            All
-            <img className={styles.heart_icon} src="/Heart-icon.png" alt="" />
-          </button>
-          <button className={styles.filter_btn_dogs} onClick={handleDogs}>
-            Dogs <img className={styles.dog_icon} src="/Dog-icon.png" alt="" />
-          </button>
-        </div>
-
-        <div className={styles.filter_btns_btm}>
-          <button className={styles.filter_btn} onClick={handleCats}>
-            Cats <img className={styles.cat_icon} src="/Cat-icon.png" alt="" />
-          </button>
-          <button className={styles.filter_btn} onClick={handleOthers}>
-            Others{" "}
-            <img className={styles.star_icon} src="/Star-icon.webp" alt="" />
-          </button>
-        </div>
         <Swiper
           effect={"cards"} // Add the effect property to enable the tilting effect
           grabCursor={true}
           modules={[EffectCards, Pagination, Navigation]}
           pagination={true} // Enable pagination dots
-          navigation={true} // Enable navigation arrows
+          navigation={false} // Enable navigation arrows
           className={styles.mySwiper}
           style={{
             "--swiper-navigation-color": "#000",
             "--swiper-pagination-color": "#dedede",
           }} // Use CSS module class
+          onSlideChange={(swiper) => {
+            console.log("SUP", swiper);
+            setCurrentIndex(swiper.activeIndex);
+            setCurrentPet(filteredPets[currentIndex]);
+          }}
         >
           {/* Map through each pet and display the first image in each slide */}
           {filteredPets &&
@@ -148,56 +143,63 @@ function Swipeable() {
                       className={styles.more_info}
                       to={`/match/${currentPet?._id}`}
                     >
-                      <h3>More about {pet.name}</h3>
+                      <div className={styles.nameWrapper}>
+                        <h3>More about {pet.name}</h3>
+                      </div>
                     </Link>
                   </div>
                 </div>
               </SwiperSlide>
             ))}
         </Swiper>
-        {/* {currentIndex < pets?.length && (
-          <div className={styles.picture_pet_container}>
-            <img
-              className={styles.picture_pet}
-              src={
-                currentPet && currentPet.images.length
-                  ? currentPet.images[0].url
-                  : "/picnopet.jpeg"
-              }
-              //maybe here??? replace
-              alt={currentPet && currentPet.name}
+        <div className={styles.filter_btns_top}>
+          <a className={styles.filter_btn} onClick={handleAllPets}>
+            All
+            <FontAwesomeIcon
+              icon={faHeart}
+              style={{ color: "#792f6c" }}
+              size="xl"
             />
-          </div>
-        )} */}
+          </a>
+          <a className={styles.filter_btn_dogs} onClick={handleDogs}>
+            Dogs{" "}
+            <FontAwesomeIcon
+              icon={faDog}
+              size="xl"
+              style={{ color: "#792f6c" }}
+            />
+          </a>
+          <a className={styles.filter_btn} onClick={handleCats}>
+            Cats{" "}
+            <FontAwesomeIcon
+              icon={faCat}
+              size="xl"
+              style={{ color: "#792f6c" }}
+            />
+          </a>
+          <a className={styles.filter_btn} onClick={handleOthers}>
+            Others{" "}
+            <FontAwesomeIcon
+              icon={faStar}
+              style={{ color: "#792f6c" }}
+              size="xl"
+            />
+          </a>
+        </div>
+
         {itsMatch && (
-          <div className={styles.match_message}>
-            <img className={styles.petfect_match_logo} src="logo.png" alt="" />
+          <button
+            className={styles.contact_owner_btn}
+            onClick={handleEmailClick}
+          >
+            Contact the owner
+          </button>
+        )}
+        {itsMatch && (
+          <div>
+            <img src="logo.png" alt="" />
           </div>
         )}
-        <Link className={styles.more_info} to={`/match/${currentPet?._id}`}>
-          <div className={styles.more_about_pet}>
-            More about <br /> {currentPet?.name}
-          </div>
-        </Link>
-
-        <div className={styles.main_btns}>
-          <div className={styles.next_back_btns_container}>
-            <button className={styles.next_btn} onClick={handleNext}>
-              Next
-            </button>
-            <button className={styles.back_btn} onClick={handleBack}>
-              Back
-            </button>
-            {itsMatch && (
-              <button
-                className={styles.contact_owner_btn}
-                onClick={handleEmailClick}
-              >
-                Contact owner !!!
-              </button>
-            )}
-          </div>
-        </div>
       </div>
     </>
   );
