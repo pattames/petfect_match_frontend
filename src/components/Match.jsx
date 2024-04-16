@@ -10,7 +10,10 @@ function Match() {
           <img className={styles.img} src="/instpic.jpg" alt="" />
         </div>
         <div className={styles.instructions_box}>
-          <div className={styles.instructions_title}> Instructions</div>
+          <div className={styles.instructions_title}>
+            {" "}
+            How to find your petfect friend:
+          </div>
           <div className={styles.instructions_sentence}>
             Unleash your inner animal lover by clicking on all the pet types
             first
