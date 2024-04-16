@@ -10,6 +10,7 @@ export default function PetProfile() {
   const { user } = useContext(UserContext);
   const { decodedToken } = useJwt(user?.token);
   const _id = decodedToken?._id;
+  // console.log("IDIDIDID", _id);
   const [characteristics, setcharacteristics] = useState({
     breed: "",
     age: "",
@@ -18,8 +19,8 @@ export default function PetProfile() {
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [image, setImage] = useState("");
-  const [preview, setPreview] = useState(null);
+  const [images, setImage] = useState();
+  const [preview, setPreview] = useState();
 
   const [petType, setpetType] = useState("");
 
@@ -29,12 +30,13 @@ export default function PetProfile() {
   const [favorite, setFavorite] = useState("");
 
   useEffect(() => {
-    if (image) {
-      const objectUrl = URL.createObjectURL(image);
+    if (images) {
+      const objectUrl = URL.createObjectURL(images);
       setPreview(objectUrl);
       return () => URL.revokeObjectURL(objectUrl);
     }
-  }, [image]);
+  }, [images]);
+  // console.log("preview", preview);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -43,38 +45,56 @@ export default function PetProfile() {
 
     const formData = new FormData();
     formData.append("name", name);
+    formData.append("pet_type", petType);
     formData.append("characteristics", JSON.stringify(characteristics));
-    formData.append("image", image);
-    try {
-      await fetch("http://localhost:8080/pets", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: formData,
-      });
-      console.log("SUBMISSION SUCCESSFULL: ", formData);
-    } catch (error) {
-      setError(error);
-    } finally {
-      setLoading(false);
-      setImage(null);
-      setcharacteristics({
-        breed: "",
-        age: "",
-        size: "",
-        gender: "",
-      });
-      setName("");
+    formData.append("owner", _id);
+    images && formData.append("image", images);
+    favorite && formData.append("favorite_thing", favorite); // Append favorite field
+    description && formData.append("description", description); // Append description field
+    if (name && petType) {
+      try {
+        await fetch("http://localhost:8080/pets", {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: formData,
+        });
+        console.log("SUBMISSION SUCCESSFULL");
+      } catch (error) {
+        setError(error);
+        console.log("errrrorr", error);
+      } finally {
+        setLoading(false);
+        setImage(null);
+        setcharacteristics({
+          breed: "",
+          age: "",
+          size: "",
+          gender: "",
+        });
+        setName("");
+        setFavorite("");
+        setDescription("");
+      }
     }
   };
+  console.log("errrrorr", error);
 
   const handleChange = (e) => {
     console.log(e);
     setcharacteristics({ ...characteristics, [e.target.name]: e.target.value });
   };
 
-  console.log("CHAR AFTER  CHANGE", characteristics);
+  // console.log("CHAR AFTER  CHANGE", characteristics);
+
+  const handleImage = (e) => {
+    const { files } = e.target;
+    if (files) {
+      console.log(files[0]);
+      setImage(files[0]);
+    }
+  };
 
   return (
     <div className={`${Styles.main}`}>
@@ -146,7 +166,7 @@ export default function PetProfile() {
                         Other
                       </label>
                     </div>
-                    <label className={`${Styles.lbl}`} htmlFor="pet_Type">
+                    <label className={`${Styles.lbl}`} htmlFor="pet_type">
                       Pet Type:
                     </label>
                   </div>
@@ -369,13 +389,13 @@ export default function PetProfile() {
                     />
                   </div>
                   <div className={`${Styles.inputBlock}`}>
-                    <label className={`${Styles.lbl}`} htmlFor="favorite">
+                    <label className={`${Styles.lbl}`} htmlFor="favorite_thing">
                       Favorite things to do:
                     </label>
                     <input
                       className={`${Styles.input}`}
                       type="text"
-                      name="favorite"
+                      name="favorite_thing"
                       value={favorite}
                       onChange={(e) => {
                         setFavorite(e.target.value);
@@ -396,7 +416,7 @@ export default function PetProfile() {
                         htmlFor="file"
                         style={{ zIndex: 100 }}
                       >
-                        {image ? (
+                        {preview ? (
                           <img
                             src={preview}
                             alt="Click to change"
@@ -404,6 +424,7 @@ export default function PetProfile() {
                               maxWidth: "100%",
                               maxHeight: "100%",
                               cursor: "pointer",
+                              marginRight: "10px",
                             }}
                           />
                         ) : (
@@ -417,9 +438,10 @@ export default function PetProfile() {
                         <input
                           id="file"
                           type="file"
-                          name="image"
+                          name="images"
                           accept="image/*"
                           style={{ display: "none" }}
+                          onChange={handleImage}
                         />
                       </label>
                     </div>
