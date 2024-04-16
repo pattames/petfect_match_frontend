@@ -34,7 +34,7 @@ export default function LandingSwipe() {
             <SwiperSlide key={index} className={styles.slide}>
               <div className={styles.petCard}>
                 <img
-                  src={pet.images[0] && pet.images[0].url}
+                  src={pet.images && pet.images[0] && pet.images[0].url}
                   alt={`pets ${index + 1}`}
                   className={styles.image}
                 />
