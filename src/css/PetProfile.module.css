@@ -259,6 +259,12 @@ a {
     transform: translate(-50%, -50%);
 }
 
+.picp {
+    color: gray;
+    padding: 1rem;
+
+}
+
 .lbl {
     position: absolute;
     left: 9%;

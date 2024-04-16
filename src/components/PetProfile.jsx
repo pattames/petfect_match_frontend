@@ -419,6 +419,9 @@ export default function PetProfile() {
                 <div className={`${Styles.g2}`}>
                   <div className={`${Styles.right}`}>
                     <div className={`${Styles.inputBlock}`}>
+                      <p className={`${Styles.picp}`}>
+                        you can upload up to four picture
+                      </p>
                       <label
                         className={`${Styles.custumFileUpload}`}
                         htmlFor="file"
