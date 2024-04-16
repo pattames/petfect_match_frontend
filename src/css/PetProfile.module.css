@@ -141,7 +141,7 @@ a {
 }
 
 .custumFileUpload {
-    height: 200px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: space-between;
@@ -259,6 +259,12 @@ a {
     transform: translate(-50%, -50%);
 }
 
+.picp {
+    color: gray;
+    padding: 1rem;
+
+}
+
 .lbl {
     position: absolute;
     left: 9%;
@@ -273,6 +279,19 @@ a {
         4px 4px 4px rgba(218, 218, 218, 0.13);
     padding: 5px;
     margin-bottom: 10px;
+}
 
+.previewContainer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 4px;
+    flex-direction: row;
+    justify-content: space-around;
+}
 
+.previewImage {
+    max-width: 100px;
+    max-height: 100px;
+    cursor: pointer;
 }
