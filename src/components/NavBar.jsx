@@ -25,9 +25,9 @@ function NavBar() {
           <NavLink className={`${Styles.navLink}`} to="/">
             <p className={`${Styles.navItem}`}>Home</p>
           </NavLink>
-          <div className={`${Styles.navLink}`}>
+          <NavLink className={`${Styles.navLink}`} to="/aboutUs">
             <p className={`${Styles.navItem}`}>About us</p>
-          </div>
+          </NavLink>
           <div className={`${Styles.navLink}`}>
             <button className={`${Styles.logoutbtn}`} onClick={handleClick}>
               Log out
@@ -57,7 +57,9 @@ function NavBar() {
           <NavLink className={`${Styles.navLink}`} to="/">
             Home
           </NavLink>
-          <div className={`${Styles.navLink}`}>About us</div>
+          <NavLink className={`${Styles.navLink}`} to="/aboutUs">
+            About us
+          </NavLink>
           <NavLink className={`${Styles.navLink}`} to="/signup">
             Sign up
           </NavLink>

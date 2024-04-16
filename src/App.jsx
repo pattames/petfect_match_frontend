@@ -20,8 +20,8 @@ import Dashboard from "./components/Dashboard";
 import PetProfile from "./components/PetProfile";
 
 import Footer from "./components/Footer";
+import AboutUs from "./components/AboutUs";
 import TipsAndTricks from "./components/TipsAndTricks";
-
 
 function App() {
   const { user } = useContext(UserContext);
@@ -49,6 +49,7 @@ function App() {
           path="/dashboard"
           element={user ? <Dashboard /> : <Homepage />}
         />
+        <Route path="/aboutUs" element={<AboutUs />} />
 
         <Route
           path="/petprofile"
