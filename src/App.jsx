@@ -43,21 +43,15 @@ function App() {
           path="/signup"
           element={!user ? <Signup /> : <Navigate to={"/"} />}
         />
-        <Route path="/match" element={user ? <Match /> : <Homepage />} />
-        <Route path="/match/:id" element={user ? <PetId /> : <Homepage />} />
-        <Route
-          path="/dashboard"
-          element={user ? <Dashboard /> : <Homepage />}
-        />
+        <Route path="/match" element={user ? <Match /> : <Signup />} />
+        <Route path="/match/:id" element={user ? <PetId /> : <Signup />} />
+        <Route path="/dashboard" element={user ? <Dashboard /> : <Signup />} />
         <Route path="/aboutUs" element={<AboutUs />} />
-
         <Route
           path="/petprofile"
           element={user ? <PetProfile /> : <Homepage />}
         />
-
         <Route path="/tips-and-tricks" element={<TipsAndTricks />} />
-
         <Route path="*" element={<ErrorPage />} />
       </Routes>
       <Footer />

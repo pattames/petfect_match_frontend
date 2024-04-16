@@ -17,7 +17,6 @@ export default function UserProfile() {
   const [name, setName] = useState("");
   const [image, setImage] = useState("");
   const [preview, setPreview] = useState(null);
-
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 

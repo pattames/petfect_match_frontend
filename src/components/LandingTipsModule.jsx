@@ -11,7 +11,6 @@ export default function LandingTipsModule() {
         <p className={styles.subheadline}>Check out our tips and tricks page</p>
         <div className={styles.buttonWrapper}>
           <Link to="/tips-and-tricks">
-            {" "}
             <button to="" className={styles.button}>
               Read more
             </button>
