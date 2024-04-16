@@ -77,7 +77,7 @@ function Swipeable() {
   }, [age, size, gender, handleBack, handleNext]);
 
   // console.log(itsMatch);
-  // console.log(currentPet);
+  console.log(currentPet);
 
   //Redirect user to email
   const buildEmailDraftUrl = (recipient, subject, body) => {

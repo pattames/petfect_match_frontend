@@ -15,7 +15,7 @@ export default function UserProfile() {
     space_type: "",
   });
   const [name, setName] = useState("");
-  const [image, setImage] = useState([]);
+  const [image, setImage] = useState("");
   const [preview, setPreview] = useState([]);
 
   const [loading, setLoading] = useState(false);
