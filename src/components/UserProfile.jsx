@@ -20,6 +20,8 @@ export default function UserProfile() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
+  const [successmessage, setSuccessMessage] = useState("");
+
   useEffect(() => {
     if (image) {
       const objectUrl = URL.createObjectURL(image);
@@ -38,14 +40,19 @@ export default function UserProfile() {
     formData.append("info", JSON.stringify(info));
     formData.append("image", image);
     try {
-      await fetch(`http://localhost:8080/user/${_id}`, {
-        method: "PUT",
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-        body: formData,
-      });
+      await fetch(
+        //`http://localhost:8080/user/${_id}`,
+        `https://purrfect-backend-hsd1.onrender.com/user/${_id}`,
+        {
+          method: "PUT",
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+          body: formData,
+        }
+      );
       console.log("SUBMISSION SUCCESSFULL: ", formData);
+      setSuccessMessage("SUBMISSION SUCCESSFULL");
     } catch (error) {
       setError(error);
     } finally {
@@ -81,6 +88,7 @@ export default function UserProfile() {
           ) : (
             <form className={`${Styles.form}`} onSubmit={handleSubmit}>
               {/* <h3 className={`${Styles.title}`}>User Profile</h3> */}
+              <h2 className={Styles.successmessage}>{successmessage}</h2>
               <div className={`${Styles.test}`}>
                 <div className={`${Styles.g1}`}>
                   <div className={`${Styles.inputBlock}`}>
@@ -91,7 +99,7 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       type="text"
                       name="name"
-                      placeholder={user.name ? user.name : "-"}
+                      // placeholder={user.name ? user.name : "-"}
                       value={name}
                       onChange={(e) => {
                         setName(e.target.value);
@@ -106,9 +114,9 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       type="text"
                       name="location"
-                      placeholder={
-                        user.info.location ? user.info.location : "-"
-                      }
+                      // placeholder={
+                      //   user.info.location ? user.info.location : "-"
+                      // }
                       value={info.location}
                       onChange={handleChange}
                     />
@@ -124,11 +132,11 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       name="space_available"
                       type="text"
-                      placeholder={
-                        user.info.space_available
-                          ? user.info.space_available
-                          : "-"
-                      }
+                      // placeholder={
+                      //   user.info.space_available
+                      //     ? user.info.space_available
+                      //     : "-"
+                      // }
                       value={info.space_available}
                       onChange={handleChange}
                     />
@@ -141,9 +149,9 @@ export default function UserProfile() {
                       className={`${Styles.input}`}
                       name="space_type"
                       type="text"
-                      placeholder={
-                        user.info.space_type ? user.info.space_type : "-"
-                      }
+                      // placeholder={
+                      //   user.info.space_type ? user.info.space_type : "-"
+                      // }
                       value={info.space_type}
                       onChange={handleChange}
                     />
