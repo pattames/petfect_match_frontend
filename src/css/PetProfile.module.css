@@ -9,7 +9,7 @@
     flex-wrap: nowrap;
     justify-content: center;
     flex-direction: row;
-    padding-top: calc(50vh - 250px);
+    margin: 2rem;
 }
 
 .container {
@@ -17,7 +17,7 @@
     gap: 40px;
     width: 840px;
     height: auto;
-    max-width: 99%;
+    max-width: 100%;
     align-items: center;
     justify-content: center;
     position: relative;
