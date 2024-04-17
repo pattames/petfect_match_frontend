@@ -1,30 +1,43 @@
 .gridContainer {
-  width: 600px;
+  width: 500px;
   margin: auto;
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
   grid-template-rows: 0.8fr 0.8fr;
   gap: 10px;
-  margin-top: 50px;
+  margin-top: 27px;
   margin-bottom: 70px;
+
+
 }
 
 .gridItem {
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  box-shadow: rgba(61, 61, 61, 0.3) 0px 5px 15px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: white;
+  background-color: #fefefe;
   border: 1px solid #ccc;
+  position: relative;
+  gap: 0.75rem;
+  padding: 1rem;
+  width: 14rem;
+  border-radius: 1rem;
+
+}
+
+.imgContainer {
+  height: 150px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .image {
-  padding: 20px;
-  border-radius: 10px;
-  width: 200px; /* Adjust according to your design */
-  height: 250px; /* Adjust according to your design */
+  width: 100%;
+  height: 100%;
   object-fit: cover;
+  border-radius: 20px 20px 0 0;
 }
 
 .title {
