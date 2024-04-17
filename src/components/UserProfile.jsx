@@ -51,7 +51,6 @@ export default function UserProfile() {
           body: formData,
         }
       );
-      console.log("SUBMISSION SUCCESSFULL: ", formData);
       setSuccessMessage("SUBMISSION SUCCESSFULL");
     } catch (error) {
       setError(error);
@@ -74,7 +73,6 @@ export default function UserProfile() {
   const handleImage = (e) => {
     const { files } = e.target;
     if (files) {
-      console.log(files[0]);
       setImage(files[0]);
     }
   };

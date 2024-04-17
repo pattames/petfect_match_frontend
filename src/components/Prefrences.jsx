@@ -24,14 +24,6 @@ export default function Prefrences() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  //const handleChange = (e) => {
-  // const { name, value } = e.target;
-  //  setFormData({
-  //   ...formData,
-  //   [name]: value,
-  // });
-  // console.log(formData);
-  //};
   const handleChange = (e) => {
     const { name, value } = e.target;
     const [parentKey, childKey] = name.split(".");
@@ -50,7 +42,6 @@ export default function Prefrences() {
         [name]: value,
       });
     }
-    console.log(formData);
   };
 
   const handleSubmit = async (e) => {
@@ -73,14 +64,11 @@ export default function Prefrences() {
 
     const data = await response.json();
     if (!response.ok) {
-      console.log("Response was NOT ok");
-
       setLoading(false); //stop loading
       setError(data.error);
     }
     //Check if response is ok, we can put it in localestorage
     if (response.ok) {
-      console.log("Response was ok");
       localStorage.setItem("user", JSON.stringify(data));
       setLoading(false);
       //setUser(data);

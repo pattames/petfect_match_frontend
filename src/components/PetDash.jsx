@@ -14,9 +14,6 @@ export default function PetDash() {
     setUserPets(fetchedUser.pets);
   }, [render, fetchedUser.pets]);
 
-  // console.log(user);
-  // console.log(userPets);
-
   return (
     <div>
       <div className={styles.dash_container}>

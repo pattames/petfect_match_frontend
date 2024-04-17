@@ -11,7 +11,6 @@ import { EffectCards, Pagination, Navigation } from "swiper/modules";
 
 export default function LandingSwipe() {
   const { pets } = useContext(PetsContext);
-  // console.log(pets);
 
   return (
     <div className={styles.container}>

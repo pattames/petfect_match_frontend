@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function PetDashCard({ pet }) {
-  //   console.log(pet);
   const { user, flag, setFlag } = useContext(UserContext);
   const navigate = useNavigate();
 

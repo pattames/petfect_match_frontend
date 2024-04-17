@@ -10,8 +10,6 @@ export default function PreferencesForm() {
   const { age, setAge, size, setSize, gender, setGender } =
     useContext(PreferencesContext);
 
-  // console.log(age, size, gender);
-
   return (
     <>
       <form className={styles.container}>
