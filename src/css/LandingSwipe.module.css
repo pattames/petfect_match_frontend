@@ -72,8 +72,22 @@
 }
 
 .btn {
-  height: 50px;
-  width: 300px;
-  border-radius: 10px;
+  outline: none;
+  border: 1px solid rgba(255, 0, 0, 0);
+  border-radius: 0.5rem;
+  padding: 10px 20px;
+  margin: 10px auto;
+  display: block;
+  font-weight: 500;
+  font-size: 1.1em;
+  background-color: #c1564c;
+  color: white;
+  font-size: medium;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+
+}
+
+.btn:hover {
+  background-color: #b54141;
   cursor: pointer;
 }
