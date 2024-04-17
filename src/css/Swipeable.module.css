@@ -92,11 +92,19 @@
 .contact_owner_btn {
   font-size: 1rem;
   padding: 0.5rem;
-  border-radius: 10px;
-  width: 18rem;
+  border-radius: 20px;
+  width: 12rem;
   margin: auto;
   margin-top: 1rem;
-  box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  border: none;
+  background-color: #792f6c;
+  color: white;
+  transition: transform 0.3s ease;
+}
+
+.contact_owner_btn:hover {
+  transform: scale(1.1);
 }
 
 .slide {
@@ -139,4 +147,16 @@
   padding: 40px;
   width: 400px;
   height: 400px;
+}
+
+.divLogo {
+  position: absolute;
+  left: -50%;
+  top: 35%;
+  z-index: 1;
+}
+
+.logo {
+  width: 300px;
+  height: auto;
 }

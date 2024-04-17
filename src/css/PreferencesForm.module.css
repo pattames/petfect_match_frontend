@@ -34,13 +34,14 @@
 
 .age_btn {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  gap: 3px;
+  padding: 0.4em;
   justify-content: center;
   align-items: center;
   outline: none;
   border-radius: 20px;
-  transition: background-color 0.2s, border-color 0.2s;
-  padding: 0.5em;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
   margin-bottom: 0.5em;
   background-color: white;
 }
@@ -63,8 +64,11 @@
   outline: none;
   border-radius: 20px;
   transition: background-color 0.2s, border-color 0.2s;
-  padding: 0.5em;
+  flex-direction: row-reverse;
+  gap: 4px;
+  padding: 0.4em;
   margin-bottom: 0.5em;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
   background-color: white;
 }
 
@@ -76,13 +80,15 @@
 
 .gender_btn {
   display: flex;
-  flex-direction: column;
+  flex-direction: row-reverse;
+  gap: 4px;
+  padding: 0.4em;
   justify-content: center;
   align-items: center;
   outline: none;
   border-radius: 20px;
-
-  padding: 0.5em;
+  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  padding: 0.4em;
   margin-bottom: 0.5em;
   background-color: white;
 }
