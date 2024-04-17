@@ -98,16 +98,21 @@ function Swipeable() {
 
   //Redirect user to email
   const buildEmailDraftUrl = (recipient, subject, body) => {
-    return `mailto:<span class="math-inline">\{recipient\}?subject\=</span>{subject}&body=${body}`;
+    return `mailto:${recipient}?subject=${encodeURIComponent(
+      subject
+    )}&body=${body}`;
   };
 
   const handleEmailClick = () => {
-    const recipient = "example@email.com";
-    const subject = "Your Subject";
-    const body = "Your pre-filled email content";
+    const recipient = "marcofanti@gmail.com";
+    const subject = "PetFect Match - Adopt a Pet";
+    const body = `I am writing to express my strong interest in adopting your pet ${currentPet.name}. I've been looking to welcome a furry (or feathered!) friend into my loving home!`;
+
     const draftUrl = buildEmailDraftUrl(recipient, subject, body);
     window.location.href = draftUrl;
+    window.open(draftUrl, "_blank", "noopener,noreferrer");
   };
+
   return (
     <>
       <div className={styles.container}>
