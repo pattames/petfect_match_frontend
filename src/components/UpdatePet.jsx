@@ -47,8 +47,7 @@ export default function UpdatePet() {
       });
     formData.append("name", name);
     petType && formData.append("pet_type", petType);
-    characteristics.age &&
-      formData.append("characteristics", JSON.stringify(characteristics));
+    formData.append("characteristics", JSON.stringify(characteristics));
     formData.append("owner", _id);
     favorite && formData.append("favorite_thing", favorite); // Append favorite field
     description && formData.append("description", description); // Append description field
