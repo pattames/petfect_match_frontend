@@ -196,8 +196,8 @@ function Swipeable() {
           </button>
         )}
         {itsMatch && (
-          <div>
-            <img src="logo.png" alt="" />
+          <div className={styles.divLogo}>
+            <img src="logo.png" alt="" className={styles.logo} />
           </div>
         )}
       </div>
