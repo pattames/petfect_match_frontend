@@ -1,9 +1,21 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .dash_container {
+
   display: flex;
-  gap: 44px;
-  padding: 3rem;
+  gap: 13px;
   background-color: #f2e5e5;
   flex-wrap: wrap;
-  justify-content: left;
-  height: 80vh;
+  align-items: center;
+  height: auto;
+
+  margin: auto 0;
+  justify-content: center;
+  overflow: hidden;
+
+  padding: 4rem;
 }

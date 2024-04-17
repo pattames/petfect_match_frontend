@@ -2,6 +2,8 @@ import styles from "../css/PetDashCard.module.css";
 import { UserContext } from "../context/UserContext";
 import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEdit, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 
 export default function PetDashCard({ pet }) {
   //   console.log(pet);
@@ -38,15 +40,22 @@ export default function PetDashCard({ pet }) {
   return (
     <>
       <div className={styles.card_container}>
-        <div className={styles.img_container}>
+        <div className={styles.imgContainer}>
           <img src={pet && pet.images[0] && pet.images[0].url} />
         </div>
-        <div className={styles.info}>
-          <h3>{pet.name}</h3>
-          <div className={styles.bttns}>
-            <button onClick={handleEdit}>Edit</button>
-            <button onClick={handleDelete}>Delete</button>
-          </div>
+
+        <p className={styles.title}>{pet.name}</p>
+
+        <div className={styles.bttns}>
+          <button onClick={handleEdit}>
+            <FontAwesomeIcon icon={faEdit} />
+            <span>Edit</span>
+          </button>
+
+          <button onClick={handleDelete}>
+            <FontAwesomeIcon icon={faTrashAlt} />
+            <span>Delete</span>
+          </button>
         </div>
       </div>
     </>
