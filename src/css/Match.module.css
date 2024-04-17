@@ -2,6 +2,8 @@
   display: flex;
   justify-content: center;
   gap: 10%;
+  background-image: url("/backg_tips_left.png");
+  background-color: #f6f3f587;
   padding: 5rem 0 5rem 0;
 }
 

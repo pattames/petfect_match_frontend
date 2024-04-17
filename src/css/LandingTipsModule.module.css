@@ -6,17 +6,17 @@
 .ContainerLeft {
   width: 50%;
   display: flex;
+  background-image: url("/backg_tips_left.png");
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  opacity: 0.8;
-  background-color: #fdf2d1;
+  background-color: rgba(251, 217, 135, 0.5);
   padding-left: 5rem;
   padding-right: 5rem;
 }
 
 .headline {
-  color: #792f6a;
+  color: #c46c6d;
   font-size: 2.5rem;
 }
 
@@ -26,7 +26,7 @@
 
 .subheadline {
   font-size: 1.8rem;
-  color: black;
+  color: #792f6c;
 }
 
 .ContainerRight {

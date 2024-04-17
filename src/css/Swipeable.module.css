@@ -22,12 +22,13 @@
   font-size: medium;
   border-radius: 20px;
   cursor: pointer;
-  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   color: #792f6c;
   display: flex;
   justify-content: center;
   align-items: center;
   column-gap: 0.5rem;
+  background-color: white;
 }
 
 .filter_btn_dogs {
@@ -38,7 +39,8 @@
   align-items: center;
   gap: 3px;
   font-size: medium;
-  box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  background-color: white;
+  box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   color: #792f6c;
   border-radius: 20px;
   cursor: pointer;
@@ -151,12 +153,26 @@
 
 .divLogo {
   position: absolute;
-  left: -50%;
-  top: 35%;
+  display: flex;
+  flex-direction: column;
+  left: -55%;
+  top: 5%;
   z-index: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo {
   width: 300px;
+  z-index: -1;
   height: auto;
+  position: absolute;
+  top: 65%;
+}
+
+.heart {
+  position: absolute;
+  left: -50%;
+  top: 70%;
+  z-index: 1;
 }
