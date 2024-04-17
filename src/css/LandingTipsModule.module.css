@@ -9,13 +9,14 @@
   flex-direction: column;
   justify-content: center;
   gap: 5px;
-  background-color: #ebd5d5;
+  opacity: 0.8;
+  background-color: #fdf2d1;
   padding-left: 5rem;
   padding-right: 5rem;
 }
 
 .headline {
-  color: #a9493d;
+  color: #792f6a;
   font-size: 2.5rem;
 }
 
@@ -25,7 +26,7 @@
 
 .subheadline {
   font-size: 1.8rem;
-  color: white;
+  color: black;
 }
 
 .ContainerRight {
