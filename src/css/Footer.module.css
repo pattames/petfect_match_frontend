@@ -29,3 +29,8 @@
   gap: 10px;
   margin-bottom: 20px;
 }
+
+.abli {
+  border-right: 1px solid #b45c51;
+  padding: 0 12px;
+}

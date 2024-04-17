@@ -1,24 +1,4 @@
-.react-tabs__tab-list {
-    border-bottom: 1px solid #aaa;
-    margin: 13px 8px 0px;
-    padding: 0;
-}
+.react-tabs__tab {
 
-.TabList {
-    border: none;
-    outline: none;
-    padding: 2px 7px;
-    cursor: pointer;
-    color: rgba(0, 0, 0, .4);
-    transition: all ease-in-out .2s;
-    border-bottom: 2px solid #aaa;
-}
-
-.react-tabs__tab--selected {
-    background: #fff;
-
-    color: #c1564c;
-    border-radius: 21px 5px 0 0;
-    border-bottom: 2px solid #aaa;
-
+    color: rebeccapurple;
 }

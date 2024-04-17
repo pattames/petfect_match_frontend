@@ -3,7 +3,6 @@ import "react-tabs/style/react-tabs.css";
 import UserProfile from "./UserProfile";
 import PetDash from "./PetDash";
 import styles from "../css/Dashboard.module.css";
-import { useState } from "react";
 
 export default function Dashboard() {
   return (
@@ -13,8 +12,15 @@ export default function Dashboard() {
       >
         User dashboard
       </h1> */}
-      <Tabs>
-        <TabList className={styles.TabList}>
+      <Tabs
+        style={{
+          fontFamily: "arial",
+          margin: "0 auto",
+          padding: "1rem",
+          textAlign: "center",
+        }}
+      >
+        <TabList>
           <Tab>My pets</Tab>
           <Tab>Update user info</Tab>
         </TabList>

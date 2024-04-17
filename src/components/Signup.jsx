@@ -44,44 +44,48 @@ export default function Signup() {
     <div className={`${Styles.main}`}>
       <div className={`${Styles.container}`}>
         <div className={`${Styles.left}`}>
-          <form className={`${Styles.form}`} onSubmit={handleSubmit}>
-            <h3 className={`${Styles.title}`}>Sign up</h3>
-            <div className={`${Styles.inputBlock}`}>
-              <input
-                className={`${Styles.input}`}
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <label className={`${Styles.lbl}`} htmlFor="email">
-                Email
-              </label>
-            </div>
-            <div className={`${Styles.inputBlock}`}>
-              <input
-                className={`${Styles.input}`}
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <label className={`${Styles.lbl}`} htmlFor="password">
-                Password
-              </label>
-            </div>
-            <div className={`${Styles.inputBlock}`}>
-              <span className={`${Styles.forgot}`}>
-                <a href="#">Forgot Password?</a>
-              </span>
-              <button className={`${Styles.btn}`}>Sign up</button>
-              <p className={`${Styles.p}`}>
-                Already have an account?
-                <Link to="/login">
-                  <span className={`${Styles.span}`}>Log in</span>
-                </Link>
-              </p>
-            </div>
-            {error && <div>{error}</div>}
-          </form>
+          {loading ? (
+            <DogSpinner />
+          ) : (
+            <form className={`${Styles.form}`} onSubmit={handleSubmit}>
+              <h3 className={`${Styles.title}`}>Sign up</h3>
+              <div className={`${Styles.inputBlock}`}>
+                <input
+                  className={`${Styles.input}`}
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <label className={`${Styles.lbl}`} htmlFor="email">
+                  Email
+                </label>
+              </div>
+              <div className={`${Styles.inputBlock}`}>
+                <input
+                  className={`${Styles.input}`}
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <label className={`${Styles.lbl}`} htmlFor="password">
+                  Password
+                </label>
+              </div>
+              <div className={`${Styles.inputBlock}`}>
+                <span className={`${Styles.forgot}`}>
+                  <a href="#">Forgot Password?</a>
+                </span>
+                <button className={`${Styles.btn}`}>Sign up</button>
+                <p className={`${Styles.p}`}>
+                  Already have an account?
+                  <Link to="/login">
+                    <span className={`${Styles.span}`}>Log in</span>
+                  </Link>
+                </p>
+              </div>
+              {error && <div className={`${Styles.errMes}`}>{error}</div>}
+            </form>
+          )}
         </div>
         <div className={`${Styles.right}`}></div>
         <div className={`${Styles.img}`}></div>
