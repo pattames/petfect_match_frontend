@@ -3,14 +3,14 @@
   flex-wrap: nowrap;
   justify-content: center;
   flex-direction: row;
-  padding-top: calc(50vh - 250px);
+  margin: 2rem;
 }
 
 .container {
   display: flex;
+  height: calc(100vh - 255px);
   gap: 40px;
   width: 520px;
-  height: 500px;
   max-width: 99%;
   align-items: center;
   justify-content: center;

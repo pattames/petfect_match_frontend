@@ -18,19 +18,21 @@ export default function PetDash() {
   // console.log(userPets);
 
   return (
-    <div className={styles.dash_container}>
-      {userPets &&
-        userPets.map((pet) => (
-          <PetDashCard
-            key={pet._id}
-            pet={pet}
-            render={render}
-            setRender={setRender}
-          />
-        ))}
-      <Link to="/petprofile">
-        <AddPetCard />
-      </Link>
+    <div>
+      <div className={styles.dash_container}>
+        {userPets &&
+          userPets.map((pet) => (
+            <PetDashCard
+              key={pet._id}
+              pet={pet}
+              render={render}
+              setRender={setRender}
+            />
+          ))}
+        <Link to="/petprofile">
+          <AddPetCard />
+        </Link>
+      </div>
     </div>
   );
 }

@@ -4,18 +4,16 @@
   padding: 0;
 }
 
-.dash_container {
 
+.dash_container {
   display: flex;
   gap: 13px;
   background-color: #f2e5e5;
   flex-wrap: wrap;
   align-items: center;
-  height: auto;
-
+  height: calc(100vh - 255px);
   margin: auto 0;
-  justify-content: center;
+  justify-content: flex-start;
   overflow: hidden;
-
-  padding: 4rem;
+  padding: 2rem;
 }
