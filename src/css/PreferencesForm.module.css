@@ -10,7 +10,7 @@
   font-size: 2rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
     rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-  background-color: #dedede;
+  background-color: #fae7ba;
 }
 
 .title {
@@ -44,6 +44,7 @@
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
   margin-bottom: 0.5em;
   background-color: white;
+  width: 85px;
 }
 
 .radio_label {
@@ -70,6 +71,7 @@
   margin-bottom: 0.5em;
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
   background-color: white;
+  width: 100px;
 }
 
 .gender {
@@ -91,6 +93,7 @@
   padding: 0.4em;
   margin-bottom: 0.5em;
   background-color: white;
+  width: 100px;
 }
 
 .radio_btn {

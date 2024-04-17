@@ -16,6 +16,7 @@ import {
   faStar,
   faHeart,
 } from "@fortawesome/free-solid-svg-icons";
+import LottieAnimation from "./LottieAnimation";
 
 function Swipeable() {
   const { pets } = useContext(PetsContext);
@@ -202,6 +203,7 @@ function Swipeable() {
         )}
         {itsMatch && (
           <div className={styles.divLogo}>
+            <LottieAnimation src="https://lottie.host/embed/24382d03-2ec4-40c3-9091-913d5641ee6a/8hzjqUafXD.json" />
             <img src="logo.png" alt="" className={styles.logo} />
           </div>
         )}
