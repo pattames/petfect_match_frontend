@@ -1,11 +1,12 @@
 import Styles from "../css/PetProfile.module.css";
 import { useState, useContext, useEffect } from "react";
-
 import { UserContext } from "../context/UserContext";
 import ImgPlaceHolder from "./svg/ImgPlaceHolder";
 import DogSpinner from "./DogSpinner.jsx";
 import { useJwt } from "react-jwt";
 import { useLocation } from "react-router-dom";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function UpdatePet() {
   const { state } = useLocation();
@@ -24,20 +25,17 @@ export default function UpdatePet() {
     gender: "",
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+  // const [error, setError] = useState(null);
   const [images, setImages] = useState([]);
   const [preview, setPreview] = useState();
-
   const [petType, setpetType] = useState("");
-
   const [name, setName] = useState("");
-
   const [description, setDescription] = useState("");
   const [favorite, setFavorite] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
+    // setError(null);
     setLoading(true);
 
     const formData = new FormData();
@@ -65,10 +63,20 @@ export default function UpdatePet() {
             body: formData,
           }
         );
-        setUpdateMessage("SUBMISSION SUCCESSFULL");
+        toast("Pet Updated Successfully!", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
         setFlag(!flag);
       } catch (error) {
-        setError(error);
+        toast.error(error);
       } finally {
         setLoading(false);
         setImages(null);
@@ -456,6 +464,7 @@ export default function UpdatePet() {
               </div>
             </form>
           )}
+          <ToastContainer />
         </div>
       </div>
     </div>
