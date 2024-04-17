@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import Styles from "../css/Login.module.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import DogSpinner from "./DogSpinner.jsx";
 
 export default function Login() {
   const [email, setEmail] = useState("");
@@ -45,45 +46,49 @@ export default function Login() {
     <div className={`${Styles.main}`}>
       <div className={`${Styles.container}`}>
         <div className={`${Styles.left}`}>
-          <form className={`${Styles.form}`} onSubmit={handleSubmit}>
-            <h3 className={`${Styles.title}`}>Log in</h3>
-            <div className={`${Styles.inputBlock}`}>
-              <input
-                className={`${Styles.input}`}
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <label className={`${Styles.lbl}`} htmlFor="email">
-                Email:
-              </label>
-            </div>
-            <div className={`${Styles.inputBlock}`}>
-              <input
-                className={`${Styles.input}`}
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              <label className={`${Styles.lbl}`} htmlFor="password">
-                Password
-              </label>
-            </div>
-            <div className={`${Styles.inputBlock}`}>
-              <span className={`${Styles.forgot}`}>
-                <a href="#">Forgot Password?</a>
-              </span>
-              <button className={`${Styles.btn}`}>Log in</button>
-              <p className={`${Styles.p}`}>
-                Don't have an account?{" "}
-                <Link to="/signup">
-                  <span className={`${Styles.span}`}>Sign Up</span>
-                </Link>
-              </p>
-            </div>
+          {loading ? (
+            <DogSpinner />
+          ) : (
+            <form className={`${Styles.form}`} onSubmit={handleSubmit}>
+              <h3 className={`${Styles.title}`}>Log in</h3>
+              <div className={`${Styles.inputBlock}`}>
+                <input
+                  className={`${Styles.input}`}
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+                <label className={`${Styles.lbl}`} htmlFor="email">
+                  Email:
+                </label>
+              </div>
+              <div className={`${Styles.inputBlock}`}>
+                <input
+                  className={`${Styles.input}`}
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+                <label className={`${Styles.lbl}`} htmlFor="password">
+                  Password
+                </label>
+              </div>
+              <div className={`${Styles.inputBlock}`}>
+                <span className={`${Styles.forgot}`}>
+                  <a href="#">Forgot Password?</a>
+                </span>
+                <button className={`${Styles.btn}`}>Log in</button>
+                <p className={`${Styles.p}`}>
+                  Don't have an account?{" "}
+                  <Link to="/signup">
+                    <span className={`${Styles.span}`}>Sign Up</span>
+                  </Link>
+                </p>
+              </div>
 
-            {error && <div>{error}</div>}
-          </form>
+              {error && <div className={`${Styles.errMes}`}>{error}</div>}
+            </form>
+          )}
         </div>
         <div className={`${Styles.right}`}></div>
         <div className={`${Styles.img}`}></div>

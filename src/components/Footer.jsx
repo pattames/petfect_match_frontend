@@ -15,7 +15,7 @@ export default function Footer() {
       </Link>
       <ul className={styles.list}>
         <Link to="/aboutUs">
-          <li>About us ||</li>
+          <li className={styles.abli}>About us </li>
         </Link>
         <li>petfectmatch@contact.com</li>
       </ul>
