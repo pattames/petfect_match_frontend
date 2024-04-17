@@ -16,16 +16,56 @@ export default function Dashboard() {
         style={{
           fontFamily: "arial",
           margin: "0 auto",
-          padding: "1rem",
+
           textAlign: "center",
         }}
       >
-        <TabList>
-          <Tab>My pets</Tab>
-          <Tab>Update user info</Tab>
+        <TabList
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            gap: " 5px",
+          }}
+        >
+          <Tab
+            style={{
+              marginRight: "15px",
+              fontSize: "20px",
+              background: "transparent",
+              border: "none",
+              outline: "none",
+              padding: "10px 20px ",
+              cursor: "pointer",
+              color: "#792F6C",
+              transition: "all ease-in-out .2s",
+              borderBottom: "2px solid #792F6C ",
+            }}
+          >
+            My pets
+          </Tab>
+          <Tab
+            style={{
+              marginRight: "15px",
+              fontSize: "20px",
+              background: "transparent",
+              border: "none",
+              outline: "none",
+              padding: "10px 20px ",
+              cursor: "pointer",
+              color: "#792F6C",
+              transition: "all ease-in-out .2s",
+              borderBottom: "2px solid #792F6C ",
+            }}
+          >
+            Update user info
+          </Tab>
         </TabList>
 
-        <TabPanel>
+        <TabPanel
+          style={{
+            height: "auto",
+          }}
+        >
           <PetDash />
         </TabPanel>
         <TabPanel>
