@@ -10,7 +10,6 @@ import { useLocation } from "react-router-dom";
 export default function UpdatePet() {
   const { state } = useLocation();
   const pet = state.pet;
-  //   console.log(pet);
 
   const { user, flag, setFlag } = useContext(UserContext);
   const { decodedToken } = useJwt(user?.token);
@@ -66,12 +65,10 @@ export default function UpdatePet() {
             body: formData,
           }
         );
-        console.log("SUBMISSION SUCCESSFULL");
         setUpdateMessage("SUBMISSION SUCCESSFULL");
         setFlag(!flag);
       } catch (error) {
         setError(error);
-        console.log("errrrorr", error);
       } finally {
         setLoading(false);
         setImages(null);
@@ -87,23 +84,17 @@ export default function UpdatePet() {
       }
     }
   };
-  // console.log("errrrorr", error);
 
   const handleChange = (e) => {
-    console.log(e);
     setcharacteristics({ ...characteristics, [e.target.name]: e.target.value });
   };
-
-  // console.log("CHAR AFTER  CHANGE", characteristics);
 
   const handleImage = (e) => {
     const { files } = e.target;
     if (files) {
-      //   console.log(files);
       setImages(files);
     }
   };
-  //   console.log(favorite);
 
   return (
     <div className={`${Styles.main}`}>

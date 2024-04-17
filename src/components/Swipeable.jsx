@@ -27,12 +27,7 @@ function Swipeable() {
 
   useEffect(() => {
     setFilteredPets(pets);
-    console.log("rendered");
   }, [pets]);
-
-  console.log("CHARACTERISTICS", age, size, gender);
-
-  console.log("FILTERED PETS", filteredPets);
 
   const dogs = pets && pets.filter((pet) => pet.pet_type === "dog");
   const cats = pets && pets.filter((pet) => pet.pet_type === "cat");
@@ -89,12 +84,8 @@ function Swipeable() {
       }
     };
     comparison();
-    console.log("FILTERED PETS IN EFFECT", filteredPets);
     filteredPets.length && setCurrentPet(filteredPets[currentIndex]);
   }, [age, size, gender, currentIndex, currentPet, filteredPets]);
-
-  // console.log(itsMatch);
-  console.log("CURRENT PET", currentPet);
 
   //Redirect user to email
   const buildEmailDraftUrl = (recipient, subject, body) => {
@@ -128,7 +119,6 @@ function Swipeable() {
             "--swiper-pagination-color": "#dedede",
           }} // Use CSS module class
           onSlideChange={(swiper) => {
-            console.log("SUP", swiper);
             setCurrentIndex(swiper.activeIndex);
             setCurrentPet(filteredPets[currentIndex]);
           }}

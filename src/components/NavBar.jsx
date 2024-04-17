@@ -8,7 +8,7 @@ import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
-  // console.log("usercontext", user);
+
   const handleClick = () => {
     localStorage.removeItem("user");
     setUser(null);

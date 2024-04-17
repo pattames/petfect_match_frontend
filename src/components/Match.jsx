@@ -1,12 +1,8 @@
 import PreferencesForm from "./PreferencesForm";
 import Swipeable from "./Swipeable";
 import styles from "../css/Match.module.css";
-import { PetsContext } from "../context/PetsContext";
-import { useContext } from "react";
 
 function Match() {
-  const { pets } = useContext(PetsContext);
-  console.log(pets);
   return (
     <>
       <div className={styles.main_container}>

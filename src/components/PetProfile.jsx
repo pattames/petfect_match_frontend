@@ -1,10 +1,11 @@
 import Styles from "../css/PetProfile.module.css";
 import { useState, useContext, useEffect } from "react";
-
 import { UserContext } from "../context/UserContext";
 import ImgPlaceHolder from "./svg/ImgPlaceHolder";
 import DogSpinner from "./DogSpinner.jsx";
 import { useJwt } from "react-jwt";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function PetProfile() {
   const { user, flag, setFlag } = useContext(UserContext);
@@ -17,16 +18,10 @@ export default function PetProfile() {
     gender: "",
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
   const [images, setImages] = useState([]);
   const [preview, setPreview] = useState([]);
-
   const [petType, setpetType] = useState("");
-
   const [name, setName] = useState("");
-
-  const [updateMessage, setUpdateMessage] = useState("");
-
   const [description, setDescription] = useState("");
   const [favorite, setFavorite] = useState("");
 
@@ -35,7 +30,6 @@ export default function PetProfile() {
       const myArr = Array.from(images);
       const objectUrl = myArr.map((img) => URL.createObjectURL(img));
       setPreview(objectUrl);
-      console.log("IMG ARR", objectUrl);
       return () => objectUrl.forEach((url) => URL.revokeObjectURL(url));
     }
   }, [images]);
@@ -43,16 +37,23 @@ export default function PetProfile() {
   const handleImage = (e) => {
     const { files } = e.target;
     if (files) {
-      console.log(files);
       setImages(files);
     }
   };
 
-  console.log("IMAGES", images);
-
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError(null);
+    if (
+      !name ||
+      !petType ||
+      !characteristics.age ||
+      !characteristics.size ||
+      !characteristics.gender ||
+      !description ||
+      !favorite
+    ) {
+      return window.alert("Please fill the whole form");
+    }
     setLoading(true);
 
     const formData = new FormData();
@@ -81,12 +82,21 @@ export default function PetProfile() {
             body: formData,
           }
         );
-        console.log("SUBMISSION SUCCESSFULL");
-        setUpdateMessage("SUBMISSION SUCCESSFULL");
+        toast("Pet Added Successfully!", {
+          position: "bottom-center",
+          autoClose: 5000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+          transition: Bounce,
+        });
         setFlag(!flag);
+        setPreview([]);
       } catch (error) {
-        setError(error);
-        console.log("errrrorr", error);
+        toast.error(error);
       } finally {
         setLoading(false);
         setImages(null);
@@ -104,7 +114,6 @@ export default function PetProfile() {
   };
 
   const handleChange = (e) => {
-    console.log(e);
     setcharacteristics({ ...characteristics, [e.target.name]: e.target.value });
   };
 
@@ -117,7 +126,6 @@ export default function PetProfile() {
           ) : (
             <form className={`${Styles.form}`} onSubmit={handleSubmit}>
               <h3 className={`${Styles.title}`}>Add Pet</h3>
-              <h2 className={Styles.message}>{updateMessage}</h2>
               <div className={`${Styles.test}`}>
                 <div className={`${Styles.g1}`}>
                   <div className={`${Styles.inputBlock}`}>
@@ -470,6 +478,7 @@ export default function PetProfile() {
               </div>
             </form>
           )}
+          <ToastContainer />
         </div>
       </div>
     </div>

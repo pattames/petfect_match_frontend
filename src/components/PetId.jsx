@@ -2,18 +2,16 @@ import { useContext, useEffect, useState } from "react";
 import { PetsContext } from "../context/PetsContext";
 import { useParams } from "react-router-dom";
 import styles from "../css/PetId.module.css";
-import ReactSimplyCarousel from "react-simply-carousel";
 
 export default function PetId() {
   const { pets } = useContext(PetsContext);
+  const [error, setError] = useState("yo");
 
   const [owner, setOwner] = useState(null);
 
   const { id } = useParams();
 
   const selectedPet = pets && pets.find((pet) => pet._id === id);
-
-  console.log("pets inside petId component:", selectedPet);
 
   useEffect(() => {
     async function getData() {
@@ -25,13 +23,11 @@ export default function PetId() {
         const ownerData = await res.json();
         setOwner(ownerData.data);
       } catch (error) {
-        console.log(error);
+        setError(error);
       }
     }
     getData();
   }, [selectedPet]);
-
-  console.log(owner);
 
   return (
     <>
@@ -118,6 +114,11 @@ export default function PetId() {
           alt=""
         />
       </div>
+      {error && (
+        <div>
+          <span>{error}</span>
+        </div>
+      )}
     </>
   );
 }

@@ -28,14 +28,11 @@ export default function Login() {
 
     const data = await response.json();
     if (!response.ok) {
-      console.log("Response was NOT ok");
-
       setLoading(false); //stop loading
       setError(data.error);
     }
     //Check if response is ok, we can put it in localestorage
     if (response.ok) {
-      console.log("Response was ok");
       localStorage.setItem("user", JSON.stringify(data));
       setUser(data);
       setLoading(false);
