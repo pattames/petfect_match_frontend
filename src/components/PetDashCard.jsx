@@ -18,12 +18,16 @@ export default function PetDashCard({ pet }) {
   const handleDelete = async () => {
     if (window.confirm(`Are you sure you want to delete ${pet.name}?`)) {
       try {
-        const response = await fetch(`http://localhost:8080/pets/${pet._id}`, {
-          method: "DELETE",
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
+        const response = await fetch(
+          // `http://localhost:8080/pets/${pet._id}`,
+          `https://purrfect-backend-hsd1.onrender.com/pets/${pet._id}`,
+          {
+            method: "DELETE",
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          }
+        );
         const data = await response.json();
         if (response.ok) {
           alert("Pet deleted successfully!");

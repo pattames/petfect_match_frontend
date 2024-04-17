@@ -15,8 +15,8 @@ export default function Signup() {
     setLoading(true);
     setError(null);
     const response = await fetch(
-      // "https://purrfect-backend-hsd1.onrender.com/user/signup",
-      "http://localhost:8080/user/signup",
+      "https://purrfect-backend-hsd1.onrender.com/user/signup",
+      // "http://localhost:8080/user/signup",
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },

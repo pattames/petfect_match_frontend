@@ -16,6 +16,8 @@ export default function UpdatePet() {
   const { decodedToken } = useJwt(user?.token);
   const _id = decodedToken?._id;
 
+  const [updateMessage, setUpdateMessage] = useState("");
+
   const [characteristics, setcharacteristics] = useState({
     breed: "",
     age: "",
@@ -53,14 +55,19 @@ export default function UpdatePet() {
     description && formData.append("description", description); // Append description field
     if (name) {
       try {
-        await fetch(`http://localhost:8080/pets/${pet._id}`, {
-          method: "PUT",
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-          body: formData,
-        });
+        await fetch(
+          //`http://localhost:8080/pets/${pet._id}`,
+          `https://purrfect-backend-hsd1.onrender.com/pets/${pet._id}`,
+          {
+            method: "PUT",
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+            body: formData,
+          }
+        );
         console.log("SUBMISSION SUCCESSFULL");
+        setUpdateMessage("SUBMISSION SUCCESSFULL");
         setFlag(!flag);
       } catch (error) {
         setError(error);
@@ -107,6 +114,7 @@ export default function UpdatePet() {
           ) : (
             <form className={`${Styles.form}`} onSubmit={handleSubmit}>
               <h3 className={`${Styles.title}`}>Update Pet</h3>
+              <h2 className={Styles.message}>{updateMessage}</h2>
               <div className={`${Styles.test}`}>
                 <div className={`${Styles.g1}`}>
                   <div className={`${Styles.inputBlock}`}>
@@ -117,7 +125,7 @@ export default function UpdatePet() {
                       className={`${Styles.input}`}
                       type="text"
                       name="name"
-                      placeholder={pet.name}
+                      // placeholder={pet.name}
                       value={name}
                       onChange={(e) => {
                         setName(e.target.value);

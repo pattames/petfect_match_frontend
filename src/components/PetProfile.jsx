@@ -25,6 +25,8 @@ export default function PetProfile() {
 
   const [name, setName] = useState("");
 
+  const [updateMessage, setUpdateMessage] = useState("");
+
   const [description, setDescription] = useState("");
   const [favorite, setFavorite] = useState("");
 
@@ -68,14 +70,19 @@ export default function PetProfile() {
     description && formData.append("description", description); // Append description field
     if (name) {
       try {
-        await fetch("http://localhost:8080/pets", {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-          body: formData,
-        });
+        await fetch(
+          // "http://localhost:8080/pets",
+          "https://purrfect-backend-hsd1.onrender.com/pets",
+          {
+            method: "POST",
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+            body: formData,
+          }
+        );
         console.log("SUBMISSION SUCCESSFULL");
+        setUpdateMessage("SUBMISSION SUCCESSFULL");
         setFlag(!flag);
       } catch (error) {
         setError(error);
@@ -110,6 +117,7 @@ export default function PetProfile() {
           ) : (
             <form className={`${Styles.form}`} onSubmit={handleSubmit}>
               <h3 className={`${Styles.title}`}>Add Pet</h3>
+              <h2 className={Styles.message}>{updateMessage}</h2>
               <div className={`${Styles.test}`}>
                 <div className={`${Styles.g1}`}>
                   <div className={`${Styles.inputBlock}`}>

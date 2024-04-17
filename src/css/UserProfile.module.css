@@ -33,6 +33,12 @@
   font-size: 2rem;
 }
 
+.successmessage {
+  text-align: center;
+  color: green;
+  padding: 1rem;
+}
+
 .left {
   width: 80%;
   height: 100%;
