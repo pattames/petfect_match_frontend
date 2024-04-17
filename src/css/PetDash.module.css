@@ -11,8 +11,8 @@
   background-color: #f2e5e5;
   flex-wrap: wrap;
   align-items: center;
-  height: auto;
-  /*height: calc(100vh - 255px);*/
+
+  height: calc(100vh - 255px);
   margin: auto 0;
   justify-content: flex-start;
   overflow: hidden;
