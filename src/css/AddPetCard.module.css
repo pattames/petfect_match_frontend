@@ -1,12 +1,24 @@
 .container {
-  width: 300px;
-  border-radius: 10px;
-  height: 400px;
-  box-shadow: rgb(61, 61, 61) 0px 5px 15px;
-  display: flex;
+  height: 272px;
+  box-shadow: rgba(61, 61, 61, 0.3) 0px 5px 15px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 2rem;
-  background-color: rgba(255, 255, 255, 0.198);
+  position: relative;
+  display: flex;
+  gap: 0.75rem;
+  padding: 1rem;
+  width: 14rem;
+  border-radius: 1rem;
+  background-color: #fefefe;
+}
+
+.plus {
+  font-size: 3rem;
+  border: thin solid #C1564C;
+  border-radius: 100%;
+  padding: 1rem;
+  width: 60px;
+  height: 60px;
+  line-height: 28px;
 }
