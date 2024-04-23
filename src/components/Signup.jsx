@@ -2,6 +2,8 @@ import { useState, useContext } from "react";
 import Styles from "../css/Login.module.css";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import DogSpinner from "./DogSpinner.jsx";
+
 export default function Signup() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
