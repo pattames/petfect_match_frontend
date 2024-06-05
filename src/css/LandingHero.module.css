@@ -46,6 +46,10 @@
   font-family: "Acme", sans-serif;
   font-weight: 400;
   font-style: normal;
+  background-color: rgba(255, 255, 255, 0.596);
+  padding: 1rem;
+  border-radius: 10px;
+  margin-right: 3rem;
 }
 
 .headingWrapper {
@@ -86,4 +90,107 @@ a:hover {
 }
 a:active {
   text-decoration: none;
+}
+
+@media only screen and (max-width: 1165px) {
+  .heading {
+    font-size: 4rem;
+  }
+  .swipe {
+    font-size: 4rem;
+  }
+}
+
+@media only screen and (max-width: 755px) {
+  .container {
+    background-position: -100px;
+    height: 500px;
+  }
+  .heading {
+    font-size: 3rem;
+  }
+  .swipe {
+    font-size: 3rem;
+  }
+  .buttons {
+    margin-top: 70px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .heading {
+    font-size: 3rem;
+    margin-right: 1rem;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .container {
+    background-position: -150px;
+  }
+  .heading {
+    font-size: 2rem;
+  }
+  .swipe {
+    font-size: 2rem;
+  }
+}
+
+@media only screen and (max-width: 455px) {
+  .container {
+    background-position: -100px;
+    height: 400px;
+  }
+  .heading {
+    font-size: 1.5rem;
+  }
+  .swipe {
+    font-size: 1.5rem;
+    -webkit-text-stroke: 0;
+    color: orange;
+  }
+  .petIcons {
+    height: 70px;
+    width: 60px;
+  }
+  .link {
+    font-size: 1.2rem;
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 405px) {
+  .rightpart {
+    margin: 0 auto;
+    width: 15rem;
+  }
+  .leftpart {
+    display: none;
+  }
+  .buttons {
+    padding: 0;
+  }
+  .headingWrapper {
+    padding: 0;
+  }
+  .heading {
+    margin: 0;
+    background-color: rgba(255, 255, 255, 0.815);
+    text-align: center;
+  }
+  .link {
+    background-color: rgba(255, 255, 255, 0.772);
+    display: flex;
+    align-items: center;
+    padding: 0.8rem;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+  .petIcons {
+    height: 50px;
+    width: 50px;
+  }
+  .buttonWrapper {
+    width: 150rem;
+  }
 }

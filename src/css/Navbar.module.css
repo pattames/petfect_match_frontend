@@ -5,6 +5,9 @@
   justify-content: space-between;
   align-items: center;
   height: 100px;
+  flex-wrap: wrap;
+  padding: 0 2rem;
+  text-align: center;
 }
 
 .navLink {
@@ -57,7 +60,6 @@
 
 .logoContainer {
   width: 8rem;
-  margin-left: 1em;
 }
 
 .logoImage {
@@ -88,7 +90,28 @@
 .rightNav {
   display: flex;
   gap: 5px;
-  margin-right: 2rem;
   justify-content: center;
   align-items: center;
+}
+
+@media only screen and (max-width: 680px) {
+  .logoContainer {
+    width: 176px;
+  }
+  .logoImage {
+    height: 38px;
+  }
+  .navItem {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 526px) {
+  .container {
+    justify-content: center;
+  }
+  .navLink {
+    margin: 0;
+    padding: 0 0.4em;
+  }
 }

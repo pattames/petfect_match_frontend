@@ -42,7 +42,6 @@
   border: 1px solid rgba(255, 0, 0, 0);
   border-radius: 0.5rem;
   padding: 10px 20px;
-
   display: block;
   font-weight: 500;
   font-size: 1.1em;
@@ -60,4 +59,49 @@
 .buttonWrapper {
   width: 215px;
   margin-top: 20px;
+}
+
+@media only screen and (max-width: 755px) {
+  .Container {
+    height: 28rem;
+  }
+  .ContainerLeft {
+    padding: 0 3rem;
+  }
+  .headline {
+    font-size: 2rem;
+  }
+  .subheadline {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 612px) {
+  .Container {
+    height: 25rem;
+  }
+  .headline {
+    font-size: 1.5rem;
+  }
+  .subheadline {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 510px) {
+  .Container {
+    height: 22rem;
+  }
+  .ContainerLeft {
+    padding: 0 1.7rem;
+  }
+  .headline {
+    font-size: 1.2rem;
+  }
+  .subheadline {
+    font-size: 0.8rem;
+  }
+  .button {
+    font-size: 0.8rem;
+  }
 }

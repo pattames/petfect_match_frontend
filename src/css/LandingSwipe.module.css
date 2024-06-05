@@ -84,10 +84,60 @@
   color: white;
   font-size: medium;
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
-
 }
 
 .btn:hover {
   background-color: #b54141;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 755px) {
+  .mySwiper {
+    height: 24rem;
+    width: 18rem;
+  }
+  .image {
+    height: 300px;
+    padding: 30px;
+    padding-bottom: 10px;
+  }
+  .nameWrapper {
+    font-size: 30px;
+  }
+}
+
+@media only screen and (max-width: 525px) {
+  .mySwiper {
+    height: 18rem;
+    width: 14rem;
+  }
+  .image {
+    height: 200px;
+    padding: 16px;
+    padding-bottom: 10px;
+  }
+  .nameWrapper {
+    font-size: 28px;
+  }
+}
+
+@media only screen and (max-width: 393px) {
+  .mySwiper {
+    height: 14rem;
+    width: 10rem;
+  }
+  .image {
+    height: 150px;
+    padding: 13px;
+    padding-bottom: 10px;
+  }
+  .nameWrapper {
+    font-size: 25px;
+  }
+}
+
+@media only screen and (max-width: 340px) {
+  .btnWrapper {
+    width: 200px;
+  }
 }
