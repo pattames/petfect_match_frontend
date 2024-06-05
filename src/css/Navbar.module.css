@@ -101,9 +101,6 @@
   .logoImage {
     height: 38px;
   }
-  .navItem {
-    display: none;
-  }
 }
 
 @media only screen and (max-width: 526px) {
@@ -113,5 +110,14 @@
   .navLink {
     margin: 0;
     padding: 0 0.4em;
+  }
+}
+
+@media only screen and (max-width: 348px) {
+  .navLink {
+    font-size: 0.87rem;
+  }
+  .logoutbtn {
+    font-size: 0.87rem;
   }
 }
