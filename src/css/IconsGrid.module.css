@@ -1,7 +1,6 @@
 .gridContainer {
   display: grid;
-  grid-template-columns: repeat(4,
-      1fr);
+  grid-template-columns: repeat(4, 1fr);
   grid-template-rows: auto auto;
   gap: 10px;
   margin-bottom: 50px;
@@ -19,4 +18,27 @@
 .image {
   width: 96px;
   height: 96px;
+}
+
+@media only screen and (max-width: 755px) {
+  .gridItem {
+    font-size: 1rem;
+    padding: 0;
+  }
+  .image {
+    width: 4rem;
+    height: 4rem;
+  }
+}
+
+@media only screen and (max-width: 470px) {
+  .gridItem {
+    font-size: 0.8rem;
+    padding: 0;
+  }
+  .image {
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+  }
 }
