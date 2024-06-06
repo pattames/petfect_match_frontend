@@ -14,9 +14,17 @@
   font-size: 3.5rem;
   color: #fbbe39;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7); /* Subtle gray text shadow */
+  text-align: center;
+  padding: 0 2rem;
 }
 
 .TipsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.TipsContainer2 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +34,7 @@
   width: 50%;
   background-color: #f2e5e5;
   height: 600px;
-  padding: 7rem;
+  padding: 5%;
   color: #792f6b;
   line-height: 1.6;
   font-size: 1.3rem;
@@ -34,13 +42,12 @@
 .ContainerImage {
   height: 600px;
   width: 50%;
-  padding: 7rem;
+  padding: 5%;
 }
 
 .Image {
-  width: auto;
-  height: 400px;
-  width: 700px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
   border-radius: 10px;
   box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
@@ -58,8 +65,100 @@
   text-align: center;
   font-size: 1.6rem;
   line-height: 1.5;
+  padding: 0 2rem;
 }
 
 .introPara {
   width: 70rem;
+}
+
+@media only screen and (max-width: 1226px) {
+  .heroImage {
+    height: 500px;
+  }
+  .Heading {
+    font-size: 3rem;
+  }
+  .IntroContainer {
+    font-size: 1.3rem;
+    height: 18rem;
+  }
+  .ContainerImage {
+    height: 500px;
+  }
+  .TextContainer {
+    font-size: 1.1rem;
+    height: 500px;
+  }
+}
+
+@media only screen and (max-width: 894px) {
+  .heroImage {
+    height: 380px;
+  }
+  .Heading {
+    font-size: 2.7rem;
+  }
+  .IntroContainer {
+    font-size: 1.2rem;
+    height: 14rem;
+  }
+  .ContainerImage {
+    height: 400px;
+  }
+  .TextContainer {
+    font-size: 0.9rem;
+    height: 400px;
+  }
+}
+
+@media only screen and (max-width: 761px) {
+  .heroImage {
+    height: 350px;
+  }
+  .Heading {
+    font-size: 2.4rem;
+  }
+  .IntroContainer {
+    font-size: 1.1rem;
+    height: 13rem;
+  }
+  .TipsContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .TipsContainer2 {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .ContainerImage {
+    height: 300px;
+    width: 100%;
+  }
+  .TextContainer {
+    font-size: 0.9rem;
+    height: inherit;
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 544px) {
+  .heroImage {
+    height: 250px;
+  }
+  .Heading {
+    font-size: 1.7rem;
+  }
+  .IntroContainer {
+    font-size: 0.9rem;
+    height: inherit;
+    padding-top: 4.5%;
+    padding-bottom: 4.5%;
+  }
+  .ContainerImage {
+    height: 250px;
+  }
+  .TextContainer {
+    font-size: 0.8rem;
+  }
 }
