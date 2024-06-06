@@ -37,7 +37,7 @@ export default function TipsAndTricks() {
           </p>
         </div>
       </div>
-      <div className={styles.TipsContainer}>
+      <div className={styles.TipsContainer2}>
         <div className={styles.TextContainer}>
           <h2>Finding Your Perfect Companion</h2>
           <p>
@@ -48,8 +48,9 @@ export default function TipsAndTricks() {
             attending adoption events allows you to meet a variety of animals
             and get a sense of their temperaments. Don't be afraid to ask
             questions and seek guidance from shelter staff or volunteers—they're
-            there to help you find the perfect match. Remember, the right pet is
-            out there waiting for you; it's just a matter of finding them!
+            there to help you find the perfect match.
+            {/* Remember, the right pet is
+            out there waiting for you; it's just a matter of finding them! */}
           </p>
         </div>
         <div className={styles.ContainerImage}>
