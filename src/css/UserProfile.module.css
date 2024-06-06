@@ -197,3 +197,42 @@ a {
 .test .g2 {
   width: 100%;
 }
+
+@media only screen and (max-width: 410px) {
+  .lbl {
+    font-size: 0.75rem;
+  }
+
+  .custumFileUpload {
+    width: 10rem;
+    height: 8rem;
+    padding: 0.1rem;
+  }
+}
+
+@media only screen and (max-width: 335px) {
+  .text {
+    font-size: 0.75rem;
+  }
+  .lbl {
+    font-size: 0.5rem;
+  }
+  .custumFileUpload {
+    display: flex;
+    flex-direction: column;
+    height: 180px;
+    margin-left: 1rem;
+  }
+  .custumFileUpload .icon svg {
+    height: 2rem;
+  }
+
+  .custumFileUpload .icon {
+    flex-direction: column;
+    width: 5rem;
+  }
+
+  .btn {
+    width: 100px;
+  }
+}

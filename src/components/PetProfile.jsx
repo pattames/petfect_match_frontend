@@ -293,7 +293,7 @@ export default function PetProfile() {
                       />
                       <label htmlFor="large" className={`${Styles.radioLabel}`}>
                         <span className={`${Styles.radioInnerCircle}`}></span>
-                        large
+                        Large
                       </label>
                     </div>
                     <label className={`${Styles.lbl}`} htmlFor="size">

@@ -6,21 +6,21 @@
 
 .main {
   display: flex;
-  flex-wrap: nowrap;
-  justify-content: center;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
   margin: 2rem;
 }
 
 .container {
   display: flex;
+  flex-direction: column;
   gap: 40px;
-  width: 840px;
+  width: 52rem;
   height: auto;
   max-width: 100%;
   align-items: center;
   justify-content: center;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   background-color: #ffffff25;
   border-radius: 15px;
@@ -40,28 +40,28 @@
 }
 
 .left {
-  width: 80%;
-  height: 100%;
-  position: relative;
-  z-index: 5;
+  /* width: 80%;
+  height: 100%; */
+  /* position: relative; */
+  /* z-index: 5; */
 }
 
 .form {
-  display: flex;
   flex-direction: column;
+  display: flex;
+  /* flex-direction: column;
   justify-content: center;
   height: 100%;
   width: 100%;
-  left: 0;
+  left: 0; */
   backdrop-filter: blur(20px);
-  position: relative;
-  padding: 2rem 0;
+  /* position: relative; */
+  padding: 2rem;
 }
 
 .right {
-  height: 100%;
-  display: flex;
-  align-items: center;
+  /* display: flex;
+  align-items: center; */
 }
 
 .input,
@@ -79,7 +79,7 @@
 }
 
 .inputBlock {
-  position: relative;
+  /* position: relative; */
   padding: 23px 10% 0;
 }
 
@@ -104,7 +104,7 @@
   height: 100%;
   background: url("/loginimg.svg") no-repeat center center;
   background-size: contain;
-  position: absolute;
+  /* position: absolute; */
   right: 0;
   top: 0;
   z-index: 3;
@@ -194,7 +194,7 @@ a {
   gap: 5px;
   flex-direction: row;
   width: fit-content;
-  position: relative;
+  /* position: relative; */
   flex-wrap: wrap;
   align-items: center;
 }
@@ -294,4 +294,25 @@ a {
   max-width: 100px;
   max-height: 100px;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 760px) {
+  .wrapper {
+    flex-wrap: nowrap;
+  }
+  .test {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 655px) {
+  .wrapper {
+    flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 760px) {
+  .radioLabel {
+    font-size: 0.75rem;
+  }
 }
