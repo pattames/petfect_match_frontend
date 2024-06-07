@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 5rem 0 5rem 0;
+  margin: 5rem 3%;
   color: #792f6c;
 }
 
@@ -16,7 +16,6 @@
     rotateY(0deg) rotateZ(2deg) skew(0deg, 0deg);
   transform-style: preserve-3d;
   opacity: 1;
-  font-size: 6rem;
   font-size: 3rem;
 }
 
@@ -26,6 +25,7 @@
   opacity: 1;
   transform-style: preserve-3d;
   font-size: 3rem;
+  margin: 1.8% 0;
 }
 
 .underline_wavey {
@@ -52,7 +52,7 @@
     rotateY(0deg) rotateZ(1deg) skew(0deg, 0deg);
   opacity: 1;
   transform-style: preserve-3d;
-  font-size: 3rem;
+  font-size: 2.5rem;
   text-align: center;
   max-width: 850px;
   margin-bottom: 50px;
@@ -66,21 +66,23 @@
 
 .description_box {
   display: flex;
-  width: 100%;
-  height: auto;
-  margin-bottom: 30px;
-  padding: 40px;
-  margin: auto;
+  justify-content: center;
+  padding: 4% 7%;
   border-radius: 10px;
   background-color: #faf6f2;
   flex-direction: row-reverse;
-  min-height: 300px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  /* gap: 10%; */
+  justify-content: space-between;
 }
 
 .description_title {
-  padding-top: 30px;
-  padding-left: 30px;
-  font-size: 1.5rem;
+  margin-bottom: 5%;
+  font-size: 1.8rem;
+  text-decoration: underline;
+  text-underline-offset: 7px;
 }
 
 .owner_container {
@@ -93,14 +95,17 @@
 
 .imagesContainer {
   display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
   gap: 20px;
 }
 
 .image {
-  width: 400px;
-  height: 400px;
+  width: 330px;
+  height: 330px;
   border-radius: 10px;
   object-fit: cover;
+  object-position: 50% 50%;
 }
 
 .statsContainer {
@@ -109,40 +114,148 @@
   background-color: white;
   color: #792f6c;
   border-radius: 10px;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   gap: 5px;
-  height: auto;
-  width: 400px;
-  height: 330px;
-  margin-right: 100px;
+  height: 290px;
+  width: 25%;
+  padding: 2%;
   border: 2px solid #dedede;
   font-weight: 100;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .descriptionContainer {
-  display: flex;
-  flex-direction: column;
-  width: 700px;
-  margin-top: 40px;
-  margin-right: 50px;
+  width: 60%;
+  margin-top: 2%;
   line-height: 1.6;
   color: #792f6c;
+  font-size: 1.2rem;
+  h2 {
+    margin-bottom: 1.5%;
+  }
 }
 
 .statName {
-  padding-top: 10px;
-  padding-left: 30px;
-  font-size: 20px;
+  padding: 1.2% 0;
+  /* font-size: 20px; */
   font-weight: 800;
 }
 
 .statSpan {
-  font-size: 16px;
+  /* font-size: 16px; */
   font-weight: 400;
 }
 
 .OwnerDetails {
   font-size: 1.5rem;
   color: #c1564c;
+  margin: 1rem;
+}
+
+@media only screen and (max-width: 1271px) {
+  .title {
+    font-size: 2.7rem;
+  }
+  .second_title {
+    font-size: 2.7rem;
+  }
+  .third_title {
+    font-size: 2.3rem;
+  }
+  .image {
+    width: 300px;
+    height: 300px;
+  }
+  .statsContainer {
+    font-size: 0.8rem;
+    height: auto;
+    /* width: auto; */
+    width: 270px;
+  }
+  .description_title {
+    font-size: 1.6rem;
+  }
+  .descriptionContainer {
+    font-size: 1.2rem;
+    width: auto;
+  }
+  .description_box {
+    flex-direction: column;
+    gap: 4vh;
+  }
+}
+
+@media only screen and (max-width: 959px) {
+  .title {
+    font-size: 2.4rem;
+  }
+  .second_title {
+    font-size: 2.4rem;
+  }
+  .third_title {
+    font-size: 2rem;
+  }
+  .image {
+    width: 260px;
+    height: 260px;
+  }
+  .descriptionContainer {
+    font-size: 1.1rem;
+  }
+}
+
+@media only screen and (max-width: 789px) {
+  .title_container {
+    margin: 3rem 3%;
+  }
+  .title {
+    font-size: 2.1rem;
+  }
+  .second_title {
+    font-size: 2.1rem;
+  }
+  .third_title {
+    font-size: 1.8rem;
+  }
+  .image {
+    width: 230px;
+    height: 230px;
+  }
+  .statsContainer {
+    font-size: 0.7rem;
+  }
+  .description_title {
+    font-size: 1.4rem;
+  }
+  .descriptionContainer {
+    font-size: 1rem;
+  }
+}
+
+@media only screen and (max-width: 477px) {
+  .title {
+    font-size: 1.8rem;
+  }
+  .second_title {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+  .third_title {
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+  }
+  .description_title {
+    font-size: 1.3rem;
+    margin-bottom: 0.3rem;
+  }
+  .descriptionContainer {
+    font-size: 0.9rem;
+  }
+  .statsContainer {
+    width: 70%;
+  }
+  .owner_pic {
+    width: 15rem;
+    height: 15rem;
+  }
 }
