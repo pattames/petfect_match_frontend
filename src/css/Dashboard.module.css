@@ -1,12 +1,45 @@
 .react-tabs__tab--selected {
-    background-color: #792F6C;
-    border-bottom: "2px solid #792F6C",
-
+  background-color: #792f6c;
+  border-bottom: "2px solid #792F6C";
 }
 
 .react-tabs__tab-panel--selected {
-    display: block;
-    padding: 16px;
-    border: 1px solid #ccc;
-    border-radius: 0 4px 4px 4px;
+  display: block;
+  padding: 16px;
+  border: 1px solid #ccc;
+  border-radius: 0 4px 4px 4px;
+}
+
+.myPets_tabs {
+  margin-right: 15px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #792f6c;
+  transition: all ease-in-out 0.2s;
+  border-bottom: 2px solid #792f6c;
+}
+
+.userInfo_tabs {
+  margin-right: 15px;
+  font-size: 20px;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  color: #792f6c;
+  transition: all ease-in-out 0.2s;
+  border-bottom: 2px solid #792f6c;
+}
+@media only screen and (max-width: 331px) {
+  .myPets_tabs {
+    font-size: 18px;
+  }
+  .userInfo_tabs {
+    font-size: 18px;
+  }
 }

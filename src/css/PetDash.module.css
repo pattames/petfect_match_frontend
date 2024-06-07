@@ -4,17 +4,22 @@
   padding: 0;
 }
 
-
 .dash_container {
   display: flex;
   gap: 13px;
   background-color: #f2e5e5;
   flex-wrap: wrap;
-  align-items: center;
 
-  height: calc(100vh - 255px);
-  margin: auto 0;
-  justify-content: flex-start;
+  align-items: flex-start;
+  /* height: calc(100vh - 255px); */
+  /* height: calc(100vh-225px); */
+  justify-content: center;
   overflow: hidden;
   padding: 2rem;
+}
+
+@media only screen and (min-width: 1384px) {
+  .dash_container {
+    height: 70vh;
+  }
 }
