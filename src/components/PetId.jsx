@@ -5,7 +5,7 @@ import styles from "../css/PetId.module.css";
 
 export default function PetId() {
   const { pets } = useContext(PetsContext);
-  const [error, setError] = useState("yo");
+  // const [error, setError] = useState("yo");
 
   const [owner, setOwner] = useState(null);
 
@@ -53,9 +53,11 @@ export default function PetId() {
 
               {selectedPet &&
                 selectedPet.images.map((image) => (
-                  <div key={image.url}>
-                    <img src={image.url} className={styles.image} />
-                  </div>
+                  <img
+                    key={image.url}
+                    src={image.url}
+                    className={styles.image}
+                  />
                 ))}
             </div>
           </div>
@@ -106,19 +108,20 @@ export default function PetId() {
       </div>
       <div className={styles.owner_container}>
         <div className={styles.OwnerDetails}>
-          {owner && owner.name}, {owner && owner.info.location}
+          {owner && owner.name ? owner.name : "Name not available"},{" "}
+          {owner && owner.info ? owner.info.location : "Location not available"}
         </div>
-        <img
-          className={styles.owner_pic}
-          src={owner && owner.image.url}
-          alt=""
-        />
+        {owner && owner.image && owner.image.url ? (
+          <img className={styles.owner_pic} src={owner.image.url} alt="" />
+        ) : (
+          "Picture not available"
+        )}
       </div>
-      {error && (
+      {/* {error && (
         <div>
           <span>{error}</span>
         </div>
-      )}
+      )} */}
     </>
   );
 }
