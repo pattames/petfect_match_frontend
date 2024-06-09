@@ -23,9 +23,16 @@ import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import TipsAndTricks from "./components/TipsAndTricks";
 import UpdatePet from "./components/UpdatePet";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function App() {
   const { user } = useContext(UserContext);
+  //To scroll to the top of the page when rendered
+  const location = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   return (
     <div>
