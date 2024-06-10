@@ -35,13 +35,32 @@ function App() {
     window.scrollTo(0, 0);
   }, [location]);
 
-  //Login/Signup Route handler component
-  function LoginSignupRoute() {
+  //Login Route handler component
+  function LoginRoute() {
     const { user } = useContext(UserContext);
     const { adopt, rehome } = useContext(ChoiceContext);
 
     if (!user) {
       return <Login />;
+    }
+    if (user && adopt) {
+      return <Navigate to={"/match"} />;
+    }
+    if (user && rehome) {
+      return <Navigate to={"/dashboard"} />;
+    }
+    if (user && !adopt && !rehome) {
+      return <Navigate to={"/"} />;
+    }
+  }
+
+  //Signup Route handler component
+  function SignupRoute() {
+    const { user } = useContext(UserContext);
+    const { adopt, rehome } = useContext(ChoiceContext);
+
+    if (!user) {
+      return <Signup />;
     }
     if (user && adopt) {
       return <Navigate to={"/match"} />;
@@ -63,8 +82,8 @@ function App() {
           path="/preferences"
           element={user ? <Prefrences /> : <Homepage />}
         />
-        <Route path="/login" element={<LoginSignupRoute />} />
-        <Route path="/signup" element={<LoginSignupRoute />} />
+        <Route path="/login" element={<LoginRoute />} />
+        <Route path="/signup" element={<SignupRoute />} />
         <Route path="/match" element={user ? <Match /> : <Signup />} />
         <Route path="/match/:id" element={user ? <PetId /> : <Signup />} />
         <Route path="/dashboard" element={user ? <Dashboard /> : <Signup />} />
