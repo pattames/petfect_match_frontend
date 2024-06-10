@@ -16,6 +16,15 @@ export default function PetDash() {
 
   return (
     <div>
+      <h4
+        style={{
+          backgroundColor: "#f2e5e5",
+          color: "#792f6c",
+          paddingTop: "2rem",
+        }}
+      >
+        Keep your user info up-to-date before adding a new pet
+      </h4>
       <div className={styles.dash_container}>
         {userPets &&
           userPets.map((pet) => (

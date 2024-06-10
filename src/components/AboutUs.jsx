@@ -25,7 +25,7 @@ function AboutUs() {
         </div>
         <div className={styles.gridItem}>
           <div className={styles.imgContainer}>
-            <img src="patricio.jpg" alt="patricio" className={styles.image} />
+            <img src="patricio2.jpg" alt="patricio" className={styles.image} />
           </div>
           <h2 className={styles.title}>Patricio</h2>
         </div>
