@@ -181,3 +181,40 @@ a {
   text-shadow: 1px 1px rgba(250, 250, 250, .3);
   padding: 5px 37px;
 }
+
+@media only screen and (max-width: 330px) {
+  .right {
+    display: none;
+  }
+
+  .container::after {
+    width: 90%;
+
+  }
+
+  .input {
+    width: 90%;
+  }
+
+  .lbl {
+    left: 7% !important;
+  }
+
+  .img {
+    display: none;
+  }
+
+  .left {
+    width: 100%;
+  }
+}
+
+@media only screen and (max-width: 495px) {
+  .p {
+    margin: 20px 36px;
+  }
+
+  .left {
+    width: 100%;
+  }
+}
