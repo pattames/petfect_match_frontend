@@ -217,6 +217,7 @@ export default function UpdatePet() {
                       <label htmlFor="catbreed" className={`${Styles.lbl}`}>
                         Breed:
                         <select
+                          className={`${Styles.select}`}
                           value={characteristics.breed}
                           name="breed"
                           id="catbreed"
