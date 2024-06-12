@@ -8,6 +8,7 @@
   flex-wrap: wrap;
   padding: 0 2rem;
   text-align: center;
+  z-index: 1;
 }
 
 .navLink {
@@ -85,6 +86,7 @@
   width: 45px;
   height: 45px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .rightNav {

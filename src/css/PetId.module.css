@@ -62,6 +62,7 @@
   width: 20rem;
   height: 20rem;
   border-radius: 10px;
+  object-fit: cover;
 }
 
 .description_box {

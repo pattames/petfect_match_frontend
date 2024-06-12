@@ -79,10 +79,10 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/" element={<Homepage />} />
-        <Route
+        {/* <Route
           path="/preferences"
           element={user ? <Prefrences /> : <Homepage />}
-        />
+        /> */}
         <Route path="/login" element={<LoginRoute />} />
         <Route path="/signup" element={<SignupRoute />} />
         <Route path="/match" element={user ? <Match /> : <Signup />} />
