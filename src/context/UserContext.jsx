@@ -6,6 +6,7 @@ export default function UserContextProvider(props) {
   // Get user from local storage
   const [user, setUser] = useState(null);
   const [flag, setFlag] = useState(false);
+  const [currentUser, setCurrentUser] = useState([]);
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
@@ -36,8 +37,31 @@ export default function UserContextProvider(props) {
     }
   }, [user?._id, flag]); // Depend on user._id to refetch when it changes
 
+  //Get current user
+
+  const api = `https://purrfect-backend-hsd1.onrender.com/user/${user?._id}`;
+
+  useEffect(() => {
+    async function getCurrentUser() {
+      try {
+        const res = await fetch(api);
+        const resData = await res.json();
+        setCurrentUser(resData.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    if (user) {
+      getCurrentUser();
+    }
+  }, [user]);
+
+  console.log(currentUser);
+
   return (
-    <UserContext.Provider value={{ setFlag, flag, user, setUser, fetchedUser }}>
+    <UserContext.Provider
+      value={{ setFlag, flag, user, setUser, fetchedUser, currentUser }}
+    >
       {props.children}
     </UserContext.Provider>
   );
