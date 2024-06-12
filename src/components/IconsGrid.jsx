@@ -30,36 +30,48 @@ export default function IconsGrid() {
 
       <div
         ref={ref}
-        className={classNames(styles.gridItem, "animate__animated", {
-          animate__fadeInUp: inView,
-        })}
+        className={classNames(
+          styles.gridItem
+          //   , "animate__animated", {
+          //   animate__fadeInUp: inView,
+          // }
+        )}
       >
         I'd like to adopt a dog
       </div>
 
       <div
         ref={ref}
-        className={classNames(styles.gridItem, "animate__animated", {
-          animate__fadeInUp: inView,
-        })}
+        className={classNames(
+          styles.gridItem
+          //   , "animate__animated", {
+          //   animate__fadeInUp: inView,
+          // }
+        )}
       >
         I am more of a cat person
       </div>
 
       <div
         ref={ref}
-        className={classNames(styles.gridItem, "animate__animated", {
-          animate__fadeInUp: inView,
-        })}
+        className={classNames(
+          styles.gridItem
+          //   , "animate__animated", {
+          //   animate__fadeInUp: inView,
+          // }
+        )}
       >
         I am interested in volunteering{" "}
       </div>
 
       <div
         ref={ref}
-        className={classNames(styles.gridItem, "animate__animated", {
-          animate__fadeInUp: inView,
-        })}
+        className={classNames(
+          styles.gridItem
+          //   , "animate__animated", {
+          //   animate__fadeInUp: inView,
+          // }
+        )}
       >
         I'd like to save a life
       </div>
