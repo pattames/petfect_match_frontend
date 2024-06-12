@@ -53,8 +53,8 @@ export default function UpdatePet() {
     if (name) {
       try {
         await fetch(
-          //`http://localhost:8080/pets/${pet._id}`,
-          `https://purrfect-backend-hsd1.onrender.com/pets/${pet._id}`,
+          `http://localhost:8080/pets/${pet._id}`,
+          // `https://purrfect-backend-hsd1.onrender.com/pets/${pet._id}`,
           {
             method: "PUT",
             headers: {

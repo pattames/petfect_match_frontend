@@ -29,6 +29,7 @@ import { ChoiceContext } from "./context/ChoiceContext";
 
 function App() {
   const { user } = useContext(UserContext);
+  const { adopt, rehome } = useContext(ChoiceContext);
   //To scroll to the top of the page when rendered
   const location = useLocation();
   useEffect(() => {
@@ -38,7 +39,7 @@ function App() {
   //Login Route handler component
   function LoginRoute() {
     const { user } = useContext(UserContext);
-    const { adopt, rehome } = useContext(ChoiceContext);
+    const { adopt, setAdopt, rehome, setRehome } = useContext(ChoiceContext);
 
     if (!user) {
       return <Login />;
