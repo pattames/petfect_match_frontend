@@ -6,7 +6,12 @@ function ErrorPage() {
       </h1>
       <div style={{ display: "flex", justifyContent: "center" }}>
         <img
-          style={{ width: "70rem", height: "50rem" }}
+          style={{
+            width: "80%",
+            height: "auto",
+            maxWidth: "60rem",
+            margin: "2rem",
+          }}
           src="/error404.jpeg"
           alt=""
         />

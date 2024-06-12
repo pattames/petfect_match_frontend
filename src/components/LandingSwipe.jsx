@@ -9,9 +9,11 @@ import "swiper/css/effect-cards";
 import styles from "../css/LandingSwipe.module.css"; // Import CSS module
 import { EffectCards, Pagination, Navigation } from "swiper/modules";
 import MoonLoader from "react-spinners/MoonLoader";
+import { ChoiceContext } from "../context/ChoiceContext.jsx";
 
 export default function LandingSwipe() {
   const { pets } = useContext(PetsContext);
+  const { setAdopt } = useContext(ChoiceContext);
 
   return (
     <div className={styles.container}>
@@ -49,7 +51,9 @@ export default function LandingSwipe() {
       )}
       <div className={styles.btnWrapper}>
         <Link to="/match">
-          <button className={styles.btn}>Find your match</button>
+          <button className={styles.btn} onClick={() => setAdopt(true)}>
+            Find your match
+          </button>
         </Link>
       </div>
     </div>
