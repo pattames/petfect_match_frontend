@@ -72,8 +72,8 @@ export default function PetProfile() {
     if (name) {
       try {
         await fetch(
-          "http://localhost:8080/pets",
-          // "https://purrfect-backend-hsd1.onrender.com/pets",
+          // "http://localhost:8080/pets",
+          "https://purrfect-backend-hsd1.onrender.com/pets",
           {
             method: "POST",
             headers: {

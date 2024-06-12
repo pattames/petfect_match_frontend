@@ -15,10 +15,10 @@
 
 .plus {
   font-size: 3rem;
-  border: thin solid #C1564C;
+  border: thin solid #c1564c;
   border-radius: 100%;
-  padding: 1rem;
+  /* padding: 1rem; */
   width: 60px;
   height: 60px;
-  line-height: 28px;
+  /* line-height: 28px; */
 }

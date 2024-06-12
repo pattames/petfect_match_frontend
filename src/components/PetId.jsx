@@ -17,8 +17,8 @@ export default function PetId() {
     async function getData() {
       try {
         const res = await fetch(
-          `http://localhost:8080/user/${selectedPet.owner}`
-          // `https://purrfect-backend-hsd1.onrender.com/user/${selectedPet.owner}`
+          // `http://localhost:8080/user/${selectedPet.owner}`
+          `https://purrfect-backend-hsd1.onrender.com/user/${selectedPet.owner}`
         );
         const ownerData = await res.json();
         setOwner(ownerData.data);

@@ -9,8 +9,8 @@ export default function FilterContextProvider(props) {
     const getData = async () => {
       try {
         const res = await fetch(
-          // "https://purrfect-backend-hsd1.onrender.com/pets"
-          "http://localhost:8080/pets/"
+          "https://purrfect-backend-hsd1.onrender.com/pets"
+          // "http://localhost:8080/pets/"
         );
         const data = await res.json();
         setPets(data.data);
