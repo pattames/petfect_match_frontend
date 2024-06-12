@@ -1,9 +1,10 @@
 .container {
-  width: 25rem;
+  /* width: 25rem; */
   border-radius: 10px;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
   display: flex;
-  height: 480px;
+  /* height: 480px; */
+  padding: 1rem;
   justify-content: center;
   flex-direction: column;
   align-items: center;
@@ -15,8 +16,7 @@
 
 .title {
   font-size: 2rem;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin: 1rem;
   color: #792f6c;
   font-family: "Acme", sans-serif;
 }
@@ -30,6 +30,8 @@
   display: flex;
   margin: 0.8rem;
   column-gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .age_btn {
@@ -50,11 +52,16 @@
 .radio_label {
   font-size: 1rem;
 }
+.radio_label:hover {
+  cursor: pointer;
+}
 
 .size {
   display: flex;
   margin: 0.8rem;
   column-gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .size_btn {
@@ -71,13 +78,15 @@
   margin-bottom: 0.5em;
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
   background-color: white;
-  width: 100px;
+  width: 85px;
 }
 
 .gender {
   display: flex;
   margin: 0.8rem;
   column-gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .gender_btn {
@@ -93,11 +102,72 @@
   padding: 0.4em;
   margin-bottom: 0.5em;
   background-color: white;
-  width: 100px;
+  width: 85px;
 }
 
 .radio_btn {
   width: 8px;
   height: 8px;
   accent-color: #792f6c;
+}
+.radio_btn:hover {
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 1226px) {
+  .title {
+    font-size: 1.7rem;
+  }
+  .container {
+    width: 25rem;
+    height: auto;
+    padding: 1rem;
+  }
+  .radio_label {
+    font-size: 0.9rem;
+  }
+  .age_btn {
+    padding: 0.5rem;
+  }
+  .size_btn {
+    padding: 0.5rem;
+  }
+  .gender_btn {
+    padding: 0.5rem;
+  }
+  .categories {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 1077px) {
+  .container {
+    width: auto;
+    z-index: 4;
+  }
+}
+
+@media only screen and (max-width: 571px) {
+  .container {
+    margin: 0 2rem;
+    /* width: 22rem; */
+  }
+  .title {
+    font-size: 1.5rem;
+  }
+  .categories {
+    font-size: 1.1rem;
+  }
+  .radio_label {
+    font-size: 0.8rem;
+  }
+  .age_btn {
+    margin-bottom: 0.5rem;
+  }
+  .size_btn {
+    margin-bottom: 0.5rem;
+  }
+  .gender_btn {
+    margin-bottom: 0.5rem;
+  }
 }

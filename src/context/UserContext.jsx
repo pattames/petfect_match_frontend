@@ -23,8 +23,8 @@ export default function UserContextProvider(props) {
       if (user && user._id) {
         async function fetchUserData() {
           const response = await fetch(
-            // `http://localhost:8080/user/${user._id}`
-            `https://purrfect-backend-hsd1.onrender.com/user/${user._id}`
+            `http://localhost:8080/user/${user._id}`
+            // `https://purrfect-backend-hsd1.onrender.com/user/${user._id}`
           );
           const userData = await response.json();
           setFetchedUser(userData.data);

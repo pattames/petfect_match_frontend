@@ -1,13 +1,17 @@
 .container {
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: column;
   margin-top: 2rem;
 }
 
 .filter_btns_top {
-  margin: 2rem auto auto auto;
+  margin: auto auto 2rem auto;
   display: flex;
   column-gap: 1rem;
+  position: relative;
+  z-index: 4;
 }
 
 .filter_btns_btm {
@@ -92,20 +96,23 @@
   font-weight: bold;
 }
 .contact_owner_btn {
-  font-size: 1rem;
-  padding: 0.5rem;
+  font-size: 1.5rem;
+  padding: 1rem;
   border-radius: 20px;
   width: 12rem;
-  margin: auto;
-  margin-top: 1rem;
+  margin: 0 auto;
+  /* margin-top: -5rem; */
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
   border: none;
   background-color: #792f6c;
   color: white;
   transition: transform 0.3s ease;
+  position: absolute;
+  z-index: 5;
 }
 
 .contact_owner_btn:hover {
+  cursor: pointer;
   transform: scale(1.1);
 }
 
@@ -124,9 +131,10 @@
   align-items: center;
   background-color: white;
   color: #fbd98d;
-  -webkit-text-stroke: 2px #c1564c;
-  font-size: 30px;
-  height: 30px;
+  -webkit-text-stroke: 1.3px #c1564c;
+  font-size: 1.7rem;
+  /* max-width: 350px; */
+  /* height: 30px; */
 }
 
 .mySwiper {
@@ -144,18 +152,24 @@
   color: #fff;
 }
 
+.petCard {
+  height: 100%;
+}
+
 .image {
   object-fit: cover;
-  padding: 40px;
-  width: 400px;
-  height: 400px;
+  padding: 10%;
+  /* width: 400px; */
+  width: 100%;
+  /* height: 400px; */
+  height: 80%;
 }
 
 .divLogo {
   position: absolute;
   display: flex;
   flex-direction: column;
-  left: -55%;
+  left: -50%;
   top: 5%;
   z-index: 1;
   justify-content: center;
@@ -175,4 +189,96 @@
   left: -50%;
   top: 70%;
   z-index: 1;
+}
+
+@media only screen and (max-width: 1226px) {
+  .mySwiper {
+    width: 320px;
+    height: 400px;
+  }
+  .nameWrapper {
+    font-size: 1.4rem;
+    -webkit-text-stroke: 1.2px #c1564c;
+  }
+  .divLogo {
+    left: -40%;
+  }
+}
+
+@media only screen and (max-width: 1077px) {
+  .divLogo {
+    left: auto;
+    top: -34%;
+    z-index: 3;
+  }
+  .filter_btn {
+    box-shadow: none;
+    border: 1px solid #792f6c;
+  }
+  .filter_btn_dogs {
+    box-shadow: none;
+    border: 1px solid #792f6c;
+  }
+}
+
+@media only screen and (max-width: 571px) {
+  .filter_btns_top {
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    margin: 0 1rem;
+    margin-bottom: 1.3rem;
+  }
+  .filter_btn {
+    width: 90px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+  .filter_btn_dogs {
+    width: 90px;
+    height: 40px;
+    font-size: 0.9rem;
+  }
+  .mySwiper {
+    width: 220px;
+    height: 300px;
+  }
+  .nameWrapper {
+    font-size: 1rem;
+    -webkit-text-stroke: 1px #c1564c;
+  }
+  .contact_owner_btn {
+    font-size: 1.1rem;
+    width: 9rem;
+  }
+}
+
+@media only screen and (max-width: 439px) {
+  .divLogo {
+    z-index: 4;
+    top: -23%;
+    width: 200px;
+  }
+  .logo {
+    width: 200px;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .mySwiper {
+    width: 180px;
+    height: 250px;
+  }
+  .image {
+    padding: 0.7rem;
+  }
+  .nameWrapper {
+    font-size: 0.8rem;
+    -webkit-text-stroke: 0.7px #c1564c;
+  }
+  .contact_owner_btn {
+    font-size: 1rem;
+    margin-top: 3rem;
+    width: 8rem;
+  }
 }

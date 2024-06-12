@@ -108,6 +108,40 @@ function Swipeable() {
   return (
     <>
       <div className={styles.container}>
+        <div className={styles.filter_btns_top}>
+          <a className={styles.filter_btn} onClick={handleAllPets}>
+            All
+            <FontAwesomeIcon
+              icon={faHeart}
+              style={{ color: "#792f6c" }}
+              size="lg"
+            />
+          </a>
+          <a className={styles.filter_btn_dogs} onClick={handleDogs}>
+            Dogs{" "}
+            <FontAwesomeIcon
+              icon={faDog}
+              size="lg"
+              style={{ color: "#792f6c" }}
+            />
+          </a>
+          <a className={styles.filter_btn} onClick={handleCats}>
+            Cats{" "}
+            <FontAwesomeIcon
+              icon={faCat}
+              size="lg"
+              style={{ color: "#792f6c" }}
+            />
+          </a>
+          <a className={styles.filter_btn} onClick={handleOthers}>
+            Others{" "}
+            <FontAwesomeIcon
+              icon={faStar}
+              style={{ color: "#792f6c" }}
+              size="lg"
+            />
+          </a>
+        </div>
         <Swiper
           effect={"cards"} // Add the effect property to enable the tilting effect
           grabCursor={true}
@@ -148,40 +182,6 @@ function Swipeable() {
               </SwiperSlide>
             ))}
         </Swiper>
-        <div className={styles.filter_btns_top}>
-          <a className={styles.filter_btn} onClick={handleAllPets}>
-            All
-            <FontAwesomeIcon
-              icon={faHeart}
-              style={{ color: "#792f6c" }}
-              size="xl"
-            />
-          </a>
-          <a className={styles.filter_btn_dogs} onClick={handleDogs}>
-            Dogs{" "}
-            <FontAwesomeIcon
-              icon={faDog}
-              size="xl"
-              style={{ color: "#792f6c" }}
-            />
-          </a>
-          <a className={styles.filter_btn} onClick={handleCats}>
-            Cats{" "}
-            <FontAwesomeIcon
-              icon={faCat}
-              size="xl"
-              style={{ color: "#792f6c" }}
-            />
-          </a>
-          <a className={styles.filter_btn} onClick={handleOthers}>
-            Others{" "}
-            <FontAwesomeIcon
-              icon={faStar}
-              style={{ color: "#792f6c" }}
-              size="xl"
-            />
-          </a>
-        </div>
 
         {itsMatch && (
           <button

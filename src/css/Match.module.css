@@ -1,10 +1,11 @@
 .container {
   display: flex;
   justify-content: center;
+  align-items: flex-end;
   gap: 10%;
   background-image: url("/backg_tips_left.png");
   background-color: #f6f3f587;
-  padding: 5rem 0 5rem 0;
+  padding: 3rem 0 5rem 0;
 }
 
 .main_container {
@@ -12,31 +13,36 @@
   align-items: center;
   justify-content: center;
   background-color: #f9e2ae;
-  padding: 2rem 0 2rem 0;
+  padding: 3% 0;
 }
 
 .instructions_match {
   font-family: "Acme", sans-serif;
   color: #792f6c;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
-.title {
+/* .title {
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
+
 .instructions_title {
-  font-size: 2.5rem;
+  font-size: 2rem;
+  padding: 0.8rem 0;
   color: #792f6c;
   font-weight: bold;
   font-family: "Acme", sans-serif;
+  line-height: 2.1rem;
 }
 
 .img {
-  width: 55rem;
+  width: 45rem;
   border-radius: 20px;
-  margin-left: 2rem;
   box-shadow: 2px 4px 8px rgba(70, 70, 70, 0.178);
+  margin: 0 1rem;
 }
 
 .instructions_box {
@@ -44,7 +50,7 @@
   flex-direction: column;
   justify-content: center;
   line-height: 1.7;
-  max-width: 750px;
+  /* max-width: 750px; */
   padding: 3rem;
 }
 
@@ -52,4 +58,99 @@
   font-size: 1.3rem;
   max-width: 800px;
   color: #792f6c;
+}
+
+@media only screen and (max-width: 1338px) {
+  .img {
+    width: 35rem;
+  }
+  .instructions_title {
+    font-size: 1.8rem;
+  }
+  .instructions_sentence {
+    font-size: 1.2rem;
+  }
+  .instructions_match {
+    font-size: 1.4rem;
+  }
+}
+
+@media only screen and (max-width: 1131px) {
+  .img {
+    width: 30rem;
+  }
+  .instructions_title {
+    font-size: 1.7rem;
+  }
+  .instructions_sentence {
+    font-size: 1.1rem;
+  }
+  .instructions_match {
+    font-size: 1.3rem;
+  }
+}
+
+@media only screen and (max-width: 1077px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    gap: 3rem;
+  }
+}
+
+@media only screen and (max-width: 1039px) {
+  .main_container {
+    flex-direction: column;
+    padding: 0;
+  }
+  .img {
+    margin: 0;
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+    border-radius: 0;
+  }
+  .instructions_box {
+    padding: 2rem;
+  }
+}
+
+@media only screen and (max-width: 571px) {
+  .main_container {
+    padding: 0;
+  }
+  .img {
+    height: 15rem;
+    object-fit: cover;
+  }
+  .instructions_box {
+    padding: 2rem;
+  }
+  .instructions_title {
+    font-size: 1.6rem;
+  }
+  .instructions_sentence {
+    font-size: 1rem;
+  }
+  .instructions_match {
+    font-size: 1.2rem;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  .img {
+    height: 13rem;
+  }
+  .instructions_box {
+    padding: 1.5rem;
+  }
+  .instructions_title {
+    font-size: 1.5rem;
+  }
+  .instructions_sentence {
+    font-size: 0.9rem;
+  }
+  .instructions_match {
+    font-size: 1.1rem;
+  }
 }

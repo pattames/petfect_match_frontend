@@ -3,16 +3,21 @@ import Styles from "../css/Navbar.module.css";
 import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import { UserContext } from "../context/UserContext";
+import { ChoiceContext } from "../context/ChoiceContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
 
 function NavBar() {
   const { user, setUser } = useContext(UserContext);
+  const { setAdopt, setRehome } = useContext(ChoiceContext);
 
   const handleClick = () => {
     localStorage.removeItem("user");
     setUser(null);
+    setAdopt(false);
+    setRehome(false);
   };
+
   return (
     <div className={`${Styles.container}`}>
       <NavLink to="/">

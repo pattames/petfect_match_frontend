@@ -41,8 +41,8 @@ export default function UserProfile() {
     formData.append("image", image);
     try {
       await fetch(
-        //`http://localhost:8080/user/${_id}`,
-        `https://purrfect-backend-hsd1.onrender.com/user/${_id}`,
+        `http://localhost:8080/user/${_id}`,
+        // `https://purrfect-backend-hsd1.onrender.com/user/${_id}`,
         {
           method: "PUT",
           headers: {
