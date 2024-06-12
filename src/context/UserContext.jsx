@@ -56,8 +56,6 @@ export default function UserContextProvider(props) {
     }
   }, [user]);
 
-  console.log(currentUser);
-
   return (
     <UserContext.Provider
       value={{ setFlag, flag, user, setUser, fetchedUser, currentUser }}
