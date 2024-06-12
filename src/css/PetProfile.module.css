@@ -80,7 +80,7 @@
 
 .inputBlock {
   /* position: relative; */
-  padding: 23px 10% 0;
+  padding: 1.5rem;
 }
 
 .p {
@@ -267,18 +267,17 @@ a {
 
 .lbl {
   position: absolute;
-  left: 9%;
+  left: 8%;
   top: 0%;
   pointer-events: all;
   color: gray;
 }
 
 .select {
-  margin-left: 20px;
   box-shadow: inset 4px 4px 4px rgba(165, 163, 163, 0.315),
     4px 4px 4px rgba(218, 218, 218, 0.13);
-  padding: 5px;
-  margin-bottom: 10px;
+  width: 15rem;
+  margin-left: 1rem;
 }
 
 .previewContainer {
@@ -303,16 +302,25 @@ a {
   .test {
     flex-direction: column;
   }
-}
+  .radioLabel {
+    font-size: 0.75rem;
+  }
 
-@media only screen and (max-width: 655px) {
-  .wrapper {
-    flex-wrap: wrap;
+  @media only screen and (max-width: 655px) {
+    .wrapper {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media only screen and (max-width: 400px) {
+    .select {
+      width: 10rem;
+    }
   }
 }
 
-@media only screen and (max-width: 760px) {
-  .radioLabel {
-    font-size: 0.75rem;
+@media only screen and (max-width: 320px) {
+  .select {
+    width: 8rem;
   }
 }
