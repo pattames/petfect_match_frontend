@@ -437,7 +437,7 @@ export default function PetProfile() {
                   <div className={`${Styles.right}`}>
                     <div className={`${Styles.inputBlock}`}>
                       <p className={`${Styles.picp}`}>
-                        you can upload up to four picture
+                        You can upload up to four pictures
                       </p>
                       <label
                         className={`${Styles.custumFileUpload}`}

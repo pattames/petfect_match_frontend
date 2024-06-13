@@ -6,15 +6,17 @@ import DogSpinner from "./DogSpinner.jsx";
 import { useJwt } from "react-jwt";
 
 export default function UserProfile() {
-  const { user } = useContext(UserContext);
+  const { user, currentUser } = useContext(UserContext);
   const { decodedToken } = useJwt(user?.token);
   const _id = decodedToken?._id;
   const [info, setInfo] = useState({
-    location: "",
-    space_available: "",
-    space_type: "",
+    location: currentUser.info.location ? currentUser.info.location : "",
+    space_available: currentUser.info.space_available
+      ? currentUser.info.space_available
+      : "",
+    space_type: currentUser.info.space_type ? currentUser.info.space_type : "",
   });
-  const [name, setName] = useState("");
+  const [name, setName] = useState(currentUser.name ? currentUser.name : "");
   const [image, setImage] = useState("");
   const [preview, setPreview] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -57,12 +59,6 @@ export default function UserProfile() {
     } finally {
       setLoading(false);
       setImage(null);
-      setInfo({
-        location: "",
-        space_available: "",
-        space_type: "",
-      });
-      setName("");
     }
   };
 
@@ -102,6 +98,7 @@ export default function UserProfile() {
                       onChange={(e) => {
                         setName(e.target.value);
                       }}
+                      required
                     />
                   </div>
                   <div className={`${Styles.inputBlock}`}>
@@ -117,6 +114,7 @@ export default function UserProfile() {
                       // }
                       value={info.location}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className={`${Styles.inputBlock}`}>
@@ -137,6 +135,7 @@ export default function UserProfile() {
                       // }
                       value={info.space_available}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className={`${Styles.inputBlock}`}>
@@ -152,6 +151,7 @@ export default function UserProfile() {
                       // }
                       value={info.space_type}
                       onChange={handleChange}
+                      required
                     />
                   </div>
                   <div className={`${Styles.inputBlock}`}>
