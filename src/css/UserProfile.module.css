@@ -8,7 +8,7 @@
   display: flex;
   flex-wrap: nowrap;
   justify-content: center;
-  padding: 5rem;
+  padding: 2rem 5rem;
 }
 
 .container {
@@ -86,10 +86,11 @@
 
 .lbl {
   position: absolute !important;
-  left: 9% !important;
+  left: 2% !important;
   top: 0% !important;
   pointer-events: none !important;
   color: gray !important;
+  text-align: left;
 }
 
 .p {
@@ -213,6 +214,9 @@ a {
   .g2 {
     margin-right: 2rem;
   }
+  .lbl {
+    left: 11% !important;
+  }
 }
 
 @media only screen and (max-width: 450px) {
@@ -225,6 +229,7 @@ a {
   }
   .lbl {
     margin-left: 2rem;
+    left: -7% !important;
   }
 
   .btn {

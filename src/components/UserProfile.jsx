@@ -10,11 +10,18 @@ export default function UserProfile() {
   const { decodedToken } = useJwt(user?.token);
   const _id = decodedToken?._id;
   const [info, setInfo] = useState({
-    location: currentUser.info.location ? currentUser.info.location : "",
-    space_available: currentUser.info.space_available
-      ? currentUser.info.space_available
-      : "",
-    space_type: currentUser.info.space_type ? currentUser.info.space_type : "",
+    location:
+      currentUser && currentUser.info && currentUser.info.location
+        ? currentUser.info.location
+        : "",
+    space_available:
+      currentUser && currentUser.info && currentUser.info.space_available
+        ? currentUser.info.space_available
+        : "",
+    space_type:
+      currentUser && currentUser.info && currentUser.info.space_type
+        ? currentUser.info.space_type
+        : "",
   });
   const [name, setName] = useState(currentUser.name ? currentUser.name : "");
   const [image, setImage] = useState("");
@@ -135,6 +142,7 @@ export default function UserProfile() {
                       // }
                       value={info.space_available}
                       onChange={handleChange}
+                      placeholder="e.g., 60sqm"
                       required
                     />
                   </div>
@@ -151,6 +159,7 @@ export default function UserProfile() {
                       // }
                       value={info.space_type}
                       onChange={handleChange}
+                      placeholder="e.g., Flat"
                       required
                     />
                   </div>
